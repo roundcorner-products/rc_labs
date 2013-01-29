@@ -1,9 +1,9 @@
 @isTest
-public class rC_Bios_ArchiveTaskSchedulableTest {
+public class Task_SetArchiveSchedulableTest {
     @isTest
     public static void test() {
         Test.startTest();
-        rC_Bios_ArchiveTaskSchedulable archiveTask = new rC_Bios_ArchiveTaskSchedulable();
+        Task_SetArchiveSchedulable archiveTask = new Task_SetArchiveSchedulable();
         SchedulableContext SC;
         archiveTask.execute(SC);
         Test.stopTest();
