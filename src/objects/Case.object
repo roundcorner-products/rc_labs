@@ -1,0 +1,1525 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <businessProcesses>
+        <fullName>rC_Bios__External Cases</fullName>
+        <description>Cases originating from constiuents</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>Working</fullName>
+            <default>false</default>
+        </values>
+    </businessProcesses>
+    <businessProcesses>
+        <fullName>rC_Connect__External Cases</fullName>
+        <description>(@Deprecated)</description>
+        <isActive>true</isActive>
+        <values>
+            <fullName>Closed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Escalated</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>New</fullName>
+            <default>true</default>
+        </values>
+    </businessProcesses>
+    <enableFeeds>true</enableFeeds>
+    <fields>
+        <fullName>EngineeringReqNumber__c</fullName>
+        <externalId>false</externalId>
+        <label>Engineering Req Number</label>
+        <length>12</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Origin</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PotentialLiability__c</fullName>
+        <externalId>false</externalId>
+        <label>Potential Liability</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Priority</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>High</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Product</label>
+        <picklist>
+            <picklistValues>
+                <fullName>GC1040</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GC1060</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GC3020</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GC3040</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GC3060</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GC5020</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GC5040</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GC5060</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GC1020</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Reason</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Installation</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Equipment Complexity</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Performance</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Breakdown</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Equipment Design</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Feedback</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <cssExposed>false</cssExposed>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>SLAViolation__c</fullName>
+        <externalId>false</externalId>
+        <label>SLA Violation</label>
+        <picklist>
+            <picklistValues>
+                <fullName>No</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>New</fullName>
+                <closed>false</closed>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Working</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Escalated</fullName>
+                <closed>false</closed>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <closed>true</closed>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Type</fullName>
+        <picklist>
+            <picklistValues>
+                <fullName>Mechanical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electrical</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electronic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Structural</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>rC_Bios__Affiliation__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Affiliation or organization to which this case refers.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Affiliation or organization to which this case refers.</inlineHelpText>
+        <label>Affiliation</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Group 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Group 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>rC_Bios__Archive_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Identifies a record to be archived in roundData and removed from Salesforce. It will reside in roundData for storage and query runs.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies a record to be archived in roundData and removed from Salesforce. It will reside in roundData for storage and query runs.</inlineHelpText>
+        <label>Archive?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>rC_Bios__Subtopic__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Manually populated fiIndicates the second level differentiator of a Case type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the second level differentiator of a Case type.</inlineHelpText>
+        <label>Subtopic</label>
+        <picklist>
+            <controllingField>rC_Bios__Topic__c</controllingField>
+            <picklistValues>
+                <fullName>Address</fullName>
+                <controllingFieldValues>Information Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Deceased</fullName>
+                <controllingFieldValues>Information Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Duplicate Account</fullName>
+                <controllingFieldValues>Information Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Mail</fullName>
+                <controllingFieldValues>Information Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Name</fullName>
+                <controllingFieldValues>Information Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone/Fax</fullName>
+                <controllingFieldValues>Information Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Add Contact</fullName>
+                <controllingFieldValues>Information Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Do Not Call</fullName>
+                <controllingFieldValues>Contact Preferences</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Do Not E-Mail</fullName>
+                <controllingFieldValues>Contact Preferences</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Do Not Mail</fullName>
+                <controllingFieldValues>Contact Preferences</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone Preferred</fullName>
+                <controllingFieldValues>Contact Preferences</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Mail Preferred</fullName>
+                <controllingFieldValues>Contact Preferences</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail Preferred</fullName>
+                <controllingFieldValues>Contact Preferences</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Backordered</fullName>
+                <controllingFieldValues>Order Status</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Damaged</fullName>
+                <controllingFieldValues>Order Status</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Recieved</fullName>
+                <controllingFieldValues>Order Status</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Return</fullName>
+                <controllingFieldValues>Order Status</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wrong Item</fullName>
+                <controllingFieldValues>Order Status</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Add Gift</fullName>
+                <controllingFieldValues>New Pledge</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Renewal</fullName>
+                <controllingFieldValues>New Pledge</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sustainer</fullName>
+                <controllingFieldValues>New Pledge</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Charge Card Rejection</fullName>
+                <controllingFieldValues>Payment Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Charge Card Update</fullName>
+                <controllingFieldValues>Payment Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Installments</fullName>
+                <controllingFieldValues>Payment Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payment Change</fullName>
+                <controllingFieldValues>Payment Updates</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gift Not On Record</fullName>
+                <controllingFieldValues>Membership Status</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancel</fullName>
+                <controllingFieldValues>Membership Status</controllingFieldValues>
+                <controllingFieldValues>Order Status</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Downgrade</fullName>
+                <controllingFieldValues>Membership Status</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Anonymous</fullName>
+                <controllingFieldValues>Acknowledgement Preference</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Acknowledgement</fullName>
+                <controllingFieldValues>Acknowledgement Preference</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No E-mail Acknowledgement</fullName>
+                <controllingFieldValues>Acknowledgement Preference</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Publication Acknowledgment</fullName>
+                <controllingFieldValues>Acknowledgement Preference</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tax Documents</fullName>
+                <controllingFieldValues>IRS</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Annual Report</fullName>
+                <controllingFieldValues>IRS</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auction</fullName>
+                <controllingFieldValues>General Information</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Planned Giving</fullName>
+                <controllingFieldValues>General Information</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Major Giving</fullName>
+                <controllingFieldValues>General Information</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Membership Giving</fullName>
+                <controllingFieldValues>General Information</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In-Kind Giving</fullName>
+                <controllingFieldValues>General Information</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company Matching Gifts</fullName>
+                <controllingFieldValues>General Information</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tribute / In Memorial Giving</fullName>
+                <controllingFieldValues>General Information</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Volunteer</fullName>
+                <controllingFieldValues>General Information</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No E-mail Solicitations</fullName>
+                <controllingFieldValues>Opt-Outs</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No E-News</fullName>
+                <controllingFieldValues>Opt-Outs</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Tax Letters</fullName>
+                <controllingFieldValues>Opt-Outs</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Send Publication</fullName>
+                <controllingFieldValues>Requests</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-mail Solicitations</fullName>
+                <controllingFieldValues>Requests</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-News</fullName>
+                <controllingFieldValues>Requests</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Positive</fullName>
+                <controllingFieldValues>Comments</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Neutral</fullName>
+                <controllingFieldValues>Comments</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Negative</fullName>
+                <controllingFieldValues>Comments</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>rC_Bios__Topic__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Indicates the first level differentiator of a Case type.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Indicates the first level differentiator of a Case type.</inlineHelpText>
+        <label>Topic</label>
+        <picklist>
+            <controllingField>Type</controllingField>
+            <picklistValues>
+                <fullName>Information Updates</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contact Preferences</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Order Status</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Pledge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payment Updates</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Membership Status</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Acknowledgement Preference</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>IRS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>General Information</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opt-Outs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Requests</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Comments</fullName>
+                <controllingFieldValues>Other</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <listViews>
+        <fullName>AllClosedCases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>All Closed Cases</label>
+    </listViews>
+    <listViews>
+        <fullName>AllOpenCases</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All Open Cases</label>
+    </listViews>
+    <listViews>
+        <fullName>MyCases</fullName>
+        <filterScope>Mine</filterScope>
+        <label>My Cases</label>
+    </listViews>
+    <listViews>
+        <fullName>MyOpenCases</fullName>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>My Open Cases</label>
+    </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>rC_Bios__External_Cases</fullName>
+        <active>true</active>
+        <businessProcess>rC_Bios__External Cases</businessProcess>
+        <description>Cases relating to Account and Contact support issues such as member queries, comments, and requests.</description>
+        <label>External Cases</label>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PotentialLiability__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product__c</picklist>
+            <values>
+                <fullName>GC1020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC1040</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC1060</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC3020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC3040</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC3060</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC5020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC5040</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC5060</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Breakdown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Complexity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Performance</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SLAViolation__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>rC_Bios__Affiliation__c</picklist>
+            <values>
+                <fullName>Group 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Group 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Group 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>rC_Bios__Subtopic__c</picklist>
+            <values>
+                <fullName>Add Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Add Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Annual Report</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anonymous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Backordered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charge Card Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charge Card Update</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company Matching Gifts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Damaged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not E-Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Downgrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Mail Preferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-News</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-mail Solicitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift Not On Record</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In-Kind Giving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail Preferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Giving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Membership Giving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Name</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Negative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neutral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Acknowledgement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No E-News</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No E-mail Acknowledgement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No E-mail Solicitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Publication Acknowledgment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Tax Letters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Preferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone%2FFax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned Giving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Positive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recieved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Publication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sustainer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tribute %2F In Memorial Giving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volunteer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong Item</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>rC_Bios__Topic__c</picklist>
+            <values>
+                <fullName>Acknowledgement Preference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Comments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Preferences</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Membership Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Pledge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opt-Outs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requests</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>rC_Connect__External_Cases</fullName>
+        <active>true</active>
+        <businessProcess>rC_Connect__External Cases</businessProcess>
+        <description>(@Deprecated)</description>
+        <label>External Cases (@Deprecated)</label>
+        <picklistValues>
+            <picklist>Origin</picklist>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>PotentialLiability__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Priority</picklist>
+            <values>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Medium</fullName>
+                <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Product__c</picklist>
+            <values>
+                <fullName>GC1020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC1040</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC1060</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC3020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC3040</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC3060</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC5020</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC5040</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GC5060</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Reason</picklist>
+            <values>
+                <fullName>Breakdown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Complexity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Equipment Design</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Feedback</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Performance</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SLAViolation__c</picklist>
+            <values>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type</picklist>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>rC_Bios__Affiliation__c</picklist>
+            <values>
+                <fullName>Group 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Group 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Group 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>rC_Bios__Subtopic__c</picklist>
+            <values>
+                <fullName>Add Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Add Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Annual Report</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Anonymous</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auction</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Backordered</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charge Card Rejection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charge Card Update</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company Matching Gifts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Damaged</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deceased</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not E-Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Do Not Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Downgrade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Duplicate Account</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Mail Preferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-News</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-mail Solicitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift Not On Record</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In-Kind Giving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Installments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mail Preferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Major Giving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Membership Giving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Name</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Negative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Neutral</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Acknowledgement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No E-News</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No E-mail Acknowledgement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No E-mail Solicitations</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Publication Acknowledgment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Tax Letters</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment Change</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone Preferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone%2FFax</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Planned Giving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Positive</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recieved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Renewal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Return</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Publication</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sustainer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tax Documents</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tribute %2F In Memorial Giving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volunteer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wrong Item</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>rC_Bios__Topic__c</picklist>
+            <values>
+                <fullName>Acknowledgement Preference</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Comments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact Preferences</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IRS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Membership Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Pledge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opt-Outs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Order Status</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment Updates</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Requests</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <webLinks>
+        <fullName>UpsellCrosssellOpportunity</fullName>
+        <availability>online</availability>
+        <displayType>link</displayType>
+        <hasMenubar>true</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>true</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Up-sell / Cross-sell Opportunity</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>true</showsLocation>
+        <showsStatus>true</showsStatus>
+        <url>https://na1.salesforce.com/opp/oppedit.jsp?accid={!Account_ID}&amp;opp3=Up-sell+/+Cross-sell&amp;opp5=Existing+Customer&amp;opp6=Customer+Support</url>
+    </webLinks>
+</CustomObject>

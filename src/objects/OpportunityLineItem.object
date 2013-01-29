@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableFeeds>false</enableFeeds>
+    <fieldSets>
+        <fullName>rC_Giving__Opportunity_Manage_ListItems</fullName>
+        <availableFields>
+            <field>rC_Giving__Delivery_Comments__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>SystemModstamp</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Subtotal</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>SortOrder</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ServiceDate</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>PricebookEntryId</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>OpportunityId</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Expected_Total_Price__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Giving_Level__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Item__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Package_Name__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Package__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Transferor__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>CreatedById</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>CreatedDate</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Description</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Discount</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Id</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>IsDeleted</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>LastModifiedById</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ListPrice</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <description>Opportunity_Manage</description>
+        <displayedFields>
+            <field>rC_Giving__Delivery_Status__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>rC_Giving__Delivery_Method__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Quantity</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>UnitPrice</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>TotalPrice</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>rC_Giving__Beneficiary__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>LastModifiedDate</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Opportunity_Manage_ListItems</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>rC_Inventory__Delivery_Address</fullName>
+        <description>Used in the shipment Manage page to differentiate items into different shipments if their addresses differ from one another, even if they are part of the same giving record.</description>
+        <label>Delivery Address</label>
+    </fieldSets>
+    <fieldSets>
+        <fullName>rC_Inventory__LineItem_Status</fullName>
+        <description>This fieldset is used in the Shipment_Manage page, it specifically requires only one field rC_Giving__Delivery_Status__c.</description>
+        <label>LineItem Status</label>
+    </fieldSets>
+    <fields>
+        <fullName>rC_Connect__City__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Country__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Country</label>
+        <length>3</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Delivery_Address__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(AND(ISBLANK(rC_Connect__Street_Line_1__c), ISBLANK(rC_Connect__Street_Line_2__c), ISBLANK(rC_Connect__City__c), ISBLANK(rC_Connect__State__c),ISBLANK(rC_Connect__Postal_Code__c),ISBLANK(rC_Connect__Country__c)),
+ &apos;&apos; ,
+IF(rC_Connect__Street_Line_1__c ==&apos;&apos;, &apos;&apos; ,
+IF( AND(ISBLANK(rC_Connect__Street_Line_2__c), ISBLANK(rC_Connect__City__c), ISBLANK(rC_Connect__State__c),ISBLANK(rC_Connect__Postal_Code__c),ISBLANK(rC_Connect__Country__c))
+,rC_Connect__Street_Line_1__c,rC_Connect__Street_Line_1__c&amp;&apos;, &apos;) )&amp;
+
+IF(rC_Connect__Street_Line_2__c==&apos;&apos; ,&apos;&apos;,
+IF(AND(ISBLANK(rC_Connect__City__c), ISBLANK(rC_Connect__State__c),ISBLANK(rC_Connect__Postal_Code__c),ISBLANK(rC_Connect__Country__c))
+,rC_Connect__Street_Line_2__c,rC_Connect__Street_Line_2__c&amp;&apos;, &apos;))&amp;
+
+IF(rC_Connect__City__c ==&apos;&apos;,&apos;&apos;,
+IF(AND(ISBLANK(rC_Connect__State__c),ISBLANK(rC_Connect__Postal_Code__c),ISBLANK(rC_Connect__Country__c))
+ ,rC_Connect__City__c,rC_Connect__City__c &amp;&apos;, &apos;))&amp;
+    
+IF(rC_Connect__State__c==&apos;&apos;,&apos;&apos;,
+IF(AND(ISBLANK(rC_Connect__Postal_Code__c),ISBLANK(rC_Connect__Country__c))
+,rC_Connect__State__c,rC_Connect__State__c&amp; &apos;, &apos;))&amp;
+
+IF(rC_Connect__Postal_Code__c==&apos;&apos;,&apos;&apos;,
+IF(ISBLANK(rC_Connect__Country__c),rC_Connect__Postal_Code__c,rC_Connect__Postal_Code__c&amp; &apos;, &apos;))&amp;
+
+IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
+
+)</formula>
+        <label>Delivery Address</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Email__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Email</label>
+        <required>false</required>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Postal_Code__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Postal Code</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Selected_Delivery_Address__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>BLANKVALUE(rC_Connect__Delivery_Address__c, &apos;None selected&apos;) + &apos; [&apos; + HYPERLINK(&apos;/apex/rc_connect__opportunity_managedeliveryaddresses?id=&apos; +  OpportunityId + &apos;&amp;opportunityLineItem.Id=&apos; + Id + &apos;&amp;contact.Id=&apos; + rC_Giving__Beneficiary__c , &apos;Change&apos;, &apos;_self&apos;) + &apos;]&apos;</formula>
+        <label>Selected Delivery Address</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__State__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>State</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Street_Address__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>IF(AND(ISBLANK(rC_Connect__Street_Line_1__c), ISBLANK(rC_Connect__Street_Line_2__c)), NULL, IF(ISBLANK(rC_Connect__Street_Line_2__c), rC_Connect__Street_Line_1__c, rC_Connect__Street_Line_1__c + &apos;, &apos; + rC_Connect__Street_Line_2__c))</formula>
+        <label>Street Address</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Street_Line_1__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Street Line 1</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Street_Line_2__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Street Line 2</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Archive_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Identifies a record to be archived in roundData and removed from Salesforce. It will reside in roundData for storage and query runs.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Identifies a record to be archived in roundData and removed from Salesforce. It will reside in roundData for storage and query runs.</inlineHelpText>
+        <label>Archive?</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Beneficiary__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Beneficiary</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Products (As Beneficiary)</relationshipLabel>
+        <relationshipName>Opportunity_Products_Beneficiary</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Delivery_Comments__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Delivery Comments</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Delivery_Method__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Delivery Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Billing Address</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shipping Address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mailing Address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Person</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Delivery_Status__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Delivery Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Backordered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Delivered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Exception</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Canceled</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sent to Vendor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ready to Ship</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shipped</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Returned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Expected_Total_Price__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <formula>PricebookEntry.UnitPrice * Quantity</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Expected Total Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Giving_Level__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Giving Level</label>
+        <referenceTo>rC_Giving__Giving_Level__c</referenceTo>
+        <relationshipLabel>Opportunities</relationshipLabel>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Item__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Item</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Opportunity Products</relationshipLabel>
+        <relationshipName>Opportunity_Product_Item</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Package_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package Name</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Package__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Package</label>
+        <referenceTo>Product2</referenceTo>
+        <relationshipLabel>Opportunity Products</relationshipLabel>
+        <relationshipName>Opportunity_Product_Package</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Transferor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Transferor</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Products (As Transferor)</relationshipLabel>
+        <relationshipName>Opportunity_Products_Transferor</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>rC_Inventory__Shipment__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Shipment</label>
+        <referenceTo>rC_Inventory__Shipment__c</referenceTo>
+        <relationshipLabel>Opportunity Products</relationshipLabel>
+        <relationshipName>Opportunity_Product</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+</CustomObject>

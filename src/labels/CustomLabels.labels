@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>ELOQUA_NOTICE_DONATION_AMOUNT_INCREASED</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>ELOQUA_NOTICE_DONATION_AMOUNT_INCREASED</shortDescription>
+        <value>Your donation amount has been automatically increased because the total value of items exceeded the original donation amount.</value>
+    </labels>
+</CustomLabels>
