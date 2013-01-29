@@ -1,0 +1,669 @@
+<apex:page contentType="text/javascript" cache="false">
+    var rc_labs = rc_labs || {};
+    rc_labs.site = rc_labs.site || {};
+    rc_labs.site.currentPageUrl = "{!$CurrentPage.Url}";
+    rc_labs.site.currentSiteUrl = "{!$Site.CurrentSiteUrl}";
+    rc_labs.site.name = "{!$Site.Name}";
+    rc_labs.site.domain = "{!$Site.Domain}";
+    rc_labs.site.customWebAddress = "{!$Site.CustomWebAddress}";
+    rc_labs.form_context = null; // to be set later
+    
+    if (!window.console) console = {log: function() {}};
+    
+    console.log('rc_labs = ', rc_labs);
+    
+    // rc_labs.parseUri 1.2.2
+    // (c) Steven Levithan
+    // MIT License
+     
+    rc_labs.parseUri = function(str) {
+        var o   = rc_labs.parseUri.options,
+            m   = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
+            uri = {},
+            i   = 14;
+        
+        while (i--) uri[o.key[i]] = m[i] || "";
+        
+        uri[o.q.name] = {};
+        uri[o.key[12]].replace(o.q.parser, function ($0, $1, $2) {
+            if ($1) uri[o.q.name][$1] = $2;
+        });
+        
+        return uri;
+    };
+    
+    rc_labs.parseUri.options = {
+        strictMode: false,
+        key: ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"],
+        q:   {
+            name:   "queryKey",
+            parser: /(?:^|&amp;)([^&amp;=]*)=?([^&amp;]*)/g
+        },
+        parser: {
+            strict: /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
+            loose:  /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+        }
+    };
+    
+    
+    <apex:outputPanel layout="none" rendered="{!LOWER(BLANKVALUE($CurrentPage.Parameters.DisablePaymentProcessing, '')) != 'true'}">
+    //
+    // Eloqua integration (payment processing)
+    //
+    
+    $(document).ready(function() {
+        // Setup
+        var uri = rc_labs.parseUri(window.location.href);
+        var context = $('form:first');
+        
+        // Save form context
+        rc_labs.form_context = context;
+        // Setup logging
+        console.log('Script URL: {!$CurrentPage.Url}');
+        console.log('Site Name: {!$Site.Name}');
+        console.log('Site Domain: {!$Site.Domain}');
+        console.log('Site Custom Web Address: {!$Site.CustomWebAddress}');
+        console.log('Site Current URL: {!$Site.CurrentSiteUrl}');
+        console.log('Target Page: {!$Page.rC_Connect__Campaign_ProcessGiving}');
+        console.log('URI parsed:', uri);
+        //
+        // Since eloqua is having issues with their PCI compliance, we are demonstrating a way to create payment fields without
+        // having to define them in the eloqua form config on their website
+        //
+                
+        // This code should only run if there is no "payment method" field on the layout
+        var paymentMethod = $('input[name="paymentMethod"]', rc_labs.form_context);
+        
+        if (paymentMethod.length == 0) {
+            // Find the submit button, and then get the 
+            var submit = $('input[type="submit"]:first', rc_labs.form_context);
+            var before = submit.closest('.sc-view');
+            
+            // Payment header
+            before.before('<div class="sc-view form-design-field sc-static-layout sc-regular-size" style="left: 0px; right: 0px; top: 0px; bottom: 0px; padding: 6px 5px 9px 9px; clear: both"><div class="form-input-wrapper" style="width: 96%"><h3>Payment Details</h3><span></span></div></div>');
+            
+            // Payment Method
+            before.before('<div class="sc-view form-design-field sc-static-layout sc-regular-size" style="left: 0px; right: 0px; top: 0px; bottom: 0px; padding: 6px 5px 9px 9px; clear: both"><label style="display: block; line-height: 150%; padding: 1px 0pt 3px; white-space: nowrap">Payment Method</label><div class="form-input-wrapper" style="width: 96%"><div style="float: left; display: block; width: 75%"><span class="" style="display: block; float: left; margin: 0pt 7px 0pt 0pt; width: 38%"><label style="display: block; float: left; padding-right: 10px; padding-left: 22px; text-indent: -22px"><input value="EFT" name="paymentMethod" type="radio" style="vertical-align: middle; margin-right: 7px"></input><span style="vertical-align: middle">EFT</span></label></span><span class="" style="display: block; float: left; margin: 0pt 7px 0pt 0pt; width: 38%"><label style="display: block; float: left; padding-right: 10px; padding-left: 22px; text-indent: -22px"><input value="Charge Card" name="paymentMethod" type="radio" style="vertical-align: middle; margin-right: 7px"></input><span style="vertical-align: middle">Charge Card</span></label></span></div></div></div>');
+            
+            // Name on Card
+            before.before('<div class="sc-view form-design-field sc-static-layout sc-regular-size" style="left: 0px; right: 0px; top: 0px; bottom: 0px; padding: 6px 5px 9px 9px; clear: both; display: none; "><label style="display: block; line-height: 150%; padding: 1px 0pt 3px; white-space: nowrap">Name On Card</label><div class="form-input-wrapper" style="width: 96%"><input value="" type="text" name="nameOnCard" class="" style="width: 50%"></input></div></div>');
+            
+            // Credit Card Number
+            before.before('<div class="sc-view form-design-field sc-static-layout sc-regular-size" style="left: 0px; right: 0px; top: 0px; bottom: 0px; padding: 6px 5px 9px 9px; clear: both; display: none; "><label style="display: block; line-height: 150%; padding: 1px 0pt 3px; white-space: nowrap">Credit Card Number</label><div class="form-input-wrapper" style="width: 96%"><input value="" type="text" name="creditCardNumber" class="" style="width: 50%"></input></div></div>');
+            
+            // Expiration Month
+            before.before('<div class="sc-view form-design-field sc-static-layout sc-regular-size" style="left: 0px; right: 0px; top: 0px; bottom: 0px; padding: 6px 5px 9px 9px; clear: both; display: block; "><label style="display: block; line-height: 150%; padding: 1px 0pt 3px; white-space: nowrap">Expiration Month</label><div class="form-input-wrapper" style="width: 96%"><select value="" name="expirationMonth" class="" style="width: 30%"><option value="01" name="expirationMonth">01</option><option value="02" name="expirationMonth">02</option><option value="03" name="expirationMonth">03</option><option value="04" name="expirationMonth">04</option><option value="05" name="expirationMonth">05</option><option value="06" name="expirationMonth">06</option><option value="07" name="expirationMonth">07</option><option value="08" name="expirationMonth">08</option><option value="09" name="expirationMonth">09</option><option value="10" name="expirationMonth">10</option><option value="11" name="expirationMonth">11</option><option value="12" name="expirationMonth">12</option></select></div></div>');
+            
+            // Expiration Year
+            before.before('<div class="sc-view form-design-field sc-static-layout sc-regular-size" style="left: 0px; right: 0px; top: 0px; bottom: 0px; padding: 6px 5px 9px 9px; clear: both; display: block; "><label style="display: block; line-height: 150%; padding: 1px 0pt 3px; white-space: nowrap">Expiration Year</label><div class="form-input-wrapper" style="width: 96%"><select value="" name="expirationYear" class="" style="width: 30%"><option value="2012" name="expirationYear">2012</option><option value="2013" name="expirationYear">2013</option><option value="2015" name="expirationYear">2015</option><option value="2016" name="expirationYear">2016</option><option value="2017" name="expirationYear">2017</option><option value="2018" name="expirationYear">2018</option><option value="2019" name="expirationYear">2019</option><option value="2020" name="expirationYear">2020</option></select></div></div>');
+            
+            // Security Code
+            before.before('<div class="sc-view form-design-field sc-static-layout sc-regular-size" style="left: 0px; right: 0px; top: 0px; bottom: 0px; padding: 6px 5px 9px 9px; clear: both; display: block; "><label style="display: block; line-height: 150%; padding: 1px 0pt 3px; white-space: nowrap">Security Code</label><div class="form-input-wrapper" style="width: 96%"><input value="" type="text" name="securityCode" class="" style="width: 50%"></input></div></div>');
+            
+            // Account Type
+            before.before('<div class="sc-view form-design-field sc-static-layout sc-regular-size" style="left: 0px; right: 0px; top: 0px; bottom: 0px; padding: 6px 5px 9px 9px; clear: both; display: block; "><label style="display: block; line-height: 150%; padding: 1px 0pt 3px; white-space: nowrap">Account Type</label><div class="form-input-wrapper" style="width: 96%"><div style="float: left; display: block; width: 75%"><span class="" style="display: block; float: left; margin: 0pt 7px 0pt 0pt; width: 38%"><label style="display: block; float: left; padding-right: 10px; padding-left: 22px; text-indent: -22px"><input value="checking" name="bankAccountType" type="radio" checked="checked" style="vertical-align: middle; margin-right: 7px"></input><span style="vertical-align: middle">Checking</span></label></span><span class="" style="display: block; float: left; margin: 0pt 7px 0pt 0pt; width: 38%"><label style="display: block; float: left; padding-right: 10px; padding-left: 22px; text-indent: -22px"><input value="Savings" name="bankAccountType" type="radio" style="vertical-align: middle; margin-right: 7px"></input><span style="vertical-align: middle">Savings</span></label></span></div></div></div>');
+            
+            // Account Number
+            before.before('<div class="sc-view form-design-field sc-static-layout sc-regular-size" style="left: 0px; right: 0px; top: 0px; bottom: 0px; padding: 6px 5px 9px 9px; clear: both; display: block; "><label style="display: block; line-height: 150%; padding: 1px 0pt 3px; white-space: nowrap">Bank Account #</label><div class="form-input-wrapper" style="width: 96%"><input value="" type="text" name="bankAccountNumber" class="" style="width: 50%"></input></div></div>');
+            
+            // Routing Number
+            before.before('<div class="sc-view form-design-field sc-static-layout sc-regular-size" style="left: 0px; right: 0px; top: 0px; bottom: 0px; padding: 6px 5px 9px 9px; clear: both; display: block; "><label style="display: block; line-height: 150%; padding: 1px 0pt 3px; white-space: nowrap">Routing #</label><div class="form-input-wrapper" style="width: 96%"><input value="" type="text" name="bankRoutingNumber" class="" style="width: 50%"></input></div></div>');
+        }
+        
+        // Find the form and rewrite the form action method
+        var node = null;
+        console.log('Form:', rc_labs.form_context);
+        
+        // Add One Hidden Field for Giving Frequency if Given Frequency radio Button is given
+        if ($('input[name="givingFrequency"][type="hidden"]').length == 0) {
+            node = $('<input type="hidden" name="givingFrequency" />');
+            node.attr('value', $('input[name="givingFrequency"]:checked').val());
+            context.prepend(node);
+        }    
+        console.log('Added to form:', node);
+        
+        // Add in a few custom input fields to the end of the form
+        node = $('<input type="hidden" name="processingSuccessUrl" />');
+        node.attr('value', context.attr('action'));
+        context.prepend(node);
+        console.log('Added to form:', node);
+        
+        node = $('<input type="hidden" name="processingFailureUrl" />');
+        node.attr('value', window.location.href);
+        context.prepend(node);
+        console.log('Added to form:', node);
+        
+        // Add the campaign ID only if there isn't one already set
+        var sfdcCampaignId = $('input[name="sfdcCampaignId"]:first', context);
+        var sfdcCampaignExternalId = $('input[name="sfdcCampaignExternalId"]:first', context);
+        
+        if (sfdcCampaignId.val() == null &amp;&amp; sfdcCampaignExternalId.val() == null) {
+            node = $('<input type="hidden" name="sfdcCampaignId" />');
+            node.attr('value', '701E0000000Iavn'); // testing campaign ID, only valid for the rC Connect environment.
+            context.prepend(node);
+            console.log('Added to form:', node);
+        }
+        
+        // Add the Eloqua Campaign ID Only if there isn't one already set
+        if (sfdcCampaignExternalId.val() == null) {
+            node = $('<input type="hidden" name="sfdcCampaignExternalId" />');
+            node.attr('value', decodeURIComponent(uri.queryKey['elqCampaignId']));//'{!$CurrentPage.Parameters.}'
+            context.prepend(node);
+            console.log('Added to form:', node);
+        }
+        
+        // Change the form submit URL to point to the SF org path
+        context.attr('action', 'https://{!$Site.Domain}{!$Page.rC_Connect__Campaign_ProcessGiving}');
+        console.log('Changed form.action to:', context.attr('action'));
+        
+        // Change the form method to a GET for debugging
+        context.attr('method', 'GET');
+        console.log('Changed form.method to:', context.attr('method'));
+        
+        // Do we have errors that need to be addressed?
+        var errorLocation = uri.queryKey["errorLocation"];
+        var errorMessage = uri.queryKey["errorMessage"];
+        
+        if (errorMessage != null &amp;&amp; errorLocation != null) {
+            errorMessage = decodeURIComponent(errorMessage.replace(/\+/g, ' '));
+            $('[name="' + errorLocation + '"]', context).addClass('error');
+            $('[name="' + errorLocation + '"]', context).after('<div class="errorMessage" style="padding: 0.5em 0em; color: red; font-size: 90%;">↳ ' + errorMessage + '</div>');
+            context.prepend('<div class="errorMessage" style="padding: 1em; color: red; border: 1px solid red; font-size: 90%;">Please correct errors: ' + errorMessage + '</div>');
+            console.log('Added error on "' + errorLocation + '" field:', errorMessage);
+        } else if (errorMessage != null) {
+            errorMessage = decodeURIComponent(errorMessage.replace(/\+/g, ' '));
+            context.prepend('<div class="errorMessage" style="padding: 1em; color: red; border: 1px solid red; font-size: 90%;">' + errorMessage + '</div>');
+            console.log('Added error at form top level:', errorMessage);
+        } else {
+            console.log('We are error free');
+        }
+        
+        // Repopulate form fields
+        for(var potentialMatch in uri.queryKey) {
+            $('input[name="' + potentialMatch + '"][type="text"]', context).each(function() {
+                $(this).val(decodeURIComponent(uri.queryKey[$(this).attr('name')]));
+                console.log('Updated input/text field:', this);
+            });
+            
+            $('input[name="' + potentialMatch + '"][type="radio"]', context).each(function() {
+                if ($(this).val() == decodeURIComponent(uri.queryKey[$(this).attr('name')])) {
+                    $(this).attr('checked', 'checked');
+                    console.log('Updated input/radio field:', this);
+                }
+            });
+            
+            $('select[name="' + potentialMatch + '"]', context).each(function() {
+                $(this).val(decodeURIComponent(uri.queryKey[$(this).attr('name')]));
+                console.log('Updated select field:', this);
+            });
+        }
+        
+        // Repopulate form fields: Special hidden fields
+        if (uri.queryKey.sfdcAccountId != null)
+            $('input[name="sfdcAccountId"]', context).val(uri.queryKey.sfdcAccountId);
+        if (uri.queryKey.sfdcContactId != null)
+            $('input[name="sfdcContactId"]', context).val(uri.queryKey.sfdcContactId);
+        
+        // Setup toggle for EFT/Charge Card
+        $('input[name="paymentMethod"]', rc_labs.form_context).click(rc_labs.togglePaymentMethod);
+        
+        // Toggle it right now
+        rc_labs.togglePaymentMethod();
+    }); 
+    
+    //
+    // Toggle back and forth between displaying EFT and Charge Card payment methods
+    //
+    
+    rc_labs.showPaymentMethod_ChargeCard = function() {
+        $('[name="nameOnCard"]', rc_labs.form_context).closest('div.form-design-field').show();
+        $('[name="creditCardNumber"]', rc_labs.form_context).closest('div.form-design-field').show();
+        $('[name="expirationMonth"]', rc_labs.form_context).closest('div.form-design-field').show();
+        $('[name="expirationYear"]', rc_labs.form_context).closest('div.form-design-field').show();
+        $('[name="securityCode"]', rc_labs.form_context).closest('div.form-design-field').show();
+    }
+    
+    rc_labs.hidePaymentMethod_ChargeCard = function() {
+        $('[name="nameOnCard"]', rc_labs.form_context).closest('div.form-design-field').hide();
+        $('[name="creditCardNumber"]', rc_labs.form_context).closest('div.form-design-field').hide();
+        $('[name="expirationMonth"]', rc_labs.form_context).closest('div.form-design-field').hide();
+        $('[name="expirationYear"]', rc_labs.form_context).closest('div.form-design-field').hide();
+        $('[name="securityCode"]', rc_labs.form_context).closest('div.form-design-field').hide();
+    }
+    
+    rc_labs.showPaymentMethod_EFT = function() {
+        $('[name="bankAccountType"]', rc_labs.form_context).closest('div.form-design-field').show();
+        $('[name="bankAccountNumber"]', rc_labs.form_context).closest('div.form-design-field').show();
+        $('[name="bankRoutingNumber"]', rc_labs.form_context).closest('div.form-design-field').show();
+    }
+    
+    rc_labs.hidePaymentMethod_EFT = function() {
+        $('[name="bankAccountType"]', rc_labs.form_context).closest('div.form-design-field').hide();
+        $('[name="bankAccountNumber"]', rc_labs.form_context).closest('div.form-design-field').hide();
+        $('[name="bankRoutingNumber"]', rc_labs.form_context).closest('div.form-design-field').hide();
+    }
+    
+    rc_labs.togglePaymentMethod = function() {
+        var value = $('input[name="paymentMethod"]:checked', rc_labs.form_context).val();
+        
+        if (value == null) {
+            rc_labs.hidePaymentMethod_EFT();
+            rc_labs.hidePaymentMethod_ChargeCard();
+        } else if (value == 'EFT') {
+            rc_labs.showPaymentMethod_EFT();
+            rc_labs.hidePaymentMethod_ChargeCard();
+        } else if (value == 'Charge Card') {
+            rc_labs.hidePaymentMethod_EFT();
+            rc_labs.showPaymentMethod_ChargeCard();
+        } else {
+            rc_labs.hidePaymentMethod_EFT();
+            rc_labs.hidePaymentMethod_ChargeCard();
+        }
+    }
+    
+    </apex:outputPanel>
+
+    <apex:outputPanel layout="none" rendered="{!LOWER(BLANKVALUE($CurrentPage.Parameters.DisableProducts, '')) != 'true'}">
+    //
+    // Eloqua integration (premium display and ranking; bound to a special input field with the ID of "selectedProducts")
+    //
+    
+    rc_labs.reloadCampaignProducts = function() {
+        // Deselect and disable all the current ask amounts 
+        $('.campaignProduct', rc_labs.form_context).each(function() {
+            $(this).removeClass('selected');
+            $(this).css('opacity', '0.30');
+        });
+        
+        var requestURL = 'https://{!$Site.Domain}{!$Page.rC_Connect__Campaign_ExposeTimeslotProducts}?callback=?';
+        requestURL += '&amp;campaignId=' + $('input[name="sfdcCampaignId"]:first').val();
+        requestURL += '&amp;sfdcCampaignExternalId=' + $('input[name="sfdcCampaignExternalId"]:first').val();
+        requestURL += '&amp;givingFrequency=' + $('input[name="givingFrequency"][type="hidden"]').val();
+        console.log('... using requestURL', requestURL);
+
+        $.getJSON(requestURL, function(campaignProductJsonList) {
+            console.log('rc_labs.reloadCampaignProducts(): Received data', campaignProductJsonList);
+            
+            // Find the selected products field, and create a bunch of divs
+            var context = $('input[name="selectedProducts"]', rc_labs.form_context);
+            
+            // Clear existing products
+            $('div.campaignProductList', context.parent()).remove();
+            
+            // Create new sections
+            var campaignProductList = $('<div class="campaignProductList"></div>');
+            var campaignProductFeaturedList = $('<div class="campaignProductList featured"></div>');
+            var campaignProductBonusList = $('<div class="campaignProductList Bonus"></div>');
+            var isBonusGiftsAvailable = 'false';
+            console.log('... using context', context);
+            
+            // Add titles
+            campaignProductList.append('<h3 class="title">Available {!$ObjectType.Product2.LabelPlural}</h3>');
+            campaignProductFeaturedList.append('<h3 class="title">Featured {!$ObjectType.Product2.LabelPlural}</h3>');
+            campaignProductBonusList.append('<h3 class="title"> Bonus {!$ObjectType.Product2.LabelPlural}</h3>');
+            
+            // Process products
+            $.each(campaignProductJsonList, function(name, campaignProductJsonObject) {
+                var campaignProduct = $('<div class="campaignProduct disabled"></div>');
+                campaignProduct.css('opacity', '1.00');
+                
+                var campaignProductJson = campaignProductJsonObject.campaignProduct;
+                var subItemList = campaignProductJsonObject.subItemList;
+                
+                // Checkbox to select the premium
+                campaignProduct.append('<div class="selectable"><input type="checkbox" disabled="disabled"></input></div>');
+
+                // Name of the reward premium?
+                //campaignProduct.append('<div class="rC_Connect__Product_Name__c">' + campaignProductJson.rC_Connect__Product_Name__c + '</div>');
+                
+                var subitemNode = '<div></div>';
+                if (subItemList.length > 0) {
+                    var subitemNode = '<select class="subItem" name="subItem" style="text-align:left;display:none; float:left;color: #AAAAAA;width:220px;margin-top:3px;">';
+                    subitemNode += ' <option value="" label="--Select--">--Select--</option>';
+                    $.each(subItemList, function(name,subItem) {
+                       subitemNode += ' <option value="'+ subItem.Id +'">'+ subItem.Name +'</option>';
+                    });   
+                    subitemNode += '</select>';
+                    //campaignProduct.append('<div>' + subitemNode + '</div>');
+                }
+                 
+                var defaultvalue = '0';
+                // Adding Quantity Field
+                if (campaignProductJson.rC_Connect__Allow_Multiple__c == true) {
+                    if (campaignProductJson.rC_Connect__Default_Quantity__c != null)
+                        defaultvalue = campaignProductJson.rC_Connect__Default_Quantity__c; 
+                    campaignProduct.append('<div class="rC_Connect__Product_Name__c"><label class="productName">' + campaignProductJson.rC_Connect__Product_Name__c + '</label><input class="rC_Connect__Allow_Multiple__c" type="text" size="1" style="text-align:center; float:right;margin-right:30px;color: #AAAAAA;" disabled="disabled"></input><label style="float:right;margin-right:10px;"> Quantity :</label>' + subitemNode + '</div>');
+                    campaignProduct.find('.rC_Connect__Product_Name__c input[type="text"]').attr('value', defaultvalue);
+                } else {
+                    campaignProduct.append('<div class="rC_Connect__Product_Name__c"><label class="productName">' + campaignProductJson.rC_Connect__Product_Name__c + '</label><input class="rC_Connect__Allow_Multiple__c" type="text" size="1" style="visibility:Hidden;float:right;margin-right:10px;color: #AAAAAA;" value=""></input>' + subitemNode +'</div>'); 
+                }
+                      
+                // Donation minimum?
+                if (campaignProductJson.rC_Connect__Min_Amount__c == null) {
+                    campaignProduct.append('<div class="rC_Connect__Min_Amount__c">no minimum</div>');
+                    campaignProduct.find('.selectable input[type="checkbox"]').attr('rC_Connect__Min_Amount__c', '0');
+                    campaignProduct.find('.selectable input[type="checkbox"]').attr('Id', campaignProductJson.rC_Connect__Product__c);
+                } else {
+                    campaignProduct.append('<div class="rC_Connect__Min_Amount__c">$' + campaignProductJson.rC_Connect__Min_Amount__c + ' minimum</div>');
+                    campaignProduct.find('.selectable input[type="checkbox"]').attr('rC_Connect__Min_Amount__c', campaignProductJson.rC_Connect__Min_Amount__c);
+                    campaignProduct.find('.selectable input[type="checkbox"]').attr('Id', campaignProductJson.rC_Connect__Product__c);
+                }
+                
+                // Add to featured?
+                if (campaignProductJson.rC_Connect__Is_Featured__c == true)
+                    campaignProductFeaturedList.append(campaignProduct.clone());
+                    
+                // Add to Bonus Gifts?
+                if (campaignProductJson.rC_Connect__Is_Bonus__c == true) {
+                    campaignProductBonusList.append(campaignProduct.clone());
+                    $(campaignProductBonusList).children('.campaignProduct').addClass('Bonus');
+                    isBonusGiftsAvailable = 'true';
+                }    
+                
+                // Add to Available?        
+                campaignProductList.append(campaignProduct);
+                console.log('... added campaign product', campaignProduct);
+            });
+            
+            // Add to DOM
+            context.after(campaignProductList);
+            context.after(campaignProductFeaturedList);
+            
+            if (isBonusGiftsAvailable == 'true' &amp;&amp; $('input[name="bonusGift"]').length == 1 )
+                context.after(campaignProductBonusList);
+            console.log('... final context', context);
+            
+            // Find the checkboxes and listen for selection. Total up the checked amount
+            $('.campaignProduct .selectable input[type="checkbox"]', context).click(function() {
+               // alert('check');
+                var element = $(this).closest('.campaignProduct').children('div[class="rC_Connect__Product_Name__c"]');
+                if ($(element).find('.subItem').length == 1) {
+                    if ($(this).attr('checked')) {
+                        $(element).find('.productName').css('display','none');
+                        $(element).find('.subItem').css('display','');
+                        setTimeout(function(){alert("Please make a gift selection")},700);
+                    } else {
+                        $(element).find('.productName').css('display',''); 
+                        $(element).find('.subItem').css('display','none');
+                    }       
+                    
+                }
+                selectProducts($(this));
+            });
+            
+            $('.campaignProduct .rC_Connect__Product_Name__c input[type="text"]', context).change(function() {
+                selectProducts($(this));
+            });
+            
+            $('.subItem').change(function() {
+                selectProducts($(this));
+            });
+            
+          
+            
+            function selectProducts (elem) {
+
+                var selectedProductIds = '';
+                var localAmount = null;
+                var totalAmount = 0;
+                var localQuantity = '1';
+                var fieldValue = $('input[name="givingAmount"]:checked').val();
+                
+                $('.campaignProduct input[type="checkbox"]:checked', rc_labs.form_context).each(function() {
+                    localQuantity = '1';              
+                    var quantity = $(this).closest('.campaignProduct').find('.rC_Connect__Product_Name__c input[type="text"]').attr('value');
+                    if (quantity != "")
+                        localQuantity = quantity;
+                         
+                    localAmount = (parseInt($(this).attr('rC_Connect__Min_Amount__c')) * parseInt(localQuantity));
+                    if ($(this).closest('.campaignProduct').hasClass('Bonus') == false)
+                        totalAmount = parseInt(localAmount) + totalAmount;
+                    if ($(this).closest('.campaignProduct').find(".subItem").length==1) {
+                        var productId = $(this).closest('.campaignProduct').find(".subItem option:selected ").val();
+                        if (productId != '--Select--')
+                            selectedProductIds = selectedProductIds + $(this).closest('.campaignProduct').find(".subItem option:selected ").attr('value') + ',' + quantity + ';';
+                    }
+                    else {
+                        selectedProductIds = selectedProductIds + $(this).attr('Id') + ',' + quantity + ';';
+                    }
+                });
+                                             
+                if (parseInt(totalAmount) > parseInt(fieldValue) &amp;&amp; parseInt(totalAmount) > 0) { 
+                    alert('{!$Label.ELOQUA_NOTICE_DONATION_AMOUNT_INCREASED}');
+                    $('input[name="givingAmountOther"]',rc_labs.form_context).attr('value',totalAmount);
+                    $('input[name="givingAmountOther"]',rc_labs.form_context).parent().children('input[type="radio"]').attr('value',totalAmount);
+                    $('input[name="givingAmountOther"]',rc_labs.form_context).parent().children('input[type="radio"]').attr('checked','true');
+                }    
+                
+                
+                
+                console.log('localAmount: ',localAmount);
+                console.log('Aggregated checked amount: ', totalAmount);
+                console.log('... selectedProductIds = ', selectedProductIds);
+                
+                // Save product IDs to hidden field
+                $('input[name="selectedProducts"]', rc_labs.form_context).val(selectedProductIds);
+            }    
+            
+        });
+    }
+    
+    $(document).ready(function() {
+        $('.form-input-wrapper input[name="givingFrequency"]').click(function() {
+            $('input[name="givingFrequency"][type="hidden"]').val($(this).val());
+            rc_labs.reloadCampaignProducts();
+            
+        });
+        
+        // Load it now also
+        rc_labs.reloadCampaignProducts();
+    });
+    </apex:outputPanel>
+
+    <apex:outputPanel layout="none" rendered="{!LOWER(BLANKVALUE($CurrentPage.Parameters.DisableProductsCss, '')) != 'true'}">
+    $(document).ready(function() { 
+        var css = '';
+        css += '\n.campaignProductList { padding: 6px 5px 9px 9px; }';
+        css += '\n.campaignProductList h3.title {}';
+        css += '\n.campaignProductList .campaignProduct { position: relative; width: 100%; height: 2.5em; line-height: 2em; vertical-align: middle; border-bottom: 1px solid #ccc; }';
+        css += '\n.campaignProductList .campaignProduct .selectable { padding: 0.4em; vertical-align: middle; }';
+        css += '\n.campaignProductList .campaignProduct .rC_Connect__Product_Name__c { position: absolute; top: 0; left: 5%; width: 75%; padding: 0.25em 0px; text-overflow: ellipsis; }';
+        css += '\n.campaignProductList .campaignProduct .rC_Connect__Min_Amount__c { position: absolute; top: 0; left: 80%; right: 0; padding: 0.25em 0px; text-overflow: ellipsis; text-align: right; }';
+        css += '\n.campaignProductList .campaignProduct.disabled { color: #aaa; }';
+        
+        // Add to the head tag
+        var styles = $('<style type="text/css"></style>');
+        styles.html(css);
+        styles.appendTo('head');
+    });
+    </apex:outputPanel>
+
+    <apex:outputPanel layout="none" rendered="{!LOWER(BLANKVALUE($CurrentPage.Parameters.DisableAsks, '')) != 'true'}">
+    //
+    // Eloqua integration (ask strings; optionally based on contact ID)
+    //
+    
+    rc_labs.reloadCampaignAsks = function() {
+        console.log('rc_labs.reloadCampaignAsks() starting');
+        
+        var requestURL = 'https://{!$Site.Domain}{!$Page.rC_Connect__Campaign_ExposeTimeslotAsks}?callback=?';
+        requestURL += '&amp;limit=1';  
+        requestURL += '&amp;campaignId=' + $('input[name="sfdcCampaignId"]:first').val();
+        requestURL += '&amp;sfdcCampaignExternalId=' + $('input[name="sfdcCampaignExternalId"]:first').val();
+        requestURL += '&amp;accountId=' + $('input[name="sfdcAccountId"]:first').val();
+        requestURL += '&amp;contactId=' + $('input[name="sfdcContactId"]:first').val();
+        requestURL += '&amp;givingFrequency=' + $('input[name="givingFrequency"][type="hidden"]').val();
+        console.log('... using requestURL', requestURL);
+        
+        // Deselect and disable all the current ask amounts 
+        $('input[name="givingAmount"]').each(function() {
+            $(this).prop('checked', false);
+            $(this).prop('disabled', true);
+            $(this).parent().css('opacity', '0.3');
+        });
+        
+        // Send the request
+        $.getJSON(requestURL, function(campaignAskJsonList) {
+            console.log('rc_labs.reloadCampaignAsks(): Received data', campaignAskJsonList);
+            
+            // Where's our wrapping element?
+            var context = $('input[name="givingAmount"]:first').closest('.form-input-wrapper div');
+            console.log('... using context', context);
+            
+            // Mimic eloqua form structure
+            var appendNode = null;
+            
+            // DOM
+            
+            var validatePremiums = function() {
+                var fieldValue = $('input[name="givingAmount"]:checked').val();
+                var localValue = parseInt($(this).attr('rC_Connect__Min_Amount__c'));
+                                                                
+                console.log('Validating premiums', this);
+                console.log('.. fieldValue = ', fieldValue);
+                console.log('.. localValue = ', localValue);
+                
+                $('.campaignProduct input[type="checkbox"]:checked', rc_labs.form_context).removeAttr('checked');
+                $(this).closest('.campaignProduct').removeClass('disabled');
+                //$(this).closest.('.rC_Connect__Allow_Multiple__c').removeClass('disabled');
+                $(this).closest('.campaignProduct').find('.rC_Connect__Product_Name__c input[type="text"]').removeAttr('disabled');
+                $(this).closest('.campaignProduct').find('.rC_Connect__Product_Name__c input[type="text"]').css('color','black');
+                $(this).closest('.campaignProduct').find('.rC_Connect__Product_Name__c').find('.subItem').css('color','black');
+                $(this).prop('disabled', false);
+                 
+               $('.Bonus input[type="checkbox"]:not(:checked)', rc_labs.form_context).each(function() {
+                    localQuantity = '1';              
+                    var quantity = $(this).closest('.campaignProduct').find('.rC_Connect__Product_Name__c input[type="text"]').attr('value');
+                    if (quantity != "")
+                        localQuantity = quantity;
+                    var localAmount = (parseInt($(this).attr('rC_Connect__Min_Amount__c')) * parseInt(localQuantity));
+                    if (parseInt(localAmount) > parseInt($('input[name="givingAmount"]:checked').val())) {    
+                        $(this).closest('.campaignProduct').addClass('disabled');
+                        $(this).attr('disabled','disabled'); 
+                        $(this).closest('.campaignProduct').find('.rC_Connect__Allow_Multiple__c').attr('disabled','disabled');
+                        $(this).closest('.campaignProduct').find('.rC_Connect__Allow_Multiple__c').css('color','#AAAAAA');
+                        $(this).closest('.campaignProduct').find('.productName').css('display','');
+                        $(this).closest('.campaignProduct').find('.subItem').css('display','none');
+                    }    
+                });
+                
+                //selectProducts(null);
+                
+                if (localValue > fieldValue) {
+                    //$(this).prop('disabled', true);
+                    //$(this).prop('checked', false);
+                    //$(this).closest('.campaignProduct').addClass('disabled');
+                    //console.log('... disabling', this);
+                } else {
+                    //$(this).prop('disabled', false);
+                    //$(this).closest('.campaignProduct').removeClass('disabled');
+                    //console.log('... enabling', this);
+                }
+            }
+            
+            var generateNode = function() {
+                var node1 = $('<span class="wrapper" style="display: block; margin: 0pt 7px 0pt 0pt; width: 100%; clear: both; line-height: 2em; vertical-align: middle;"></span>');
+                var node2 = $('<label style="display: block; float: left; padding-right: 10px; padding-left: 22px; text-indent: -22px"></label>');
+                var node3 = $('<input value="" name="givingAmount" type="radio" style="vertical-align: middle; margin-right: 7px"></input>');
+                var node4 = $('<span style="vertical-align: middle"></span>');
+                
+                node1.append(node2);
+                node2.append(node3);
+                node2.append(node4);
+                return node1;
+            }
+            
+            var appendAsks = function(value) 
+            {
+                var appendNode = null;
+                var givingOtherNode = null;
+                
+                if (typeof value == 'number') {
+                    appendNode = generateNode();
+                    appendNode.find('input[name="givingAmount"]').attr('value', value);
+                    appendNode.find('label span').text('$' + value);
+                    appendNode.appendTo(context);
+                    console.log('... added node = ', appendNode);
+                } else if (typeof value == 'string' &amp;&amp; value == 'Other') 
+                {
+                    appendNode = generateNode();
+                    appendNode.find('label span').html(null);
+                    appendNode.find('input[name="givingAmount"]').attr('value', '');
+                    appendNode.find('input[name="givingAmount"]').after('<input type="text" name="givingAmountOther" value="Other Amount ..." />');
+                    
+                    appendNode.find('input[name="givingAmount"]').focus(function(){
+                                                                  appendNode.find('[name="givingAmountOther"]').focus();
+                    });
+                    appendNode.find('input[name="givingAmount"]').click(function(){
+                                                                  appendNode.find('[name="givingAmountOther"]').focus();
+                    });
+                    
+                    // Set input listeners
+                    givingOtherNode = appendNode.find('[name="givingAmountOther"]');
+                    
+                    givingOtherNode.focus(function(){
+                        if ('Other Amount ...' == $.trim($(this).val())) {
+                            $(this).val('');
+                        }
+                        $(this).parent().children('input[type="radio"]').attr('checked','true');
+                    }).blur(function(){
+                        if ('' == $(this).val()){
+                           $(this).val('Other Amount ...');
+                        }
+                    }).keyup(function() 
+                    {
+                        $(this).closest('.wrapper').find('[name="givingAmount"]').val($(this).val());
+                        $('.campaignProduct .selectable input[type="checkbox"]').each(validatePremiums);
+                    });
+                    
+                    appendNode.appendTo(context);
+                    window.console.log('... added node = ', appendNode);
+                } else if (typeof value == 'string') {
+                    appendNode = generateNode();
+                    appendNode.find('input[name="givingAmount"]').attr('value', '');
+                    appendNode.find('label span').text(value);
+                    appendNode.appendTo(context);
+                    console.log('... added node = ', appendNode);
+                }
+                
+                return appendNode;
+            }
+            
+            // Clear existing data
+            context.html(null);
+            
+            // If there is no data, add three basic amounts 
+            if (campaignAskJsonList.length == 0) {
+                appendAsks(10);
+                appendAsks(25);
+                appendAsks(50);
+            } else {
+                appendAsks(campaignAskJsonList[0].rC_Connect__Ask_1_Amount__c);
+                appendAsks(campaignAskJsonList[0].rC_Connect__Ask_2_Amount__c);
+                appendAsks(campaignAskJsonList[0].rC_Connect__Ask_3_Amount__c);
+                appendAsks(campaignAskJsonList[0].rC_Connect__Ask_4_Amount__c);
+                appendAsks(campaignAskJsonList[0].rC_Connect__Ask_5_Amount__c);
+                appendAsks('Other');
+            }
+            
+            // Listen to changes so we can show/hide the "Other" option.
+            $('input[name="givingAmount"]', context).click(function() 
+            {
+                $('.campaignProduct .selectable input[type="checkbox"]').each(validatePremiums);
+            });
+        });
+    }
+    
+    $(document).ready(function() {
+        $('.form-input-wrapper input[name="givingFrequency"]').click(function() {
+            rc_labs.reloadCampaignAsks();
+            if($(this).val() == 'One Payment') {
+                $('.form-input-wrapper input[name="sustainer"]').attr('value','false');
+            }    
+        });
+        
+        // Load it now also
+        rc_labs.reloadCampaignAsks();
+    });
+    </apex:outputPanel>
+</apex:page>
