@@ -1,23 +1,24 @@
 <apex:page contentType="text/javascript" cache="false">
-    var rc_labs = rc_labs || {};
-    rc_labs.site = rc_labs.site || {};
-    rc_labs.site.currentPageUrl = "{!$CurrentPage.Url}";
-    rc_labs.site.currentSiteUrl = "{!$Site.CurrentSiteUrl}";
-    rc_labs.site.name = "{!$Site.Name}";
-    rc_labs.site.domain = "{!$Site.Domain}";
-    rc_labs.site.customWebAddress = "{!$Site.CustomWebAddress}";
-    rc_labs.form_context = null; // to be set later
+    
+    var rc_connect = rc_connect || {};
+    rc_connect.site = rc_connect.site || {};
+    rc_connect.site.currentPageUrl = "{!$CurrentPage.Url}";
+    rc_connect.site.currentSiteUrl = "{!$Site.CurrentSiteUrl}";
+    rc_connect.site.name = "{!$Site.Name}";
+    rc_connect.site.domain = "{!$Site.Domain}";
+    rc_connect.site.customWebAddress = "{!$Site.CustomWebAddress}";
+    rc_connect.form_context = null; // to be set later
     
     if (!window.console) console = {log: function() {}};
     
-    console.log('rc_labs = ', rc_labs);
+    console.log('rc_connect = ', rc_connect);
     
-    // rc_labs.parseUri 1.2.2
+    // rc_connect.parseUri 1.2.2
     // (c) Steven Levithan
     // MIT License
      
-    rc_labs.parseUri = function(str) {
-        var o   = rc_labs.parseUri.options,
+    rc_connect.parseUri = function(str) {
+        var o   = rc_connect.parseUri.options,
             m   = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
             uri = {},
             i   = 14;
@@ -32,7 +33,7 @@
         return uri;
     };
     
-    rc_labs.parseUri.options = {
+    rc_connect.parseUri.options = {
         strictMode: false,
         key: ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"],
         q:   {
@@ -53,11 +54,11 @@
     
     $(document).ready(function() {
         // Setup
-        var uri = rc_labs.parseUri(window.location.href);
+        var uri = rc_connect.parseUri(window.location.href);
         var context = $('form:first');
         
         // Save form context
-        rc_labs.form_context = context;
+        rc_connect.form_context = context;
         // Setup logging
         console.log('Script URL: {!$CurrentPage.Url}');
         console.log('Site Name: {!$Site.Name}');
@@ -72,11 +73,11 @@
         //
                 
         // This code should only run if there is no "payment method" field on the layout
-        var paymentMethod = $('input[name="paymentMethod"]', rc_labs.form_context);
+        var paymentMethod = $('input[name="paymentMethod"]', rc_connect.form_context);
         
         if (paymentMethod.length == 0) {
             // Find the submit button, and then get the 
-            var submit = $('input[type="submit"]:first', rc_labs.form_context);
+            var submit = $('input[type="submit"]:first', rc_connect.form_context);
             var before = submit.closest('.sc-view');
             
             // Payment header
@@ -112,7 +113,7 @@
         
         // Find the form and rewrite the form action method
         var node = null;
-        console.log('Form:', rc_labs.form_context);
+        console.log('Form:', rc_connect.form_context);
         
         // Add One Hidden Field for Giving Frequency if Given Frequency radio Button is given
         if ($('input[name="givingFrequency"][type="hidden"]').length == 0) {
@@ -205,59 +206,59 @@
             $('input[name="sfdcContactId"]', context).val(uri.queryKey.sfdcContactId);
         
         // Setup toggle for EFT/Charge Card
-        $('input[name="paymentMethod"]', rc_labs.form_context).click(rc_labs.togglePaymentMethod);
+        $('input[name="paymentMethod"]', rc_connect.form_context).click(rc_connect.togglePaymentMethod);
         
         // Toggle it right now
-        rc_labs.togglePaymentMethod();
+        rc_connect.togglePaymentMethod();
     }); 
     
     //
     // Toggle back and forth between displaying EFT and Charge Card payment methods
     //
     
-    rc_labs.showPaymentMethod_ChargeCard = function() {
-        $('[name="nameOnCard"]', rc_labs.form_context).closest('div.form-design-field').show();
-        $('[name="creditCardNumber"]', rc_labs.form_context).closest('div.form-design-field').show();
-        $('[name="expirationMonth"]', rc_labs.form_context).closest('div.form-design-field').show();
-        $('[name="expirationYear"]', rc_labs.form_context).closest('div.form-design-field').show();
-        $('[name="securityCode"]', rc_labs.form_context).closest('div.form-design-field').show();
+    rc_connect.showPaymentMethod_ChargeCard = function() {
+        $('[name="nameOnCard"]', rc_connect.form_context).closest('div.form-design-field').show();
+        $('[name="creditCardNumber"]', rc_connect.form_context).closest('div.form-design-field').show();
+        $('[name="expirationMonth"]', rc_connect.form_context).closest('div.form-design-field').show();
+        $('[name="expirationYear"]', rc_connect.form_context).closest('div.form-design-field').show();
+        $('[name="securityCode"]', rc_connect.form_context).closest('div.form-design-field').show();
     }
     
-    rc_labs.hidePaymentMethod_ChargeCard = function() {
-        $('[name="nameOnCard"]', rc_labs.form_context).closest('div.form-design-field').hide();
-        $('[name="creditCardNumber"]', rc_labs.form_context).closest('div.form-design-field').hide();
-        $('[name="expirationMonth"]', rc_labs.form_context).closest('div.form-design-field').hide();
-        $('[name="expirationYear"]', rc_labs.form_context).closest('div.form-design-field').hide();
-        $('[name="securityCode"]', rc_labs.form_context).closest('div.form-design-field').hide();
+    rc_connect.hidePaymentMethod_ChargeCard = function() {
+        $('[name="nameOnCard"]', rc_connect.form_context).closest('div.form-design-field').hide();
+        $('[name="creditCardNumber"]', rc_connect.form_context).closest('div.form-design-field').hide();
+        $('[name="expirationMonth"]', rc_connect.form_context).closest('div.form-design-field').hide();
+        $('[name="expirationYear"]', rc_connect.form_context).closest('div.form-design-field').hide();
+        $('[name="securityCode"]', rc_connect.form_context).closest('div.form-design-field').hide();
     }
     
-    rc_labs.showPaymentMethod_EFT = function() {
-        $('[name="bankAccountType"]', rc_labs.form_context).closest('div.form-design-field').show();
-        $('[name="bankAccountNumber"]', rc_labs.form_context).closest('div.form-design-field').show();
-        $('[name="bankRoutingNumber"]', rc_labs.form_context).closest('div.form-design-field').show();
+    rc_connect.showPaymentMethod_EFT = function() {
+        $('[name="bankAccountType"]', rc_connect.form_context).closest('div.form-design-field').show();
+        $('[name="bankAccountNumber"]', rc_connect.form_context).closest('div.form-design-field').show();
+        $('[name="bankRoutingNumber"]', rc_connect.form_context).closest('div.form-design-field').show();
     }
     
-    rc_labs.hidePaymentMethod_EFT = function() {
-        $('[name="bankAccountType"]', rc_labs.form_context).closest('div.form-design-field').hide();
-        $('[name="bankAccountNumber"]', rc_labs.form_context).closest('div.form-design-field').hide();
-        $('[name="bankRoutingNumber"]', rc_labs.form_context).closest('div.form-design-field').hide();
+    rc_connect.hidePaymentMethod_EFT = function() {
+        $('[name="bankAccountType"]', rc_connect.form_context).closest('div.form-design-field').hide();
+        $('[name="bankAccountNumber"]', rc_connect.form_context).closest('div.form-design-field').hide();
+        $('[name="bankRoutingNumber"]', rc_connect.form_context).closest('div.form-design-field').hide();
     }
     
-    rc_labs.togglePaymentMethod = function() {
-        var value = $('input[name="paymentMethod"]:checked', rc_labs.form_context).val();
+    rc_connect.togglePaymentMethod = function() {
+        var value = $('input[name="paymentMethod"]:checked', rc_connect.form_context).val();
         
         if (value == null) {
-            rc_labs.hidePaymentMethod_EFT();
-            rc_labs.hidePaymentMethod_ChargeCard();
+            rc_connect.hidePaymentMethod_EFT();
+            rc_connect.hidePaymentMethod_ChargeCard();
         } else if (value == 'EFT') {
-            rc_labs.showPaymentMethod_EFT();
-            rc_labs.hidePaymentMethod_ChargeCard();
+            rc_connect.showPaymentMethod_EFT();
+            rc_connect.hidePaymentMethod_ChargeCard();
         } else if (value == 'Charge Card') {
-            rc_labs.hidePaymentMethod_EFT();
-            rc_labs.showPaymentMethod_ChargeCard();
+            rc_connect.hidePaymentMethod_EFT();
+            rc_connect.showPaymentMethod_ChargeCard();
         } else {
-            rc_labs.hidePaymentMethod_EFT();
-            rc_labs.hidePaymentMethod_ChargeCard();
+            rc_connect.hidePaymentMethod_EFT();
+            rc_connect.hidePaymentMethod_ChargeCard();
         }
     }
     
@@ -268,9 +269,9 @@
     // Eloqua integration (premium display and ranking; bound to a special input field with the ID of "selectedProducts")
     //
     
-    rc_labs.reloadCampaignProducts = function() {
+    rc_connect.reloadCampaignProducts = function() {
         // Deselect and disable all the current ask amounts 
-        $('.campaignProduct', rc_labs.form_context).each(function() {
+        $('.campaignProduct', rc_connect.form_context).each(function() {
             $(this).removeClass('selected');
             $(this).css('opacity', '0.30');
         });
@@ -282,10 +283,10 @@
         console.log('... using requestURL', requestURL);
 
         $.getJSON(requestURL, function(campaignProductJsonList) {
-            console.log('rc_labs.reloadCampaignProducts(): Received data', campaignProductJsonList);
+            console.log('rc_connect.reloadCampaignProducts(): Received data', campaignProductJsonList);
             
             // Find the selected products field, and create a bunch of divs
-            var context = $('input[name="selectedProducts"]', rc_labs.form_context);
+            var context = $('input[name="selectedProducts"]', rc_connect.form_context);
             
             // Clear existing products
             $('div.campaignProductList', context.parent()).remove();
@@ -409,7 +410,7 @@
                 var localQuantity = '1';
                 var fieldValue = $('input[name="givingAmount"]:checked').val();
                 
-                $('.campaignProduct input[type="checkbox"]:checked', rc_labs.form_context).each(function() {
+                $('.campaignProduct input[type="checkbox"]:checked', rc_connect.form_context).each(function() {
                     localQuantity = '1';              
                     var quantity = $(this).closest('.campaignProduct').find('.rC_Connect__Product_Name__c input[type="text"]').attr('value');
                     if (quantity != "")
@@ -430,9 +431,9 @@
                                              
                 if (parseInt(totalAmount) > parseInt(fieldValue) &amp;&amp; parseInt(totalAmount) > 0) { 
                     alert('{!$Label.ELOQUA_NOTICE_DONATION_AMOUNT_INCREASED}');
-                    $('input[name="givingAmountOther"]',rc_labs.form_context).attr('value',totalAmount);
-                    $('input[name="givingAmountOther"]',rc_labs.form_context).parent().children('input[type="radio"]').attr('value',totalAmount);
-                    $('input[name="givingAmountOther"]',rc_labs.form_context).parent().children('input[type="radio"]').attr('checked','true');
+                    $('input[name="givingAmountOther"]',rc_connect.form_context).attr('value',totalAmount);
+                    $('input[name="givingAmountOther"]',rc_connect.form_context).parent().children('input[type="radio"]').attr('value',totalAmount);
+                    $('input[name="givingAmountOther"]',rc_connect.form_context).parent().children('input[type="radio"]').attr('checked','true');
                 }    
                 
                 
@@ -442,21 +443,21 @@
                 console.log('... selectedProductIds = ', selectedProductIds);
                 
                 // Save product IDs to hidden field
-                $('input[name="selectedProducts"]', rc_labs.form_context).val(selectedProductIds);
+                $('input[name="selectedProducts"]', rc_connect.form_context).val(selectedProductIds);
             }    
             
         });
     }
     
     $(document).ready(function() {
-        $('.form-input-wrapper input[name="givingFrequency"]').click(function() {
+        $('input[name="givingFrequency"]').click(function() {
             $('input[name="givingFrequency"][type="hidden"]').val($(this).val());
-            rc_labs.reloadCampaignProducts();
+            rc_connect.reloadCampaignProducts();
             
         });
         
         // Load it now also
-        rc_labs.reloadCampaignProducts();
+        rc_connect.reloadCampaignProducts();
     });
     </apex:outputPanel>
 
@@ -483,8 +484,8 @@
     // Eloqua integration (ask strings; optionally based on contact ID)
     //
     
-    rc_labs.reloadCampaignAsks = function() {
-        console.log('rc_labs.reloadCampaignAsks() starting');
+    rc_connect.reloadCampaignAsks = function() {
+        console.log('rc_connect.reloadCampaignAsks() starting');
         
         var requestURL = 'https://{!$Site.Domain}{!$Page.rC_Connect__Campaign_ExposeTimeslotAsks}?callback=?';
         requestURL += '&amp;limit=1';  
@@ -504,10 +505,11 @@
         
         // Send the request
         $.getJSON(requestURL, function(campaignAskJsonList) {
-            console.log('rc_labs.reloadCampaignAsks(): Received data', campaignAskJsonList);
+            console.log('rc_connect.reloadCampaignAsks(): Received data', campaignAskJsonList);
             
             // Where's our wrapping element?
-            var context = $('input[name="givingAmount"]:first').closest('.form-input-wrapper div');
+            var context = $('input[name="givingAmount"]:first', rc_connect.form_context);
+            context = context.closest('p'); // givingAmount wrapping
             console.log('... using context', context);
             
             // Mimic eloqua form structure
@@ -523,7 +525,7 @@
                 console.log('.. fieldValue = ', fieldValue);
                 console.log('.. localValue = ', localValue);
                 
-                $('.campaignProduct input[type="checkbox"]:checked', rc_labs.form_context).removeAttr('checked');
+                $('.campaignProduct input[type="checkbox"]:checked', rc_connect.form_context).removeAttr('checked');
                 $(this).closest('.campaignProduct').removeClass('disabled');
                 //$(this).closest.('.rC_Connect__Allow_Multiple__c').removeClass('disabled');
                 $(this).closest('.campaignProduct').find('.rC_Connect__Product_Name__c input[type="text"]').removeAttr('disabled');
@@ -531,7 +533,7 @@
                 $(this).closest('.campaignProduct').find('.rC_Connect__Product_Name__c').find('.subItem').css('color','black');
                 $(this).prop('disabled', false);
                  
-               $('.Bonus input[type="checkbox"]:not(:checked)', rc_labs.form_context).each(function() {
+               $('.Bonus input[type="checkbox"]:not(:checked)', rc_connect.form_context).each(function() {
                     localQuantity = '1';              
                     var quantity = $(this).closest('.campaignProduct').find('.rC_Connect__Product_Name__c input[type="text"]').attr('value');
                     if (quantity != "")
@@ -630,7 +632,7 @@
             }
             
             // Clear existing data
-            context.html(null);
+            $('span', context).remove();
             
             // If there is no data, add three basic amounts 
             if (campaignAskJsonList.length == 0) {
@@ -655,15 +657,15 @@
     }
     
     $(document).ready(function() {
-        $('.form-input-wrapper input[name="givingFrequency"]').click(function() {
-            rc_labs.reloadCampaignAsks();
+        $('input[name="givingFrequency"]').click(function() {
+            rc_connect.reloadCampaignAsks();
             if($(this).val() == 'One Payment') {
-                $('.form-input-wrapper input[name="sustainer"]').attr('value','false');
+                $('input[name="sustainer"]').attr('value','false');
             }    
         });
         
         // Load it now also
-        rc_labs.reloadCampaignAsks();
+        rc_connect.reloadCampaignAsks();
     });
     </apex:outputPanel>
 </apex:page>
