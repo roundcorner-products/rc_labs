@@ -17,8 +17,10 @@ public class Preference_SetArchiveBatchableTest {
         
         System.assert(null != preference.Id, 'Preference_SetArchiveBatchableTest.test() : Preference record insertion is failed'+preference);
         
+        System.assertEquals(false, [select rC_Bios__Archive_Flag__c from rC_Bios__Preference__c where Id =: preference.Id].rC_Bios__Archive_Flag__c, 'Preference_SetArchiveBatchableTest.test() : Archived Preference record inserted'+preference);
         Test.startTest();
         System.assert(true, Database.executeBatch(new Preference_SetArchiveBatchable(), 1) != null);
         Test.stopTest();
+        System.assertEquals(true, [select rC_Bios__Archive_Flag__c from rC_Bios__Preference__c where Id =: preference.Id].rC_Bios__Archive_Flag__c, 'Preference_SetArchiveBatchableTest.test() : Preference record updation is failed'+preference);
     }
 }

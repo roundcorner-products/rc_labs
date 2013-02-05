@@ -18,8 +18,10 @@ public class Opportunity_SetArchiveBatchableTest {
         
         System.assert(null != opportunity.Id, 'Opportunity_SetArchiveBatchableTest.test() : Opportunity record insertion is failed'+opportunity);
         
+        System.assertEquals(false, [select rC_Giving__Archive_Flag__c from Opportunity where Id =: opportunity.Id].rC_Giving__Archive_Flag__c, 'Opportunity_SetArchiveBatchableTest.test() : Archived Opportunity record inserted'+opportunity);
         Test.startTest();
         System.assert(true, Database.executeBatch(new Opportunity_SetArchiveBatchable(), 1) != null);
         Test.stopTest();
+        System.assertEquals(true, [select rC_Giving__Archive_Flag__c from Opportunity where Id =: opportunity.Id].rC_Giving__Archive_Flag__c, 'Opportunity_SetArchiveBatchableTest.test() : Opportunity record updation is failed'+opportunity);
     }
 }

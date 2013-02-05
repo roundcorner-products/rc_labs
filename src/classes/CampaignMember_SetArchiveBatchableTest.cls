@@ -25,8 +25,11 @@ public class CampaignMember_SetArchiveBatchableTest {
         
         System.assert(null != campaignMember.Id, 'CampaignMember_SetArchiveBatchableTest.test() : CampaignMember record insertion is failed'+campaignMember);
         
+        System.assertEquals(false, [select rC_Giving__Archive_Flag__c from CampaignMember where Id =: campaignMember.Id].rC_Giving__Archive_Flag__c, 'CampaignMember_SetArchiveBatchableTest.test() : Archived CampaignMember record inserted'+campaignMember);
         Test.startTest();
         System.assert(true, Database.executeBatch(new CampaignMember_SetArchiveBatchable(), 1) != null);
         Test.stopTest();
+        
+        System.assertEquals(true, [select rC_Giving__Archive_Flag__c from CampaignMember where Id =: campaignMember.Id].rC_Giving__Archive_Flag__c, 'CampaignMember_SetArchiveBatchableTest.test() : CampaignMember record updation is failed'+campaignMember);
     }
 }

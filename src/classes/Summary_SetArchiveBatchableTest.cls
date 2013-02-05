@@ -16,8 +16,10 @@ public class Summary_SetArchiveBatchableTest {
         
         System.assert(null != summary.Id, 'Summary_SetArchiveBatchableTest.test() : Summary record insertion is failed'+summary);
         
+        System.assertEquals(false, [select rC_Giving__Archive_Flag__c from rC_Giving__Summary__c where Id =: summary.Id].rC_Giving__Archive_Flag__c, 'Summary_SetArchiveBatchableTest.test() : Archived Summary record inserted'+summary);
         Test.startTest();
         System.assert(true, Database.executeBatch(new Summary_SetArchiveBatchable(), 1) != null);
         Test.stopTest();
+        System.assertEquals(true, [select rC_Giving__Archive_Flag__c from rC_Giving__Summary__c where Id =: summary.Id].rC_Giving__Archive_Flag__c, 'Summary_SetArchiveBatchableTest.test() : Summary record updation is failed'+summary);
     }
 }

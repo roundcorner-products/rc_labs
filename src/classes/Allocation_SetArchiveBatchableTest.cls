@@ -31,8 +31,11 @@ public class Allocation_SetArchiveBatchableTest {
         
         System.assert(null != allocation.Id, 'Allocation_SetArchiveBatchableTest.test() : Allocation record insertion is failed'+allocation);
         
+        System.assertEquals(false, [select rC_Giving__Archive_Flag__c from rC_Giving__Opportunity_Allocation__c where Id =: allocation.Id].rC_Giving__Archive_Flag__c, 'Allocation_SetArchiveBatchableTest.test() : Archived Allocation record inserted'+allocation);
         Test.startTest();
         System.assert(true, Database.executeBatch(new Allocation_SetArchiveBatchable(), 1) != null);
         Test.stopTest();
+        
+        System.assertEquals(true, [select rC_Giving__Archive_Flag__c from rC_Giving__Opportunity_Allocation__c where Id =: allocation.Id].rC_Giving__Archive_Flag__c, 'Allocation_SetArchiveBatchableTest.test() : Allocation record updation is failed'+allocation);
     }
 }

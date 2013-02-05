@@ -26,8 +26,10 @@ public class Credit_SetArchiveBatchableTest {
         
         System.assert(null != credit.Id, 'Credit_SetArchiveBatchableTest.test() : Credit record insertion is failed'+credit);
         
+        System.assertEquals(false, [select rC_Giving__Archive_Flag__c from rC_Giving__Opportunity_Credit__c where Id =: credit.Id].rC_Giving__Archive_Flag__c, 'Credit_SetArchiveBatchableTest.test() : Archived Credit record inserted'+credit);
         Test.startTest();
         System.assert(true, Database.executeBatch(new Credit_SetArchiveBatchable(), 1) != null);
         Test.stopTest();
+        System.assertEquals(true, [select rC_Giving__Archive_Flag__c from rC_Giving__Opportunity_Credit__c where Id =: credit.Id].rC_Giving__Archive_Flag__c, 'Credit_SetArchiveBatchableTest.test() : Credit record updation is failed'+credit);
     }
 }
