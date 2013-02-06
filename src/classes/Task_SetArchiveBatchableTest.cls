@@ -24,6 +24,6 @@ public class Task_SetArchiveBatchableTest {
         Test.startTest();
         System.assert(true, Database.executeBatch(new Task_SetArchiveBatchable(), 1) != null);
         Test.stopTest();
-        System.assertEquals(true, [select rC_Bios__Archive_Flag__c from Task where Id =: task.Id].rC_Bios__Archive_Flag__c, 'Task_SetArchiveBatchableTest.test() : Summary record updation is failed'+task);
+        System.assertEquals(true, [select rC_Bios__Archive_Flag__c from Task where Id =: task.Id].rC_Bios__Archive_Flag__c, 'Task_SetArchiveBatchableTest.test() : Task record updation is failed'+task);
     }
 }
