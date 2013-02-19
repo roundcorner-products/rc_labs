@@ -6,7 +6,7 @@ global class Task_SetArchiveBatchable implements Database.Batchable<sObject> {
                  , Account.rC_Giving__Lifetime_Is_Major_Giver__c
                  , ActivityDate
               from Task
-             where ActivityDate >= :Date.today().addYears(-2)
+             where ActivityDate < :Date.today().addYears(-2)
                and Account.rC_Giving__Lifetime_Is_Major_Giver__c = false
                and Status = 'Completed'
         ]);

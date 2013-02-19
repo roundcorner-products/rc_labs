@@ -6,7 +6,7 @@ global class Case_SetArchiveBatchable implements Database.Batchable<sObject> {
                  , Account.rC_Giving__Lifetime_Is_Major_Giver__c
                  , ClosedDate
               from Case
-             where ClosedDate >= :Date.today().addYears(-2)
+             where ClosedDate < :Date.today().addYears(-2)
                and Account.rC_Giving__Lifetime_Is_Major_Giver__c = false
         ]);
     }

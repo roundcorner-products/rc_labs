@@ -6,7 +6,7 @@ global class Preference_SetArchiveBatchable implements Database.Batchable<sObjec
                  , rC_Bios__Account__r.rC_Giving__Lifetime_Is_Major_Giver__c
                  , rC_Bios__End_Date__c
               from rC_Bios__Preference__c
-             where rC_Bios__Status__c = 'Inactive'
+             where rC_Bios__Active__c = false
                and ( rC_Bios__End_Date__c < :Date.today()
                    or rC_Bios__End_Date__c = null )
                and rC_Bios__Account__r.rC_Giving__Lifetime_Is_Major_Giver__c = false
