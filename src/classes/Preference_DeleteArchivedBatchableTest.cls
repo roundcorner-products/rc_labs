@@ -12,9 +12,9 @@ public class Preference_DeleteArchivedBatchableTest {
         rC_Bios__Preference__c preference = new rC_Bios__Preference__c();
         preference.rC_Bios__Account__c = account.Id;
         preference.rC_Bios__Category__c = 'Education';
-        preference.rC_Bios__Status__c = 'Inactive';
+        preference.rC_Bios__Active__c = false;
         preference.rC_Bios__Archive_Flag__c = true;
-        insert preference;
+        insert preference;       
         
         System.assert(null != preference.Id, 'Preference_DeleteArchivedBatchableTest.test() : Preference record insertion is failed'+preference);
         

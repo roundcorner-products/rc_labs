@@ -14,7 +14,7 @@ public class Task_DeleteArchivedBatchableTest {
         task.WhatId = account.Id;
         task.Subject = 'Email';
         task.Status = 'Completed';
-        task.ActivityDate = Date.today();
+        task.ActivityDate =  Date.today().addYears(-3);
         task.Priority = 'Normal';
         task.rC_Bios__Archive_Flag__c = true;
         insert task;

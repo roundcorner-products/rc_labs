@@ -12,7 +12,7 @@ public class Preference_SetArchiveBatchableTest {
         rC_Bios__Preference__c preference = new rC_Bios__Preference__c();
         preference.rC_Bios__Account__c = account.Id;
         preference.rC_Bios__Category__c = 'Education';
-        preference.rC_Bios__Status__c = 'Inactive';
+        preference.rC_Bios__Active__c = false;
         insert preference;
         
         System.assert(null != preference.Id, 'Preference_SetArchiveBatchableTest.test() : Preference record insertion is failed'+preference);

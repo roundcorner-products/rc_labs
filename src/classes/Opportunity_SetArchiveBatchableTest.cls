@@ -13,7 +13,7 @@ public class Opportunity_SetArchiveBatchableTest {
         opportunity.AccountId = account.Id;
         opportunity.Name = 'Opportunity Name';
         opportunity.StageName = 'Closed';
-        opportunity.CloseDate = Date.today();
+        opportunity.CloseDate = Date.today().addYears(-6);
         insert opportunity;
         
         System.assert(null != opportunity.Id, 'Opportunity_SetArchiveBatchableTest.test() : Opportunity record insertion is failed'+opportunity);

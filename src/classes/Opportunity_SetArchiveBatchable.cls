@@ -6,7 +6,7 @@ global class Opportunity_SetArchiveBatchable implements Database.Batchable<sObje
                  , Account.rC_Giving__Lifetime_Is_Major_Giver__c
                  , CloseDate
               from Opportunity
-             where CloseDate >= :Date.today().addYears(-5)
+             where CloseDate < :Date.today().addYears(-5)
                and Account.rC_Giving__Lifetime_Is_Major_Giver__c = false
         ]);
     }

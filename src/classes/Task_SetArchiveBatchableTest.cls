@@ -14,7 +14,7 @@ public class Task_SetArchiveBatchableTest {
         task.WhatId = account.Id;
         task.Subject = 'Email';
         task.Status = 'Completed';
-        task.ActivityDate = Date.today();
+        task.ActivityDate = Date.today().addYears(-3);
         task.Priority = 'Normal';
         insert task;
         
