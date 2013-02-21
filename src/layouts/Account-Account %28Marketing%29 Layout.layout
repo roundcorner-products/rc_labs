@@ -214,6 +214,7 @@
         <fields>OPPORTUNITY.STAGE_NAME</fields>
         <fields>OPPORTUNITY.AMOUNT</fields>
         <fields>OPPORTUNITY.CLOSE_DATE</fields>
+        <fields>rC_Giving__Giving_Type__c</fields>
         <relatedList>RelatedOpportunityList</relatedList>
     </relatedLists>
     <relatedLists>
