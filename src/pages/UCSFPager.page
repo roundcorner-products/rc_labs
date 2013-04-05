@@ -1,0 +1,51 @@
+<apex:page >
+    <style type="text/css">
+.mainForm .tabbar {
+	padding-left: 0.5em;
+	border-bottom: 1px solid #aaa;
+}
+
+.mainForm .tabbar .tab {
+	display: inline-block;
+	padding: 1em;
+	margin-right: 0.25em;
+	border: 1px solid #aaa;
+	border-bottom: none;
+	min-width: 10em;
+	text-align: center;
+	font-size: 120%;
+}
+</style>
+
+    <apex:form styleClass="mainForm">
+        <apex:outputPanel layout="block" styleClass="column-1"></apex:outputPanel>
+
+        <apex:outputPanel layout="block" styleClass="column-2">
+            <apex:outputPanel layout="block" styleClass="tabbar">
+                <apex:outputPanel layout="block" styleClass="tab all-providers current">
+                    <apex:outputLink value="#">All Providers</apex:outputLink>
+                </apex:outputPanel>
+
+                <apex:outputPanel layout="block" styleClass="tab all-patients">
+                    <apex:outputLink value="#">All Patients</apex:outputLink>
+                </apex:outputPanel>
+
+                <apex:outputPanel layout="block" styleClass="tab recent-providers">
+                    <apex:outputLink value="#">Recent Providers</apex:outputLink>
+                </apex:outputPanel>
+
+                <apex:outputPanel layout="block" styleClass="tab recent-patients">
+                    <apex:outputLink value="#">Recent Providers</apex:outputLink>
+                </apex:outputPanel>
+
+                <apex:outputPanel layout="block" styleClass="tab history">
+                    <apex:outputLink value="#">History</apex:outputLink>
+                </apex:outputPanel>
+
+                <apex:outputPanel layout="bloc" styleClass="spacer">&nbsp;</apex:outputPanel>
+            </apex:outputPanel>
+        </apex:outputPanel>
+
+        <apex:outputPanel layout="block" styleClass="column-3"></apex:outputPanel>
+    </apex:form>
+</apex:page>
