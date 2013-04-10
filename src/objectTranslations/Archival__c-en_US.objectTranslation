@@ -9,18 +9,6 @@
         <value>Archival</value>
     </caseValues>
     <fields>
-        <label><!-- CampaignMember --></label>
-        <name>CampaignMember__c</name>
-    </fields>
-    <fields>
-        <label><!-- Campaign --></label>
-        <name>Campaign__c</name>
-    </fields>
-    <fields>
-        <label><!-- Case --></label>
-        <name>Case__c</name>
-    </fields>
-    <fields>
         <label><!-- Database Type --></label>
         <name>Database_Type__c</name>
     </fields>
@@ -31,14 +19,6 @@
     <fields>
         <label><!-- Host --></label>
         <name>Host__c</name>
-    </fields>
-    <fields>
-        <label><!-- OpportunityLineItem --></label>
-        <name>OpportunityLineItem__c</name>
-    </fields>
-    <fields>
-        <label><!-- Opportunity --></label>
-        <name>Opportunity__c</name>
     </fields>
     <fields>
         <label><!-- Password --></label>
@@ -57,24 +37,53 @@
         <name>User_Name__c</name>
     </fields>
     <fields>
-        <label><!-- rC_Bios_Preferences__c --></label>
-        <name>rC_Bios_Preferences_c__c</name>
+        <help><!-- the RESTAPI URL for CampaignMember object --></help>
+        <label><!-- restapi_CampaignMember --></label>
+        <name>restapi_CampaignMember__c</name>
     </fields>
     <fields>
-        <label><!-- rC_Giving_Deliverable__c --></label>
-        <name>rC_Giving_Deliverable_c__c</name>
+        <help><!-- the RESTAPI URL for the Case object --></help>
+        <label><!-- restapi_Case --></label>
+        <name>restapi_Case__c</name>
     </fields>
     <fields>
-        <label><!-- rC_Giving__Opportunity_Allocation__c --></label>
-        <name>rC_Giving_Opportunity_Allocation_c__c</name>
+        <help><!-- the RESTAPI URL for OpportunityLineItem object --></help>
+        <label><!-- restapi_OpportunityLineItem --></label>
+        <name>restapi_OpportunityLineItem__c</name>
     </fields>
     <fields>
-        <label><!-- rC_Giving__Opportunity_Credit__c --></label>
-        <name>rC_Giving_Opportunity_Credit_c__c</name>
+        <help><!-- the RESTAPI URL for the Opportunity object --></help>
+        <label><!-- restapi_Opportunity --></label>
+        <name>restapi_Opportunity__c</name>
     </fields>
     <fields>
-        <label><!-- rC_Giving__Payment Method__c --></label>
-        <name>rC_Giving_Payment_Method_c__c</name>
+        <help><!-- the RESTAPI URL for the Task object --></help>
+        <label><!-- restapi_Task --></label>
+        <name>restapi_Task__c</name>
+    </fields>
+    <fields>
+        <label><!-- restapi_rC_Bios_Preferences__c --></label>
+        <name>restapi_rC_Bios_Preferences_c__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for rC_giving_Deliverable object --></help>
+        <label><!-- restapi_rC_Giving_Deliverable__c --></label>
+        <name>restapi_rC_Giving_Deliverable_c__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for the rC_Giving__Opportunity_Credit__c object --></help>
+        <label><!-- restapi_rC_Giving__Opportunity_Credit__c --></label>
+        <name>restapi_rC_Giving_Opportunity_Credit_c__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for the rC_Giving__Opportunity_Allocation__c object --></help>
+        <label><!-- restapi_rC_Giving__Opty_Allocation --></label>
+        <name>restapi_rC_Giving_Opty_Allocation_c__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for the rC_Giving__Payment_Method__c object --></help>
+        <label><!-- restapi_rC_Giving__Payment Method__c --></label>
+        <name>restapi_rC_Giving_Payment_Method_c__c</name>
     </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

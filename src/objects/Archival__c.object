@@ -4,27 +4,6 @@
     <customSettingsVisibility>Public</customSettingsVisibility>
     <enableFeeds>false</enableFeeds>
     <fields>
-        <fullName>CampaignMember__c</fullName>
-        <externalId>false</externalId>
-        <label>CampaignMember</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>Campaign__c</fullName>
-        <externalId>false</externalId>
-        <label>Campaign</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>Case__c</fullName>
-        <externalId>false</externalId>
-        <label>Case</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
         <fullName>Database_Type__c</fullName>
         <externalId>false</externalId>
         <label>Database Type</label>
@@ -50,20 +29,6 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>OpportunityLineItem__c</fullName>
-        <externalId>false</externalId>
-        <label>OpportunityLineItem</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>Opportunity__c</fullName>
-        <externalId>false</externalId>
-        <label>Opportunity</label>
-        <required>false</required>
-        <type>Url</type>
     </fields>
     <fields>
         <fullName>Password__c</fullName>
@@ -102,37 +67,90 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>rC_Bios_Preferences_c__c</fullName>
+        <fullName>restapi_CampaignMember__c</fullName>
+        <description>the RESTAPI URL for CampaignMember object</description>
         <externalId>false</externalId>
-        <label>rC_Bios_Preferences__c</label>
+        <inlineHelpText>the RESTAPI URL for CampaignMember object</inlineHelpText>
+        <label>restapi_CampaignMember</label>
         <required>false</required>
         <type>Url</type>
     </fields>
     <fields>
-        <fullName>rC_Giving_Deliverable_c__c</fullName>
+        <fullName>restapi_Case__c</fullName>
+        <description>the RESTAPI URL for the Case object</description>
         <externalId>false</externalId>
-        <label>rC_Giving_Deliverable__c</label>
+        <inlineHelpText>the RESTAPI URL for the Case object</inlineHelpText>
+        <label>restapi_Case</label>
         <required>false</required>
         <type>Url</type>
     </fields>
     <fields>
-        <fullName>rC_Giving_Opportunity_Allocation_c__c</fullName>
+        <fullName>restapi_OpportunityLineItem__c</fullName>
+        <description>the RESTAPI URL for OpportunityLineItem object</description>
         <externalId>false</externalId>
-        <label>rC_Giving__Opportunity_Allocation__c</label>
+        <inlineHelpText>the RESTAPI URL for OpportunityLineItem object</inlineHelpText>
+        <label>restapi_OpportunityLineItem</label>
         <required>false</required>
         <type>Url</type>
     </fields>
     <fields>
-        <fullName>rC_Giving_Opportunity_Credit_c__c</fullName>
+        <fullName>restapi_Opportunity__c</fullName>
+        <description>the RESTAPI URL for the Opportunity object</description>
         <externalId>false</externalId>
-        <label>rC_Giving__Opportunity_Credit__c</label>
+        <inlineHelpText>the RESTAPI URL for the Opportunity object</inlineHelpText>
+        <label>restapi_Opportunity</label>
         <required>false</required>
         <type>Url</type>
     </fields>
     <fields>
-        <fullName>rC_Giving_Payment_Method_c__c</fullName>
+        <fullName>restapi_Task__c</fullName>
+        <description>the RESTAPI URL for the Task object</description>
         <externalId>false</externalId>
-        <label>rC_Giving__Payment Method__c</label>
+        <inlineHelpText>the RESTAPI URL for the Task object</inlineHelpText>
+        <label>restapi_Task</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>restapi_rC_Bios_Preferences_c__c</fullName>
+        <externalId>false</externalId>
+        <label>restapi_rC_Bios_Preferences__c</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>restapi_rC_Giving_Deliverable_c__c</fullName>
+        <description>the RESTAPI URL for rC_giving_Deliverable object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for rC_giving_Deliverable object</inlineHelpText>
+        <label>restapi_rC_Giving_Deliverable__c</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>restapi_rC_Giving_Opportunity_Credit_c__c</fullName>
+        <description>the RESTAPI URL for the rC_Giving__Opportunity_Credit__c object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for the rC_Giving__Opportunity_Credit__c object</inlineHelpText>
+        <label>restapi_rC_Giving__Opportunity_Credit__c</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>restapi_rC_Giving_Opty_Allocation_c__c</fullName>
+        <description>the RESTAPI URL for the rC_Giving__Opportunity_Allocation__c object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for the rC_Giving__Opportunity_Allocation__c object</inlineHelpText>
+        <label>restapi_rC_Giving__Opty_Allocation</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>restapi_rC_Giving_Payment_Method_c__c</fullName>
+        <description>the RESTAPI URL for the rC_Giving__Payment_Method__c object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for the rC_Giving__Payment_Method__c object</inlineHelpText>
+        <label>restapi_rC_Giving__Payment Method__c</label>
         <required>false</required>
         <type>Url</type>
     </fields>
