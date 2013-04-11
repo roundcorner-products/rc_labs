@@ -9,30 +9,37 @@
         <value>Archival</value>
     </caseValues>
     <fields>
+        <help><!-- roundData database type (used to retrieve archive records) --></help>
         <label><!-- Database Type --></label>
         <name>Database_Type__c</name>
     </fields>
     <fields>
+        <help><!-- roundData database name (used to retrieve archive records) --></help>
         <label><!-- Database --></label>
         <name>Database__c</name>
     </fields>
     <fields>
+        <help><!-- roundData database host name (used to retrieve archive records) --></help>
         <label><!-- Host --></label>
         <name>Host__c</name>
     </fields>
     <fields>
+        <help><!-- roundData database password (used to retrieve archive records) --></help>
         <label><!-- Password --></label>
         <name>Password__c</name>
     </fields>
     <fields>
+        <help><!-- roundData database port (used to retrieve archive records) --></help>
         <label><!-- Port --></label>
         <name>Port__c</name>
     </fields>
     <fields>
+        <help><!-- roundData database schema (used to retrieve archive records) --></help>
         <label><!-- Schema --></label>
         <name>Schema__c</name>
     </fields>
     <fields>
+        <help><!-- roundData database user name (used to retrieve archive records) --></help>
         <label><!-- User Name --></label>
         <name>User_Name__c</name>
     </fields>

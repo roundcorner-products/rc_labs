@@ -5,7 +5,10 @@
     <enableFeeds>false</enableFeeds>
     <fields>
         <fullName>Database_Type__c</fullName>
+        <defaultValue>&quot;mySQL&quot;</defaultValue>
+        <description>roundData database type (used to retrieve archive records)</description>
         <externalId>false</externalId>
+        <inlineHelpText>roundData database type (used to retrieve archive records)</inlineHelpText>
         <label>Database Type</label>
         <length>255</length>
         <required>false</required>
@@ -14,7 +17,9 @@
     </fields>
     <fields>
         <fullName>Database__c</fullName>
+        <description>roundData database name (used to retrieve archive records)</description>
         <externalId>false</externalId>
+        <inlineHelpText>roundData database name (used to retrieve archive records)</inlineHelpText>
         <label>Database</label>
         <length>255</length>
         <required>false</required>
@@ -23,7 +28,9 @@
     </fields>
     <fields>
         <fullName>Host__c</fullName>
+        <description>roundData database host name (used to retrieve archive records)</description>
         <externalId>false</externalId>
+        <inlineHelpText>roundData database host name (used to retrieve archive records)</inlineHelpText>
         <label>Host</label>
         <length>255</length>
         <required>false</required>
@@ -32,7 +39,9 @@
     </fields>
     <fields>
         <fullName>Password__c</fullName>
+        <description>roundData database password (used to retrieve archive records)</description>
         <externalId>false</externalId>
+        <inlineHelpText>roundData database password (used to retrieve archive records)</inlineHelpText>
         <label>Password</label>
         <length>255</length>
         <required>false</required>
@@ -41,7 +50,10 @@
     </fields>
     <fields>
         <fullName>Port__c</fullName>
+        <defaultValue>&quot;3306&quot;</defaultValue>
+        <description>roundData database port (used to retrieve archive records)</description>
         <externalId>false</externalId>
+        <inlineHelpText>roundData database port (used to retrieve archive records)</inlineHelpText>
         <label>Port</label>
         <length>255</length>
         <required>false</required>
@@ -50,7 +62,9 @@
     </fields>
     <fields>
         <fullName>Schema__c</fullName>
+        <description>roundData database schema (used to retrieve archive records)</description>
         <externalId>false</externalId>
+        <inlineHelpText>roundData database schema (used to retrieve archive records)</inlineHelpText>
         <label>Schema</label>
         <length>255</length>
         <required>false</required>
@@ -59,7 +73,9 @@
     </fields>
     <fields>
         <fullName>User_Name__c</fullName>
+        <description>roundData database user name (used to retrieve archive records)</description>
         <externalId>false</externalId>
+        <inlineHelpText>roundData database user name (used to retrieve archive records)</inlineHelpText>
         <label>User Name</label>
         <length>255</length>
         <required>false</required>
