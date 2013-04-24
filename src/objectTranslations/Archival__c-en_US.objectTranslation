@@ -34,6 +34,61 @@
         <name>Port__c</name>
     </fields>
     <fields>
+        <help><!-- the RESTAPI URL for CampaignMember object --></help>
+        <label><!-- RESTful API CampaignMember --></label>
+        <name>RESTapi_CampaignMember_del__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for the Case object --></help>
+        <label><!-- RESTful API Case --></label>
+        <name>RESTapi_Case__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for OpportunityLineItem object --></help>
+        <label><!-- RESTful API OpportunityLineItem --></label>
+        <name>RESTapi_OpportunityLineItem__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for the Opportunity object --></help>
+        <label><!-- RESTful API Opportunity --></label>
+        <name>RESTapi_Opportunity__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for the Task object --></help>
+        <label><!-- RESTful API Task --></label>
+        <name>RESTapi_Task_del__c</name>
+    </fields>
+    <fields>
+        <help><!-- RESTful API address for preference --></help>
+        <label><!-- RESTful API Preference --></label>
+        <name>RESTapi_rC_Bios_Preference_del__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for rC_giving_Deliverable object --></help>
+        <label><!-- RESTful API Giving_Deliverable --></label>
+        <name>RESTapi_rC_Giving_Deliverable__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for the rC_Giving__Opportunity_Allocation__c object --></help>
+        <label><!-- RESTful API Opportunity_Allocation --></label>
+        <name>RESTapi_rC_Giving_Opportunity_Allocation__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for the rC_Giving__Opportunity_Credit__c object --></help>
+        <label><!-- RESTful API Opportunity_Credit --></label>
+        <name>RESTapi_rC_Giving_Opportunity_Credit__c</name>
+    </fields>
+    <fields>
+        <help><!-- the RESTAPI URL for the rC_Giving__Payment_Method__c object --></help>
+        <label><!-- RESTful API Payment Method --></label>
+        <name>RESTapi_rC_Giving_Payment_Method__c</name>
+    </fields>
+    <fields>
+        <help><!-- The host for the RESTful API service --></help>
+        <label><!-- RESTful Host --></label>
+        <name>RESTful_Host__c</name>
+    </fields>
+    <fields>
         <help><!-- roundData database schema (used to retrieve archive records) --></help>
         <label><!-- Schema --></label>
         <name>Schema__c</name>
@@ -42,55 +97,6 @@
         <help><!-- roundData database user name (used to retrieve archive records) --></help>
         <label><!-- User Name --></label>
         <name>User_Name__c</name>
-    </fields>
-    <fields>
-        <help><!-- the RESTAPI URL for CampaignMember object --></help>
-        <label><!-- restapi_CampaignMember --></label>
-        <name>restapi_CampaignMember__c</name>
-    </fields>
-    <fields>
-        <help><!-- the RESTAPI URL for the Case object --></help>
-        <label><!-- restapi_Case --></label>
-        <name>restapi_Case__c</name>
-    </fields>
-    <fields>
-        <help><!-- the RESTAPI URL for OpportunityLineItem object --></help>
-        <label><!-- restapi_OpportunityLineItem --></label>
-        <name>restapi_OpportunityLineItem__c</name>
-    </fields>
-    <fields>
-        <help><!-- the RESTAPI URL for the Opportunity object --></help>
-        <label><!-- restapi_Opportunity --></label>
-        <name>restapi_Opportunity__c</name>
-    </fields>
-    <fields>
-        <help><!-- the RESTAPI URL for the Task object --></help>
-        <label><!-- restapi_Task --></label>
-        <name>restapi_Task__c</name>
-    </fields>
-    <fields>
-        <label><!-- restapi_rC_Bios_Preferences__c --></label>
-        <name>restapi_rC_Bios_Preferences_c__c</name>
-    </fields>
-    <fields>
-        <help><!-- the RESTAPI URL for rC_giving_Deliverable object --></help>
-        <label><!-- restapi_rC_Giving_Deliverable__c --></label>
-        <name>restapi_rC_Giving_Deliverable_c__c</name>
-    </fields>
-    <fields>
-        <help><!-- the RESTAPI URL for the rC_Giving__Opportunity_Credit__c object --></help>
-        <label><!-- restapi_rC_Giving__Opportunity_Credit__c --></label>
-        <name>restapi_rC_Giving_Opportunity_Credit_c__c</name>
-    </fields>
-    <fields>
-        <help><!-- the RESTAPI URL for the rC_Giving__Opportunity_Allocation__c object --></help>
-        <label><!-- restapi_rC_Giving__Opty_Allocation --></label>
-        <name>restapi_rC_Giving_Opty_Allocation_c__c</name>
-    </fields>
-    <fields>
-        <help><!-- the RESTAPI URL for the rC_Giving__Payment_Method__c object --></help>
-        <label><!-- restapi_rC_Giving__Payment Method__c --></label>
-        <name>restapi_rC_Giving_Payment_Method_c__c</name>
     </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>

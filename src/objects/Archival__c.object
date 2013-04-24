@@ -61,6 +61,136 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>RESTapi_CampaignMember_del__c</fullName>
+        <defaultValue>&quot;/CampaignMember/GetAccount?accountId=&quot;</defaultValue>
+        <description>the RESTAPI URL for CampaignMember object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for CampaignMember object</inlineHelpText>
+        <label>RESTful API CampaignMember</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RESTapi_Case__c</fullName>
+        <defaultValue>&quot;/Case/GetAccount?accountId=&quot;</defaultValue>
+        <description>the RESTAPI URL for the Case object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for the Case object</inlineHelpText>
+        <label>RESTful API Case</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RESTapi_OpportunityLineItem__c</fullName>
+        <defaultValue>&quot;/OpportunityLineItem/GetOpportunity?OpportunityID=&quot;</defaultValue>
+        <description>the RESTAPI URL for OpportunityLineItem object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for OpportunityLineItem object</inlineHelpText>
+        <label>RESTful API OpportunityLineItem</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RESTapi_Opportunity__c</fullName>
+        <defaultValue>&quot;/Opportunity/GetAccount?accountId=&quot;</defaultValue>
+        <description>the RESTAPI URL for the Opportunity object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for the Opportunity object</inlineHelpText>
+        <label>RESTful API Opportunity</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RESTapi_Task_del__c</fullName>
+        <defaultValue>&quot;/Task/GetAccount?accountId=&quot;</defaultValue>
+        <description>the RESTAPI URL for the Task object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for the Task object</inlineHelpText>
+        <label>RESTful API Task</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RESTapi_rC_Bios_Preference_del__c</fullName>
+        <defaultValue>&quot;/rC_Bios__Preference/GetAccount?accountId=&quot;</defaultValue>
+        <description>RESTful API address for preference</description>
+        <externalId>false</externalId>
+        <inlineHelpText>RESTful API address for preference</inlineHelpText>
+        <label>RESTful API Preference</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RESTapi_rC_Giving_Deliverable__c</fullName>
+        <defaultValue>&quot;/rC_giving_Deliverable/GetOpportunity?OpportunityId=&quot;</defaultValue>
+        <description>the RESTAPI URL for rC_giving_Deliverable object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for rC_giving_Deliverable object</inlineHelpText>
+        <label>RESTful API Giving_Deliverable</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RESTapi_rC_Giving_Opportunity_Allocation__c</fullName>
+        <defaultValue>&quot;/rC_Giving__Opportunity_Allocation/GetOpportunity?OpportunityID=&quot;</defaultValue>
+        <description>the RESTAPI URL for the rC_Giving__Opportunity_Allocation__c object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for the rC_Giving__Opportunity_Allocation__c object</inlineHelpText>
+        <label>RESTful API Opportunity_Allocation</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RESTapi_rC_Giving_Opportunity_Credit__c</fullName>
+        <defaultValue>&quot;/rC_Giving__Opportunity_Credit/GetOpportunity?OpportunityID=&quot;</defaultValue>
+        <description>the RESTAPI URL for the rC_Giving__Opportunity_Credit__c object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for the rC_Giving__Opportunity_Credit__c object</inlineHelpText>
+        <label>RESTful API Opportunity_Credit</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RESTapi_rC_Giving_Payment_Method__c</fullName>
+        <defaultValue>&quot;/rC_Giving__Payment_Method/GetAccount?AccountID=&quot;</defaultValue>
+        <description>the RESTAPI URL for the rC_Giving__Payment_Method__c object</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTAPI URL for the rC_Giving__Payment_Method__c object</inlineHelpText>
+        <label>RESTful API Payment Method</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>RESTful_Host__c</fullName>
+        <defaultValue>&quot;http://54.243.143.26:8080/rC_Archival/&quot;</defaultValue>
+        <description>The host for the RESTful API service</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The host for the RESTful API service</inlineHelpText>
+        <label>RESTful Host</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
         <fullName>Schema__c</fullName>
         <description>roundData database schema (used to retrieve archive records)</description>
         <externalId>false</externalId>
@@ -81,94 +211,6 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>restapi_CampaignMember__c</fullName>
-        <description>the RESTAPI URL for CampaignMember object</description>
-        <externalId>false</externalId>
-        <inlineHelpText>the RESTAPI URL for CampaignMember object</inlineHelpText>
-        <label>restapi_CampaignMember</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>restapi_Case__c</fullName>
-        <description>the RESTAPI URL for the Case object</description>
-        <externalId>false</externalId>
-        <inlineHelpText>the RESTAPI URL for the Case object</inlineHelpText>
-        <label>restapi_Case</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>restapi_OpportunityLineItem__c</fullName>
-        <description>the RESTAPI URL for OpportunityLineItem object</description>
-        <externalId>false</externalId>
-        <inlineHelpText>the RESTAPI URL for OpportunityLineItem object</inlineHelpText>
-        <label>restapi_OpportunityLineItem</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>restapi_Opportunity__c</fullName>
-        <description>the RESTAPI URL for the Opportunity object</description>
-        <externalId>false</externalId>
-        <inlineHelpText>the RESTAPI URL for the Opportunity object</inlineHelpText>
-        <label>restapi_Opportunity</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>restapi_Task__c</fullName>
-        <description>the RESTAPI URL for the Task object</description>
-        <externalId>false</externalId>
-        <inlineHelpText>the RESTAPI URL for the Task object</inlineHelpText>
-        <label>restapi_Task</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>restapi_rC_Bios_Preferences_c__c</fullName>
-        <externalId>false</externalId>
-        <label>restapi_rC_Bios_Preferences__c</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>restapi_rC_Giving_Deliverable_c__c</fullName>
-        <description>the RESTAPI URL for rC_giving_Deliverable object</description>
-        <externalId>false</externalId>
-        <inlineHelpText>the RESTAPI URL for rC_giving_Deliverable object</inlineHelpText>
-        <label>restapi_rC_Giving_Deliverable__c</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>restapi_rC_Giving_Opportunity_Credit_c__c</fullName>
-        <description>the RESTAPI URL for the rC_Giving__Opportunity_Credit__c object</description>
-        <externalId>false</externalId>
-        <inlineHelpText>the RESTAPI URL for the rC_Giving__Opportunity_Credit__c object</inlineHelpText>
-        <label>restapi_rC_Giving__Opportunity_Credit__c</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>restapi_rC_Giving_Opty_Allocation_c__c</fullName>
-        <description>the RESTAPI URL for the rC_Giving__Opportunity_Allocation__c object</description>
-        <externalId>false</externalId>
-        <inlineHelpText>the RESTAPI URL for the rC_Giving__Opportunity_Allocation__c object</inlineHelpText>
-        <label>restapi_rC_Giving__Opty_Allocation</label>
-        <required>false</required>
-        <type>Url</type>
-    </fields>
-    <fields>
-        <fullName>restapi_rC_Giving_Payment_Method_c__c</fullName>
-        <description>the RESTAPI URL for the rC_Giving__Payment_Method__c object</description>
-        <externalId>false</externalId>
-        <inlineHelpText>the RESTAPI URL for the rC_Giving__Payment_Method__c object</inlineHelpText>
-        <label>restapi_rC_Giving__Payment Method__c</label>
-        <required>false</required>
-        <type>Url</type>
     </fields>
     <label>Archival</label>
 </CustomObject>
