@@ -36,7 +36,7 @@
     <fields>
         <help><!-- the RESTAPI URL for CampaignMember object --></help>
         <label><!-- RESTful API CampaignMember --></label>
-        <name>RESTapi_CampaignMember_del__c</name>
+        <name>RESTapi_CampaignMember__c</name>
     </fields>
     <fields>
         <help><!-- the RESTAPI URL for the Case object --></help>
@@ -56,12 +56,12 @@
     <fields>
         <help><!-- the RESTAPI URL for the Task object --></help>
         <label><!-- RESTful API Task --></label>
-        <name>RESTapi_Task_del__c</name>
+        <name>RESTapi_Task__c</name>
     </fields>
     <fields>
         <help><!-- RESTful API address for preference --></help>
         <label><!-- RESTful API Preference --></label>
-        <name>RESTapi_rC_Bios_Preference_del__c</name>
+        <name>RESTapi_rC_Bios_Preference__c</name>
     </fields>
     <fields>
         <help><!-- the RESTAPI URL for rC_giving_Deliverable object --></help>

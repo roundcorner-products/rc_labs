@@ -61,7 +61,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>RESTapi_CampaignMember_del__c</fullName>
+        <fullName>RESTapi_CampaignMember__c</fullName>
         <defaultValue>&quot;/CampaignMember/GetAccount?accountId=&quot;</defaultValue>
         <description>the RESTAPI URL for CampaignMember object</description>
         <externalId>false</externalId>
@@ -109,7 +109,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>RESTapi_Task_del__c</fullName>
+        <fullName>RESTapi_Task__c</fullName>
         <defaultValue>&quot;/Task/GetAccount?accountId=&quot;</defaultValue>
         <description>the RESTAPI URL for the Task object</description>
         <externalId>false</externalId>
@@ -121,7 +121,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>RESTapi_rC_Bios_Preference_del__c</fullName>
+        <fullName>RESTapi_rC_Bios_Preference__c</fullName>
         <defaultValue>&quot;/rC_Bios__Preference/GetAccount?accountId=&quot;</defaultValue>
         <description>RESTful API address for preference</description>
         <externalId>false</externalId>

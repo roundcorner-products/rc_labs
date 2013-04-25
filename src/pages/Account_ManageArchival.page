@@ -1,0 +1,18 @@
+<apex:page standardController="Account" extensions="Account_ManageArchival" action="{!initialize}">
+    <apex:form id="form">
+        <apex:panelGrid columns="2" width="100%">
+            <apex:commandLink value="View Archived Campaign Members" action="{!displayArchivedData}" rendered="{!showCampaignMemberLink == true}">
+                <apex:param name="objectName" value="CampaignMember"/>
+            </apex:commandLink>
+            <apex:commandLink value="View Archived Cases" action="{!displayArchivedData}" rendered="{!showCaseLink == true}">
+                <apex:param name="objectName" value="Case"/>
+            </apex:commandLink>
+            <apex:commandLink value="View Archived Preferences" action="{!displayArchivedData}" rendered="{!showPreferenceLink == true}">
+                <apex:param name="objectName" value="Preference"/>
+            </apex:commandLink>
+            <apex:commandLink value="View Archived Tasks" action="{!displayArchivedData}" rendered="{!showTaskLink == true}">
+                <apex:param name="objectName" value="Task"/>
+            </apex:commandLink>
+        </apex:panelGrid>
+    </apex:form>
+</apex:page>
