@@ -1,0 +1,47 @@
+<apex:page standardController="Account" extensions="Account_ViewArchivedData" action="{!initialize}">
+    
+    <style type="text/css">
+tr,td {
+	border: none;
+}
+
+td {
+	border-width: 0 0 1px 0 !important;
+}
+
+table.list .dataCell {
+	min-width: 8em;
+}
+
+table.list tr.dataRow {
+	height: 2em !important;
+}
+</style>
+    
+    <apex:form id="form">
+        <apex:pageBlock id="thepgblock" title="Archived Data">
+            <table class="list" cellpadding="0" cellspacing="0" border="0">
+                <thead class="rich-table-thead">
+                    <tr class="headerRow">
+                        <apex:repeat var="headerLabel" value="{!headerList}">
+                            <th class="headerRow" scope="col" colspan="1"><apex:outputText value="{!headerLabel}"/></th>
+                        </apex:repeat>
+                    </tr>
+                </thead>
+                
+                <apex:repeat var="archivedData" value="{!dataList}">
+                    <tr class="dataRow">
+                    <apex:repeat var="actualData" value="{!archivedData}">
+                            <td class="dataCell">
+                                <apex:outputText value="{!actualData}"/>
+                            </td>
+                    </apex:repeat>
+                   </tr>
+                </apex:repeat>
+            </table>
+            <apex:pageBlockSection rendered="{!iCount == 0}">
+                No Records archived
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,11 +1,9 @@
-public class Account_ManageArchival extends SobjectExtension{
+public class Account_ManageArchival extends SobjectExtension {
     public Account account { set; get; }
     public Boolean showCampaignMemberLink { set; get; }
     public Boolean showCaseLink { set; get; }
     public Boolean showPreferenceLink { set; get; }
     public Boolean showTaskLink { set; get; }
-    
-    public String strURL { set; get; }
     
     public Archival__c archivalSetting { set; get; }
     
@@ -21,28 +19,16 @@ public class Account_ManageArchival extends SobjectExtension{
             showCaseLink = archivalSetting.RESTapi_Case__c != null;
             showPreferenceLink = archivalSetting.RESTapi_rC_Bios_Preference__c != null;
             showTaskLink = archivalSetting.RESTapi_Task__c != null;
-            
-            strURL = (archivalSetting.RESTful_Host__c != null && archivalSetting.Database__c != null) ? '' + archivalSetting.RESTful_Host__c + archivalSetting.Database__c : null;
         }
         return null;
     }
     
     public PageReference displayArchivedData() {
         String objectName = Apexpages.currentPage().getParameters().get('objectName');
-        
-        if (objectName != null && strURL != null) {
-            if (objectName.equalsIgnoreCase('CampaignMember'))
-                strURL += archivalSetting.RESTapi_CampaignMember__c;
-            else if (objectName.equalsIgnoreCase('Case'))
-                strURL += archivalSetting.RESTapi_Case__c;
-            else if (objectName.equalsIgnoreCase('Preference'))
-                strURL += archivalSetting.RESTapi_rC_Bios_Preference__c;
-            else if (objectName.equalsIgnoreCase('Task'))
-                strURL += archivalSetting.RESTapi_Task__c;
-            
-            strURL += account.Id;
-            return new PageReference(strURL);
-        }
-        return null;
+        Pagereference reference = Page.Account_ViewArchivedData;
+        reference.getParameters().put('id', account.Id);
+        reference.getParameters().put('objectName', objectName);
+        reference.setRedirect(true);
+        return reference;
     }
 }

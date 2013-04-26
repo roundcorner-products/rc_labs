@@ -170,7 +170,7 @@
     </fields>
     <fields>
         <fullName>RESTapi_rC_Giving_Payment_Method__c</fullName>
-        <defaultValue>&quot;/rC_Giving__Payment_Method/GetAccount?AccountID=&quot;</defaultValue>
+        <defaultValue>&quot;/rC_Giving__Payment_Method/GetAccount?accountID=&quot;</defaultValue>
         <description>the RESTAPI URL for the rC_Giving__Payment_Method__c object</description>
         <externalId>false</externalId>
         <inlineHelpText>the RESTAPI URL for the rC_Giving__Payment_Method__c object</inlineHelpText>
