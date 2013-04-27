@@ -36,7 +36,14 @@ public class Account_ViewArchivedData extends SobjectExtension {
             HttpRequest request = new HttpRequest();
             request.setEndpoint(strURL);
             request.setMethod('GET');
-            String body = (new Http()).send(request).getBody();
+            String body;
+            
+            if (!Test.isRunningTest()) {
+                body = (new Http()).send(request).getBody();
+            } else {
+                 body = getTestResponse();
+            }
+            
             JSONParser parser = JSON.createParser(body);
             
             Set<String> headerSet = new Set<String>();
@@ -94,6 +101,10 @@ public class Account_ViewArchivedData extends SobjectExtension {
             actualHeader += '_';
         }
         return actualHeader.replace('_',' ').trim();
+    }
+    
+    public static String getTestResponse() {
+        return '[{"case_number":"012345","is_archived":"true"}]';
     }
     
 }

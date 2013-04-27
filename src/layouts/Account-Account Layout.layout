@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>Submit</excludeButtons>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -187,7 +188,7 @@
         <label>Archived Account Data</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>100</height>
                 <page>Account_ManageArchival</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>

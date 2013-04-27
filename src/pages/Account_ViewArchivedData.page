@@ -2,19 +2,20 @@
     
     <style type="text/css">
 tr,td {
-	border: none;
+    border: none;
 }
 
 td {
-	border-width: 0 0 1px 0 !important;
+    border-width: 0 0 1px 0 !important;
 }
 
 table.list .dataCell {
-	min-width: 8em;
+    min-width: 8em;
+    text-align:center;
 }
 
 table.list tr.dataRow {
-	height: 2em !important;
+    height: 2em !important;
 }
 </style>
     
@@ -24,7 +25,7 @@ table.list tr.dataRow {
                 <thead class="rich-table-thead">
                     <tr class="headerRow">
                         <apex:repeat var="headerLabel" value="{!headerList}">
-                            <th class="headerRow" scope="col" colspan="1"><apex:outputText value="{!headerLabel}"/></th>
+                            <th class="headerRow" scope="col" colspan="1" style="text-align:center;"><apex:outputText value="{!headerLabel}"/></th>
                         </apex:repeat>
                     </tr>
                 </thead>
@@ -40,7 +41,7 @@ table.list tr.dataRow {
                 </apex:repeat>
             </table>
             <apex:pageBlockSection rendered="{!iCount == 0}">
-                No Records archived
+                no records archived
             </apex:pageBlockSection>
         </apex:pageBlock>
     </apex:form>

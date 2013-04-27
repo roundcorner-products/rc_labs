@@ -23,12 +23,27 @@ public class Account_ManageArchival extends SobjectExtension {
         return null;
     }
     
-    public PageReference displayArchivedData() {
-        String objectName = Apexpages.currentPage().getParameters().get('objectName');
+    private PageReference buildLink(String objectName) {
         Pagereference reference = Page.Account_ViewArchivedData;
         reference.getParameters().put('id', account.Id);
         reference.getParameters().put('objectName', objectName);
         reference.setRedirect(true);
         return reference;
+    }
+    
+    public PageReference getCampaignMemberLink() {
+        return buildLink('CampaignMember');
+    }
+    
+    public PageReference getCaseLink() {
+        return buildLink('Case');
+    }
+    
+    public PageReference getPreferenceLink() {
+        return buildLink('Preference');
+    }
+    
+    public PageReference getTaskLink() {
+        return buildLink('Task');
     }
 }
