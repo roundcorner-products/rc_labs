@@ -1,4 +1,4 @@
-public class Account_ViewArchivedData extends SobjectExtension {
+public class Account_ManageGivingArchival extends SobjectExtension {
     public Account account { set; get; }
     public Integer iCount { set; get; }
     public String objectName { set; get; }
@@ -9,14 +9,14 @@ public class Account_ViewArchivedData extends SobjectExtension {
     
     public Archival__c archivalSetting { set; get; }
     
-    public Account_ViewArchivedData(ApexPages.StandardController controller) {
+    public Account_ManageGivingArchival(ApexPages.StandardController controller) {
         super(controller);
         account = (Account) controller.getRecord();
     }
     
     public override PageReference initialize() {
         archivalSetting = Archival__c.getInstance();
-        objectName = Apexpages.currentPage().getParameters().get('objectName');
+        objectName = 'Opportunity';
         iCount = 0;
         String strURL;
         if (archivalSetting != null) {
@@ -34,14 +34,7 @@ public class Account_ViewArchivedData extends SobjectExtension {
         }
         
         if (objectName != null && strURL != null) {
-            if (objectName.equalsIgnoreCase('Campaign Member'))
-                strURL += archivalSetting.RESTapi_CampaignMember__c;
-            else if (objectName.equalsIgnoreCase('Case'))
-                strURL += archivalSetting.RESTapi_Case__c;
-            else if (objectName.equalsIgnoreCase('Preference'))
-                strURL += archivalSetting.RESTapi_rC_Bios_Preference__c;
-            else if (objectName.equalsIgnoreCase('Task'))
-                strURL += archivalSetting.RESTapi_Task__c;
+                strURL += archivalSetting.RESTapi_Opportunity__c;
             
             strURL += account.Id;
             

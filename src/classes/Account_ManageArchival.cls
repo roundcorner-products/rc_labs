@@ -32,7 +32,7 @@ public class Account_ManageArchival extends SobjectExtension {
     }
     
     public PageReference getCampaignMemberLink() {
-        return buildLink('CampaignMember');
+        return buildLink('Campaign Member');
     }
     
     public PageReference getCaseLink() {

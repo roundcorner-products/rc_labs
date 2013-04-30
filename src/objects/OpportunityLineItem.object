@@ -264,6 +264,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
         <fullName>rC_Giving__Beneficiary__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Manually populated lookup to the Contact Beneficiary of a Giving Item.</description>
         <externalId>false</externalId>
         <label>Beneficiary</label>
         <referenceTo>Contact</referenceTo>
@@ -275,6 +276,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
     <fields>
         <fullName>rC_Giving__Delivery_Comments__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated donor comments related to the delivery.</description>
         <externalId>false</externalId>
         <label>Delivery Comments</label>
         <length>255</length>
@@ -285,6 +287,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
     <fields>
         <fullName>rC_Giving__Delivery_Method__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated field indicating the method used to deliver a giving item.</description>
         <externalId>false</externalId>
         <label>Delivery Method</label>
         <picklist>
@@ -319,6 +322,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
     <fields>
         <fullName>rC_Giving__Delivery_Status__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically updated from your fulfillment vendor records, this field displays the status of delivering a Giving Item pr Package.</description>
         <externalId>false</externalId>
         <label>Delivery Status</label>
         <picklist>
@@ -369,6 +373,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
     <fields>
         <fullName>rC_Giving__Expected_Total_Price__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field calculating the  Items or Package Pricebook unit price * Quantity.</description>
         <externalId>false</externalId>
         <formula>PricebookEntry.UnitPrice * Quantity</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -382,6 +387,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
         <fullName>rC_Giving__Giving_Level__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Auto populated lookup to the related Account&apos;s Giving Level.</description>
         <externalId>false</externalId>
         <label>Giving Level</label>
         <referenceTo>rC_Giving__Giving_Level__c</referenceTo>
@@ -394,6 +400,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
         <fullName>rC_Giving__Item__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Auto populated lookup to the related Item.</description>
         <externalId>false</externalId>
         <label>Item</label>
         <referenceTo>Product2</referenceTo>
@@ -405,6 +412,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
     <fields>
         <fullName>rC_Giving__Package_Name__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto Populated field reflecting the related Package Name.</description>
         <externalId>false</externalId>
         <label>Package Name</label>
         <length>255</length>
@@ -416,6 +424,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
         <fullName>rC_Giving__Package__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Auto populated lookup to the related Package.</description>
         <externalId>false</externalId>
         <label>Package</label>
         <referenceTo>Product2</referenceTo>
@@ -425,11 +434,22 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Suspend_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>If a benefit is marked to suspend, we will suspend the delivery until this date.Ideally, this value should only be populated if the delivery status is suspended</description>
+        <externalId>false</externalId>
+        <inlineHelpText>If a benefit is marked to suspend, we will suspend the delivery until this date.Ideally, this value should only be populated if the delivery status is suspended</inlineHelpText>
+        <label>Suspend Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Transferor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Lookup to the Contact who transfers an Opportunity Product.</description>
         <externalId>false</externalId>
-        <label>Transferor</label>
+        <label>Transferor @Deprecated(Version=2.0)</label>
         <referenceTo>Contact</referenceTo>
         <relationshipLabel>Products (As Transferor)</relationshipLabel>
         <relationshipName>Opportunity_Products_Transferor</relationshipName>
@@ -448,4 +468,22 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
         <required>false</required>
         <type>Lookup</type>
     </fields>
+    <validationRules>
+        <fullName>rC_Giving__Inactive_Items</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.rC_Giving__Opportunity_Product_Validation__c.rC_Giving__Inactive_Items__c, OR( Product2.IsActive  = false , rC_Giving__Item__r.IsActive = false , rC_Giving__Package__r.IsActive = false))</errorConditionFormula>
+        <errorMessage>Cannot add Item or Package because it is not Active.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>rC_Giving__Individually_Not_Available_Items</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.rC_Giving__Opportunity_Product_Validation__c.rC_Giving__Individually_Not_Available_Items__c, OR(Product2.rC_Giving__Not_available_individually__c,  rC_Giving__Item__r.rC_Giving__Not_available_individually__c ), rC_Giving__Package__c = null)</errorConditionFormula>
+        <errorMessage>ERROR : This Item can not be added individually.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>rC_Giving__Items_With_Expired_Start_End_Date</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Setup.rC_Giving__Opportunity_Product_Validation__c.rC_Giving__Items_With_Expired_Start_End_Date__c, OR(Opportunity.CloseDate  &gt;   rC_Giving__Item__r.rC_Giving__End_Date__c , Opportunity.CloseDate  &gt;  rC_Giving__Package__r.rC_Giving__End_Date__c  , Opportunity.CloseDate  &gt;  Product2.rC_Giving__End_Date__c , Opportunity.CloseDate  &lt;  rC_Giving__Item__r.rC_Giving__Start_Date__c ,  Opportunity.CloseDate  &lt;  rC_Giving__Package__r.rC_Giving__Start_Date__c , Opportunity.CloseDate  &lt;  Product2.rC_Giving__Start_Date__c ))</errorConditionFormula>
+        <errorMessage>Close Date should be between Start and End Date</errorMessage>
+    </validationRules>
 </CustomObject>

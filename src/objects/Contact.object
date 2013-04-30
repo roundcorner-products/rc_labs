@@ -3348,6 +3348,7 @@ IF(rC_Bios__Age__c &gt;= 16, &quot;16-20&quot;, &quot;&lt;16&quot;))))))))))))</
     <fields>
         <fullName>rC_Giving__Primary_Affiliation__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula retrieves the Contact&apos;s primary Affiliation.</description>
         <externalId>false</externalId>
         <formula>Text(Account.rC_Giving__Primary_Affiliation__c)</formula>
         <label>Primary Affiliation</label>
@@ -3358,6 +3359,7 @@ IF(rC_Bios__Age__c &gt;= 16, &quot;16-20&quot;, &quot;&lt;16&quot;))))))))))))</
     <fields>
         <fullName>rC_Giving__Primary_Giving_Level__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula retrieves the Contact&apos;s Primary Giving Level.</description>
         <externalId>false</externalId>
         <formula>Account.rC_Giving__Primary_Giving_Level__r.Name</formula>
         <label>Primary Giving Level</label>
@@ -3368,6 +3370,7 @@ IF(rC_Bios__Age__c &gt;= 16, &quot;16-20&quot;, &quot;&lt;16&quot;))))))))))))</
     <fields>
         <fullName>rC_Giving__Primary_Membership_Expiration_Date__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula retrieves the Contact&apos;s Primary Membership Expiration Date.</description>
         <externalId>false</externalId>
         <formula>Account.rC_Giving__Primary_Membership_Expiration_Date__c</formula>
         <label>Primary Membership Expiration Date</label>
@@ -3377,6 +3380,7 @@ IF(rC_Bios__Age__c &gt;= 16, &quot;16-20&quot;, &quot;&lt;16&quot;))))))))))))</
     <fields>
         <fullName>rC_Giving__Primary_Membership_Status__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula retrieves the Contact&apos;s Primary Membership Status.</description>
         <externalId>false</externalId>
         <formula>Account.rC_Giving__Primary_Membership_Status__c</formula>
         <label>Primary Membership Status</label>
@@ -3427,6 +3431,7 @@ IF(rC_Bios__Age__c &gt;= 16, &quot;16-20&quot;, &quot;&lt;16&quot;))))))))))))</
     <fields>
         <fullName>rC_Giving__Rollup_Soft_Credits__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, indicates the date and time from the most recently updated Soft Credit record.</description>
         <externalId>false</externalId>
         <label>Rollup Soft Credits</label>
         <required>false</required>

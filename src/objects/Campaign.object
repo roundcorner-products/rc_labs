@@ -1183,7 +1183,7 @@
     <fields>
         <fullName>rC_Giving__Affiliation__c</fullName>
         <deprecated>false</deprecated>
-        <description>Affiliation this Campaign represents.</description>
+        <description>Manually populated, this field indicates the Affiliation this Campaign represents.</description>
         <externalId>false</externalId>
         <inlineHelpText>Affiliation this Campaign represents.</inlineHelpText>
         <label>Affiliation</label>
@@ -1267,8 +1267,49 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Average_Gift_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Total expected amount of gifts in the hierarchy divided by count of gifts in the hierarchy assuming it is a parent campaign</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(rC_Giving__Is_Parent__c), IF(HierarchyNumberOfOpportunities &gt; 0, rC_Giving__Expected_Giving_Amount_Hierarchy__c  /  HierarchyNumberOfOpportunities, NULL), NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Total expected amount of gifts in the hierarchy divided by count of gifts in the hierarchy</inlineHelpText>
+        <label>Average Gift - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Average_Gift__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The expected giving amount total for the campaign divided by the number of giving records for the campaign</description>
+        <externalId>false</externalId>
+        <formula>IF(NumberOfOpportunities &gt; 0, rC_Giving__Expected_Giving_Amount__c  /  NumberOfOpportunities, null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Expected Giving Amount divided by number of giving records</inlineHelpText>
+        <label>Average Gift</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Best_Case_Amount_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Populated by trigger, displays the aggregated sum of the amounts in the heirarchy you are likely to close per your Giving Stage configuration.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Aggregated sum of the amounts in the heirarchy you are likely to close per your Giving Stage configuration.</inlineHelpText>
+        <label>Best Case Amount - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Best_Case_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated field including amounts you are likely to close. See the Giving Stage configuration</description>
         <externalId>false</externalId>
         <label>Best Case Amount</label>
         <precision>18</precision>
@@ -1279,6 +1320,7 @@
     <fields>
         <fullName>rC_Giving__Best_Case_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving transaction dollars you are likely to close per your Giving Stage configuration.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_yellow.gif&apos;, &apos;yellow&apos;, 10, MIN(150, rC_Giving__Best_Case_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Best_Case_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Best_Case_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -1290,6 +1332,7 @@
     <fields>
         <fullName>rC_Giving__Best_Case_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving transaction dollars you are likely to close per your Giving Stage configuration.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Best_Case_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <label>Best Case Ratio</label>
@@ -1383,8 +1426,21 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Closed_Amount_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Gives the total closed amount from giving in the hierarchy</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Total of closed amount for the hierarchy</inlineHelpText>
+        <label>Closed Amount - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Closed_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Sum of closed giving amount for the campaign</description>
         <externalId>false</externalId>
         <label>Closed Amount</label>
         <precision>18</precision>
@@ -1395,6 +1451,7 @@
     <fields>
         <fullName>rC_Giving__Closed_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of closed amount from giving related to this Campaign.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_green.gif&apos;, &apos;green&apos;, 10, MIN(150, rC_Giving__Closed_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Closed_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Closed_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -1406,6 +1463,7 @@
     <fields>
         <fullName>rC_Giving__Closed_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of closed amount from giving related to this Campaign.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Closed_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <label>Closed Ratio</label>
@@ -1415,8 +1473,21 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Commit_Amount_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sum of committed giving amount for the campaign hierarchy</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of committed giving amount for the campaign hierarchy</inlineHelpText>
+        <label>Commit Amount - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Commit_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Sum of committed giving amount for the campaign</description>
         <externalId>false</externalId>
         <label>Commit Amount</label>
         <precision>18</precision>
@@ -1427,6 +1498,7 @@
     <fields>
         <fullName>rC_Giving__Commit_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of committed giving amount for this Campaign.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_green.gif&apos;, &apos;green&apos;, 10, MIN(150, rC_Giving__Commit_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Commit_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Commit_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -1438,6 +1510,7 @@
     <fields>
         <fullName>rC_Giving__Commit_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of committed giving amount for this Campaign.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Commit_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <label>Commit Ratio</label>
@@ -1447,9 +1520,66 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Cost_Per_Piece_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Actual cost per hierarchy divided by number sent in hierarchy</description>
+        <externalId>false</externalId>
+        <formula>IF(HierarchyNumberSent &gt; 0, HierarchyActualCost / HierarchyNumberSent, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Actual cost per hierarchy divided by number sent in hierarchy</inlineHelpText>
+        <label>Cost Per Piece - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Cost_Per_Piece__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Cost divided by number sent</description>
+        <externalId>false</externalId>
+        <formula>IF(NumberSent &gt; 0, ActualCost / NumberSent, 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Cost divided by number sent</inlineHelpText>
+        <label>Cost Per Piece</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Cost_Per_Thousand_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Actual cost of the hierarchy divided by number sent in hierarchy</description>
+        <externalId>false</externalId>
+        <formula>IF(HierarchyNumberSent &gt; 0, HierarchyActualCost / (HierarchyNumberSent / 1000), 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Actual cost of the hierarchy divided by number sent in hierarchy</inlineHelpText>
+        <label>Cost Per Thousand - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Cost_Per_Thousand__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Cost divided by number sent (in M)</description>
+        <externalId>false</externalId>
+        <formula>IF(NumberSent &gt; 0, ActualCost / (NumberSent / 1000), 0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Cost divided by number sent (in M)</inlineHelpText>
+        <label>Cost Per Thousand</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Creative_Package__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Manually populated, this field shows a lookup to a Product related to this camoaign.</description>
         <externalId>false</externalId>
         <label>Creative Package</label>
         <referenceTo>Product2</referenceTo>
@@ -1459,8 +1589,21 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Current_Giving_Amount_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Automatically populated, this field shows the sum of all Giving Transaction amounts in the hierarchy with Stage: Open, Pending, Completed.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of all Giving Transaction amounts in the hierarchy  with Stage: Open, Pending, Completed.</inlineHelpText>
+        <label>Current Giving Amount - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Current_Giving_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, this field shows the sum of all Giving Transaction amounts with Stage: Open, Pending, Completed.</description>
         <externalId>false</externalId>
         <label>Current Giving Amount</label>
         <precision>18</precision>
@@ -1471,7 +1614,7 @@
     <fields>
         <fullName>rC_Giving__Effort__c</fullName>
         <deprecated>false</deprecated>
-        <description>Number of times correspondence has been sent this Campaign.</description>
+        <description>Manually populated field indicating the number of times correspondence has been sent this Campaign.</description>
         <externalId>false</externalId>
         <inlineHelpText>Number of times correspondence has been sent this Campaign.</inlineHelpText>
         <label>Effort</label>
@@ -1575,8 +1718,21 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Expected_Giving_Amount_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>The sum of the expected giving amount for all giving records related to this campaign</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of expected giving amount for all associated giving records</inlineHelpText>
+        <label>Expected Giving Amount - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Expected_Giving_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, provides the sum of the expected giving amount for all giving records related to this campaign.</description>
         <externalId>false</externalId>
         <label>Expected Giving Amount</label>
         <precision>18</precision>
@@ -1587,6 +1743,7 @@
     <fields>
         <fullName>rC_Giving__External_ID__c</fullName>
         <deprecated>false</deprecated>
+        <description>External System or Legacy ID.</description>
         <externalId>false</externalId>
         <label>External ID</label>
         <length>255</length>
@@ -1598,7 +1755,7 @@
         <fullName>rC_Giving__GAU__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
-        <description>General Accounting Unit where gifts and funds associated with this Campaign will be allocated by default.</description>
+        <description>Manually populated, this field indicates the General Accounting Unit where gifts and funds associated with this Campaign will be allocated by default.</description>
         <externalId>false</externalId>
         <inlineHelpText>General Accounting Unit where gifts and funds associated with this Campaign will be allocated by default.</inlineHelpText>
         <label>General Accounting Unit</label>
@@ -1661,6 +1818,16 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Is_Parent__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Indicates if a campaign has sub-campaigns associated with it or not</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Checked if campaign has sub-campaigns</inlineHelpText>
+        <label>Parent Campaign</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Is_Shopper__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
@@ -1671,8 +1838,21 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Omitted_Amount_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sum of omitted giving amount for the campaign hierarchy</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of omitted giving amount for the campaign hierarchy</inlineHelpText>
+        <label>Omitted Amount - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Omitted_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Sum of omitted giving amount for the campaign</description>
         <externalId>false</externalId>
         <label>Omitted Amount</label>
         <precision>18</precision>
@@ -1683,6 +1863,7 @@
     <fields>
         <fullName>rC_Giving__Omitted_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, provides the percentage of omitted giving amount for the campaign.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_red.gif&apos;, &apos;red&apos;, 10, MIN(150, rC_Giving__Omitted_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Omitted_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Omitted_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -1694,6 +1875,7 @@
     <fields>
         <fullName>rC_Giving__Omitted_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, provides the percentage of omitted giving amount for the campaign.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Omitted_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <label>Omitted Ratio</label>
@@ -1703,8 +1885,49 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Percent_Goal_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Percentage of Goal Attained for the hierarchy</description>
+        <externalId>false</externalId>
+        <formula>if(rC_Giving__Is_Parent__c = True, if(HierarchyExpectedRevenue&gt;0,( rC_Giving__Expected_Giving_Amount_Hierarchy__c  / HierarchyExpectedRevenue ),null), null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Percentage of Goal Attained for the hierarchy</inlineHelpText>
+        <label>Percent Goal - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Percent_Goal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Percentage of Goal Attained for the campaign</description>
+        <externalId>false</externalId>
+        <formula>if( ExpectedRevenue &gt;0, (rC_Giving__Expected_Giving_Amount__c / ExpectedRevenue),0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Percentage of Goal Attained for the campaign</inlineHelpText>
+        <label>Percent Goal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Pipeline_Amount_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Sum of pipeline giving amount for the campaign hierarchy</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of pipeline giving amount for the campaign hierarchy</inlineHelpText>
+        <label>Pipeline Amount - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Pipeline_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Sum of pipeline giving amount for the campaign</description>
         <externalId>false</externalId>
         <label>Pipeline Amount</label>
         <precision>18</precision>
@@ -1715,6 +1938,7 @@
     <fields>
         <fullName>rC_Giving__Pipeline_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving amounts from all open transactions.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_yellow.gif&apos;, &apos;yellow&apos;, 10, MIN(150, rC_Giving__Pipeline_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Pipeline_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Pipeline_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -1726,6 +1950,7 @@
     <fields>
         <fullName>rC_Giving__Pipeline_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving amounts from all open transactions.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Pipeline_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <label>Pipeline Ratio</label>
@@ -1735,8 +1960,49 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__ROI_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Uses the expected giving amount from giving of the hierarchy minus the cost from campaigns in the hierarchy and divides the sum by the actual cost from the campaign hierarchy</description>
+        <externalId>false</externalId>
+        <formula>IF( rC_Giving__Is_Parent__c  = True,IF(HierarchyActualCost &gt; 0, (rC_Giving__Expected_Giving_Amount_Hierarchy__c-HierarchyActualCost) /  HierarchyActualCost, null),null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Expected giving amount from giving of the hierarchy minus the cost from campaigns in the hierarchy and divides the sum by the actual cost from the campaign hierarchy</inlineHelpText>
+        <label>ROI (%) - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__ROI__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Uses the expected giving amount from giving minus the cost from campaign and divides the sum by the actual cost from the campaign</description>
+        <externalId>false</externalId>
+        <formula>IF(ActualCost &gt; 0, (rC_Giving__Expected_Giving_Amount__c-ActualCost)  /  ActualCost, null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Expected giving amount from giving minus the cost from campaign and divides the sum by the actual cost from the campaign</inlineHelpText>
+        <label>ROI (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Refunded_Amount_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Populated by trigger, provides the sum of refunded giving amounts for the campaign hierarchy.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Sum of refunded giving amount for the campaign hierarchy.</inlineHelpText>
+        <label>Refunded Amount - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Refunded_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, provides the sum of refunded giving amounts for the campaign.</description>
         <externalId>false</externalId>
         <label>Refunded Amount</label>
         <precision>18</precision>
@@ -1747,6 +2013,7 @@
     <fields>
         <fullName>rC_Giving__Refunded_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of refunded giving amounts associated with this Campaign.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_red.gif&apos;, &apos;red&apos;, 10, rC_Giving__Refunded_Ratio__c) + &apos; &apos; + IF(rC_Giving__Refunded_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Refunded_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -1758,6 +2025,7 @@
     <fields>
         <fullName>rC_Giving__Refunded_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of refunded giving amounts associated with this Campaign.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Refunded_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <label>Refunded Ratio</label>
@@ -1767,9 +2035,37 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Remaining_Goal_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field providing the expected revenue for the hierarchy of the campaign minus the expected giving amount for the hierarchy of the campaign.</description>
+        <externalId>false</externalId>
+        <formula>if(rC_Giving__Is_Parent__c  = True, HierarchyExpectedRevenue  -  rC_Giving__Expected_Giving_Amount_Hierarchy__c, null)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Expected revenue for the hierarchy of the campaign minus the expected giving amount for the hierarchy of the campaign.</inlineHelpText>
+        <label>Remaining Goal - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Remaining_Goal__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula Field providing the expected revenue for the campaign minus the expected giving amount.</description>
+        <externalId>false</externalId>
+        <formula>ExpectedRevenue  -  rC_Giving__Expected_Giving_Amount__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Expected revenue for the campaign minus the expected giving amount.</inlineHelpText>
+        <label>Remaining Goal</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Currency</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Response_Mechanism__c</fullName>
         <deprecated>false</deprecated>
-        <description>How Campaign response is expected to come in.</description>
+        <description>Manually populated field indicating how Campaign response is expected to come in.</description>
         <externalId>false</externalId>
         <inlineHelpText>How Campaign response is expected to come in.</inlineHelpText>
         <label>Response Mechanism</label>
@@ -1783,8 +2079,36 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Response_Rate_Hierarchy__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Gives the number of giving records in the hierarchy divided by the total number sent in the hierarchy</description>
+        <externalId>false</externalId>
+        <formula>IF(AND(rC_Giving__Is_Parent__c), IF(HierarchyNumberSent &gt; 0, HierarchyNumberOfOpportunities / HierarchyNumberSent , 1), NULL)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>count of gifts in the hierarchy divided by count of campaign members in the hierarchy</inlineHelpText>
+        <label>Actual Response (%) - Hierarchy</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Response_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Gives the number of giving records associated with the campaign divided by the total number sent from the campaign members</description>
+        <externalId>false</externalId>
+        <formula>IF(NumberSent &gt; 0, NumberOfOpportunities /  NumberSent,0)</formula>
+        <inlineHelpText>number of giving records divided by the number soliciatations sent</inlineHelpText>
+        <label>Actual Response (%)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <type>Percent</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Rollup_Giving__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, displays the most recent giving last modified date and time.</description>
         <externalId>false</externalId>
         <label>Rollup Giving</label>
         <required>false</required>
@@ -1815,7 +2139,7 @@
     <fields>
         <fullName>rC_Giving__Solicitation_Type__c</fullName>
         <deprecated>false</deprecated>
-        <description>Specific Giving type being solicited.</description>
+        <description>Manually populated value reflecting the specific Giving type being solicited.</description>
         <externalId>false</externalId>
         <inlineHelpText>Specific Giving type being solicited.</inlineHelpText>
         <label>Solicitation Type</label>
@@ -1863,6 +2187,7 @@
     <fields>
         <fullName>rC_Giving__Source_Code_Partial__c</fullName>
         <deprecated>false</deprecated>
+        <description>The auto-calculated first 8 characters of the source code.</description>
         <externalId>false</externalId>
         <inlineHelpText>The auto-calculated first 8 characters of the source code</inlineHelpText>
         <label>Partial Source Code</label>

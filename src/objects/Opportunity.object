@@ -922,10 +922,6 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>CampaignId</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>CreatedById</field>
             <isRequired>false</isRequired>
         </availableFields>
@@ -1056,6 +1052,10 @@
         </displayedFields>
         <displayedFields>
             <field>rC_Giving__Current_Giving_Amount__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Campaign.Name</field>
             <isRequired>false</isRequired>
         </displayedFields>
         <label>Account_ManageGivingTree</label>
@@ -3718,10 +3718,6 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>rC_Giving__Giving_Frequency__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>rC_Giving__Giving_Level_ID__c</field>
             <isRequired>false</isRequired>
         </availableFields>
@@ -4159,6 +4155,10 @@
         </availableFields>
         <availableFields>
             <field>rC_Giving__Tribute_Type__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Payment_Count__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -6742,10 +6742,6 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>rC_Giving__Affiliation__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>rC_Giving__Allocation_Amount__c</field>
             <isRequired>false</isRequired>
         </availableFields>
@@ -7235,10 +7231,6 @@
         </availableFields>
         <availableFields>
             <field>rC_Giving__Prospect_Rating__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Recipient_Account__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -8056,10 +8048,6 @@
         </availableFields>
         <availableFields>
             <field>rC_Giving__Prospect_Rating__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Recipient_Account__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -11296,10 +11284,6 @@
         </availableFields>
         <availableFields>
             <field>rC_Giving__Prospect_Rating__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Recipient_Account__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -14816,15 +14800,7 @@
     <fieldSets>
         <fullName>rC_Giving__Opportunity_Manage_PaymentOther</fullName>
         <availableFields>
-            <field>rC_Giving__Account_Name__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>rC_Giving__Acknowledged_Date__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Acknowledged__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -14836,23 +14812,11 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>rC_Giving__Allocation_Amount__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>rC_Giving__Anniversary_Date__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
             <field>rC_Giving__Anniversary_Renewal_Date__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Annual_Giving_Amount__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Application_Deadline__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -17421,11 +17385,26 @@
     <fields>
         <fullName>rC_Giving__Account_Name__c</fullName>
         <deprecated>false</deprecated>
+        <description>used for internal optimization: uses a formula field instead of a SOQL query, in the &quot;naming an opportunity&quot; trigger</description>
         <externalId>false</externalId>
         <formula>Account.Name</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Account Name</label>
         <required>false</required>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Account_Number__c</fullName>
+        <deprecated>false</deprecated>
+        <description>This field is only used for data import when the value for the account number is known, but the account ID is not known but the external system.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>This field is only used for data import when the value for the account number is known, but the account ID is not known but the external system.</inlineHelpText>
+        <label>Account Number</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
@@ -17531,6 +17510,7 @@
     <fields>
         <fullName>rC_Giving__Anniversary_Date__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated &quot;Anniversary Date&quot; of membership period.  Field is  set to Close date for sustainers.</description>
         <externalId>false</externalId>
         <label>Anniversary Date</label>
         <required>false</required>
@@ -17541,6 +17521,7 @@
     <fields>
         <fullName>rC_Giving__Anniversary_Renewal_Date__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated, this is the next upcoming anniversary date of the sustainer and will be the date when new premiums are scheduled and shipped based on the sustainer&apos;s Giving Level.  The field is set to Close date + 1 year for sustainers.</description>
         <externalId>false</externalId>
         <inlineHelpText>This is the next upcoming anniversary date of the sustainer, and will be the date when new premiums are scheduled and shipped based on the sustainer&apos;s Giving Level.</inlineHelpText>
         <label>Anniversary Renewal Date</label>
@@ -17666,6 +17647,7 @@
     <fields>
         <fullName>rC_Giving__Best_Case_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, displays the aggregated sum of the amounts you are likely to close per your Giving Stage configuration.</description>
         <externalId>false</externalId>
         <label>Best Case Amount</label>
         <precision>18</precision>
@@ -17678,6 +17660,7 @@
     <fields>
         <fullName>rC_Giving__Best_Case_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving transaction dollars you are likely to close per your Giving Stage configuration.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_yellow.gif&apos;, &apos;yellow&apos;, 10,  MIN(150, rC_Giving__Best_Case_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Best_Case_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Best_Case_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -17690,6 +17673,7 @@
     <fields>
         <fullName>rC_Giving__Best_Case_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving transaction dollars you are likely to close per your Giving Stage configuration.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Best_Case_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -17735,8 +17719,51 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Campaign_Channel__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Automatically set to the related Campaign Channel value. This functionality can be controlled by custom setting.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Defines a value which is automatically set to the related Campaign Channel value.</inlineHelpText>
+        <label>Campaign Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Broadcast</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Telesales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Campaign_Response_Mechanism__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field indicating how Campaign response is expected to come in.</description>
         <externalId>false</externalId>
         <formula>TEXT(Campaign.rC_Giving__Response_Mechanism__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -17749,6 +17776,7 @@
     <fields>
         <fullName>rC_Giving__Campaign_Source_Code__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field displaying the &quot;Source Code&quot; of Campaign as generated by rules defined in the Source Codes configuration.</description>
         <externalId>false</externalId>
         <formula>Campaign.rC_Giving__Source_Code__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -17761,6 +17789,7 @@
     <fields>
         <fullName>rC_Giving__Campaign_Support_Designation__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field from Campaign object reflecting general designation where pledge or funds are to be applied.</description>
         <externalId>false</externalId>
         <formula>TEXT(Campaign.rC_Giving__Support_Designation__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -17787,6 +17816,7 @@
     <fields>
         <fullName>rC_Giving__Check_Date__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated check date used to pay a Giving Transaction.</description>
         <externalId>false</externalId>
         <label>Check Date</label>
         <required>false</required>
@@ -17797,6 +17827,7 @@
     <fields>
         <fullName>rC_Giving__Check_Number__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated check number used to pay a Giving Transaction.</description>
         <externalId>false</externalId>
         <label>Check #</label>
         <length>255</length>
@@ -17809,6 +17840,7 @@
     <fields>
         <fullName>rC_Giving__Close_Date_Time__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, indicates the close date and time of the Giving record.</description>
         <externalId>false</externalId>
         <label>Close Date/Time</label>
         <required>false</required>
@@ -17819,6 +17851,7 @@
     <fields>
         <fullName>rC_Giving__Closed_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Includes amounts for completed transactions. See the Giving Stage configuration for more details.</description>
         <externalId>false</externalId>
         <label>Closed Amount</label>
         <precision>18</precision>
@@ -17831,6 +17864,7 @@
     <fields>
         <fullName>rC_Giving__Closed_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of completed transactions related to this Giving record.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_green.gif&apos;, &apos;green&apos;, 10,  MIN(150, rC_Giving__Closed_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Closed_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Closed_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -17898,6 +17932,7 @@
     <fields>
         <fullName>rC_Giving__Closed_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of completed transactions related to this Giving record.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Closed_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -17924,6 +17959,7 @@
     <fields>
         <fullName>rC_Giving__Commit_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, displays the aggregated sum of Giving Transactions  you are confident about closing.</description>
         <externalId>false</externalId>
         <label>Commit Amount</label>
         <precision>18</precision>
@@ -17936,6 +17972,7 @@
     <fields>
         <fullName>rC_Giving__Commit_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving Transactions you are confident about closing.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_green.gif&apos;, &apos;green&apos;, 10,  MIN(150, rC_Giving__Commit_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Commit_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Commit_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -17948,6 +17985,7 @@
     <fields>
         <fullName>rC_Giving__Commit_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving Transactions you are confident about closing.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Commit_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -18013,6 +18051,7 @@
     <fields>
         <fullName>rC_Giving__Current_Giving_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, this field shows the sum of all Giving Transaction amounts assigned with a current category per your giving stage configuration.</description>
         <externalId>false</externalId>
         <label>Current Giving Amount</label>
         <precision>18</precision>
@@ -18025,6 +18064,7 @@
     <fields>
         <fullName>rC_Giving__Current_Giving_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, this field shows the percentage of all Giving Transaction amounts assigned with a current category per your giving stage configuration.</description>
         <externalId>false</externalId>
         <formula>IF(rC_Giving__Current_Giving_Divergence__c &gt;= 0, IMAGE(&apos;/img/samples/color_green.gif&apos;, &apos;green&apos;, 10, MIN(150, rC_Giving__Current_Giving_Divergence__c)) + &apos; &apos; + TEXT(rC_Giving__Current_Giving_Divergence__c) + &apos;% over expected&apos;, IF(rC_Giving__Current_Giving_Divergence__c &gt; -25, IMAGE(&apos;/img/samples/color_yellow.gif&apos;, &apos;yellow&apos;, 10, MIN(150, ABS(rC_Giving__Current_Giving_Divergence__c))) + &apos; &apos; + TEXT(ABS(rC_Giving__Current_Giving_Divergence__c)) + &apos;% less than expected&apos;, IMAGE(&apos;/img/samples/color_red.gif&apos;, &apos;red&apos;, 10, MIN(150, ABS(rC_Giving__Current_Giving_Divergence__c))) + &apos; &apos; + TEXT(ABS(rC_Giving__Current_Giving_Divergence__c)) + &apos;% less than expected&apos;))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -18037,6 +18077,7 @@
     <fields>
         <fullName>rC_Giving__Current_Giving_Divergence__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the divergence of the &quot;Current Giving Amount&quot; from the &quot;Expected Giving Amount.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, CEILING(100 * (BLANKVALUE(rC_Giving__Current_Giving_Amount__c, 0) - rC_Giving__Expected_Giving_Amount__c) / rC_Giving__Expected_Giving_Amount__c))</formula>
         <label>Current Giving Divergence</label>
@@ -18049,6 +18090,7 @@
     <fields>
         <fullName>rC_Giving__Current_Giving_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, this field shows the percentage of all Giving Transaction amounts assigned with a current category per your giving stage configuration.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Projected_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Current_Giving_Amount__c, 0) / rC_Giving__Projected_Amount__c)))</formula>
         <label>Current Giving Ratio</label>
@@ -18197,6 +18239,7 @@
     <fields>
         <fullName>rC_Giving__Discount_Rate__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated, this field indicates an interest rate a central bank charges depository institutions that borrow reserves from it.</description>
         <externalId>false</externalId>
         <label>Discount Rate</label>
         <precision>18</precision>
@@ -18209,6 +18252,7 @@
     <fields>
         <fullName>rC_Giving__Effective_Giving_Type_Date__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the &quot;Effective Giving Type Date.</description>
         <externalId>false</externalId>
         <formula>IF(NOT(rC_Giving__Is_Giving__c), CloseDate,
 IF(AND($Setup.rC_Giving__Giving_Level_Setting__c.rC_Giving__Active_Only_On_Payment__c), rC_Giving__First_Closed_Payment_Date__c,
@@ -18225,6 +18269,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Enrollment_Start_Date__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated field on a Grant record indicating when an Awardee may enroll in  grant program.</description>
         <externalId>false</externalId>
         <label>Enrollment Start Date</label>
         <required>false</required>
@@ -18233,8 +18278,65 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Entered_Giving_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <description>When multicurrency is enabled, this is the original non-USD giving amount.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When multicurrency is enabled, this is the original non-USD giving amount.</inlineHelpText>
+        <label>Entered Giving Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Entered_Giving_Currency_Rate__c</fullName>
+        <deprecated>false</deprecated>
+        <description>When multicurrency is enabled, this is the original non-USD giving currency rate.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When multicurrency is enabled, this is the original non-USD giving currency rate.</inlineHelpText>
+        <label>Entered Giving Currency Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>8</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Entered_Giving_Currency__c</fullName>
+        <deprecated>false</deprecated>
+        <description>When multicurrency is enabled, this is the original non-USD giving currency code.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When multicurrency is enabled, this is the original non-USD giving currency code.</inlineHelpText>
+        <label>Entered Giving Currency</label>
+        <picklist>
+            <picklistValues>
+                <fullName>USD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CAD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>EUR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Expected_Giving_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, displays the sum of all Expected Giving Amounts.</description>
         <externalId>false</externalId>
         <label>Expected Giving Amount</label>
         <precision>18</precision>
@@ -18247,6 +18349,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Expected_Giving_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, displays the percentage of all Expected Giving Amounts.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_green.gif&apos;, &apos;green&apos;, 10, MIN(150, rC_Giving__Expected_Giving_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Expected_Giving_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Expected_Giving_Ratio__c) + &apos;% of projected&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -18259,6 +18362,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Expected_Giving_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, displays the percentage of all Expected Giving Amounts.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Projected_Amount__c, 0) == 0, 100, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) / rC_Giving__Projected_Amount__c)))</formula>
         <label>Expected Giving Ratio</label>
@@ -18271,6 +18375,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__External_ID__c</fullName>
         <deprecated>false</deprecated>
+        <description>External System or Legacy ID</description>
         <externalId>false</externalId>
         <label>External ID</label>
         <length>255</length>
@@ -18295,6 +18400,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__First_Closed_Payment_Date__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, Internal field used in calculation of active date on summary.</description>
         <externalId>false</externalId>
         <label>First Closed Payment Date</label>
         <required>false</required>
@@ -18305,6 +18411,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__First_Payment_Date__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, internal field used in calculation of pending  date on summary.</description>
         <externalId>false</externalId>
         <label>First Payment Date</label>
         <required>false</required>
@@ -18331,6 +18438,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Giving_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated, this field indicates the amount to pledged.</description>
         <externalId>false</externalId>
         <label>Giving Amount</label>
         <precision>18</precision>
@@ -18397,6 +18505,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Giving_Level_ID__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by formula, this field displays the Current qualifying Giving Level.</description>
         <externalId>false</externalId>
         <formula>rC_Giving__Summary__r.rC_Giving__Giving_Level__c</formula>
         <label>Giving Level ID</label>
@@ -18408,6 +18517,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Giving_Level_Status__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by Formula, this field reflects the status of meeting the current Giving Level.</description>
         <externalId>false</externalId>
         <formula>TEXT(rC_Giving__Summary__r.rC_Giving__Giving_Level_Status__c)</formula>
         <label>Giving Level Status</label>
@@ -18419,6 +18529,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Giving_Number__c</fullName>
         <deprecated>false</deprecated>
+        <description>Number of Giving record used as unique identifier.</description>
         <externalId>false</externalId>
         <label>Giving #</label>
         <length>255</length>
@@ -18645,6 +18756,52 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Is_Giving_Donation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Automatically populated, designates an Opportunity record as a Giving Donation Pledge if set to true.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Designates an Opportunity record as a Giving Donation Pledge if set to true.</inlineHelpText>
+        <label>Giving Donation?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Is_Giving_Inkind__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Giving Inkind?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Is_Giving_Membership__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Automatically populated, designates an Opportunity record as a Giving Membership Pledge if set to true.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Designates an Opportunity record as a Giving Membership Pledge if set to true.</inlineHelpText>
+        <label>Giving Membership?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Is_Giving_Purchase__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Automatically populated, designates an Opportunity record as a Giving Purchase if set to true.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Designates an Opportunity record as a Giving Purchase if set to true.</inlineHelpText>
+        <label>Giving Purchase?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Is_Giving_Transaction__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
@@ -18684,6 +18841,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
         <fullName>rC_Giving__Is_Payment_Refunded__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
+        <description>Populated by trigger; indicates payment was refunded.</description>
         <externalId>false</externalId>
         <label>Payment Refunded?</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -18694,6 +18852,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
         <fullName>rC_Giving__Is_Refundable__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
+        <description>Auto populated, indicates if this Giving is refundable.</description>
         <externalId>false</externalId>
         <label>Refundable?</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -18783,6 +18942,32 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Last_Giving_Amount_Adjustment_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Automatically populated, records the date on which the Last Giving Amount adjustment was made.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Date on which the Last Giving Amount adjustment was made.</inlineHelpText>
+        <label>Last Giving Amount Adjustment Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Last_Giving_Amount_Adjustment__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Automatically Populated, records the delta in Giving Amounts from the Current Value to the Last Value stored in the record.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Delta in Giving Amounts from the Current Value to the Last Value stored in the record.</inlineHelpText>
+        <label>Last Giving Amount Adjustment</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Currency</type>
     </fields>
     <fields>
         <fullName>rC_Giving__Letter_Of_Intent_Deadline__c</fullName>
@@ -18889,6 +19074,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Matching_Notice__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated, displays an error related to the giving record if inconsistent with the matching rules provided on the related Account</description>
         <externalId>false</externalId>
         <label>Matching Notice</label>
         <length>255</length>
@@ -19189,6 +19375,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Omitted_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, displays the aggregated sum of Giving amounts that are not contributing to your forecast.</description>
         <externalId>false</externalId>
         <label>Omitted Amount</label>
         <precision>18</precision>
@@ -19201,6 +19388,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Omitted_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving amounts that are not contributing to your forecast.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_red.gif&apos;, &apos;red&apos;, 10,  MIN(150, rC_Giving__Omitted_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Omitted_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Omitted_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -19213,6 +19401,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Omitted_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving amounts that are not contributing to your forecast.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Omitted_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -19255,6 +19444,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Payer_Name__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto Populated name of the Payor of a transaction.</description>
         <externalId>false</externalId>
         <label>Payer Name</label>
         <length>255</length>
@@ -19262,6 +19452,21 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Payment_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Number of payments that will be included in a Irregular membership / donation.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Number of payments for Irregular frequency.</inlineHelpText>
+        <label>Payment Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -19418,6 +19623,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Payment_Reference_Number__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, this field reflects the reference number returned from the payment processor.</description>
         <externalId>false</externalId>
         <inlineHelpText>The reference number returned from the payment processor</inlineHelpText>
         <label>Payment Reference #</label>
@@ -19444,6 +19650,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Pipeline_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated field including amounts from all open transactions. See the Giving Stage configuration for more details.</description>
         <externalId>false</externalId>
         <label>Pipeline Amount</label>
         <precision>18</precision>
@@ -19456,6 +19663,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Pipeline_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field reflecting the percentage of amounts from all open transactions.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_yellow.gif&apos;, &apos;yellow&apos;, 10,  MIN(150, rC_Giving__Pipeline_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Pipeline_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Pipeline_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -19468,6 +19676,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Pipeline_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field reflecting the percentage of amounts from all open transactions.</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Pipeline_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <label>Pipeline Ratio</label>
@@ -19540,6 +19749,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Projected_Bar__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving amounts marked as projected per your giving stage configuration.</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_green.gif&apos;, &apos;green&apos;, 10,  MIN(150, rC_Giving__Projected_Ratio__c)) + &apos; &apos; + IF(rC_Giving__Projected_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Projected_Ratio__c) + &apos;%&apos; + IF(ISBLANK(rC_Giving__Parent__c), &apos;&apos;, &apos; of parent proposal&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -19552,6 +19762,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Projected_Ratio__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the percentage of Giving amounts marked as projected per your giving stage configuration.</description>
         <externalId>false</externalId>
         <formula>IF(ISBLANK(rC_Giving__Parent__c), 100, IF(BLANKVALUE(rC_Giving__Parent__r.rC_Giving__Projected_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Projected_Amount__c, 0) / rC_Giving__Parent__r.rC_Giving__Projected_Amount__c))))</formula>
         <label>Projected Ratio</label>
@@ -19589,6 +19800,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Prospect_Rating__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated field rating the likeliness of closing this giving record.</description>
         <externalId>false</externalId>
         <label>Prospect Rating</label>
         <picklist>
@@ -19614,6 +19826,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
         <fullName>rC_Giving__Recipient_Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Deprecated Recipient Account.</description>
         <externalId>false</externalId>
         <label>@Deprecated(Version=2.2)</label>
         <referenceTo>Account</referenceTo>
@@ -19627,6 +19840,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Refund_Method__c</fullName>
         <deprecated>false</deprecated>
+        <description>Deprecated Value - Manually populated field indicating the payment method for a refund.</description>
         <externalId>false</externalId>
         <label>Refund Method (@Deprecated)</label>
         <picklist>
@@ -19647,6 +19861,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Refund_Reason__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated field indicating the reason for a refund request.</description>
         <externalId>false</externalId>
         <label>Refund Reason</label>
         <picklist>
@@ -19663,6 +19878,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Refunded_Amount__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated, aggregated sum of the child transactions marked as refunds (any stage, excluding canceled refunds).</description>
         <externalId>false</externalId>
         <inlineHelpText>Aggregated sum of the child transactions marked as refunds (any stage, excluding canceled refunds)</inlineHelpText>
         <label>Refunded Amount</label>
@@ -19676,7 +19892,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Refunded_Bar__c</fullName>
         <deprecated>false</deprecated>
-        <description>Percentage of Giving transaction dollars marked as refunds (any stage, excluding canceled refunds).</description>
+        <description>Auto Populated, percentage of Giving transaction dollars marked as refunds (any stage, excluding canceled refunds).</description>
         <externalId>false</externalId>
         <formula>IMAGE(&apos;/img/samples/color_red.gif&apos;, &apos;red&apos;, 10, rC_Giving__Refunded_Ratio__c) + &apos; &apos; + IF(rC_Giving__Refunded_Amount__c &lt; 0, &apos;-&apos;, &apos;&apos;) + TEXT(rC_Giving__Refunded_Ratio__c) + &apos;%&apos;</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -19690,7 +19906,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Refunded_Ratio__c</fullName>
         <deprecated>false</deprecated>
-        <description>Percentage of Giving transaction dollars marked as refunds (any stage, excluding canceled refunds).</description>
+        <description>Auto Populated, percentage of Giving transaction dollars marked as refunds (any stage, excluding canceled refunds).</description>
         <externalId>false</externalId>
         <formula>IF(BLANKVALUE(rC_Giving__Expected_Giving_Amount__c, 0) == 0, 0, ABS(CEILING(100 * BLANKVALUE(rC_Giving__Refunded_Amount__c, 0) / rC_Giving__Expected_Giving_Amount__c)))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -19706,6 +19922,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
         <fullName>rC_Giving__Renew_By_Email__c</fullName>
         <defaultValue>true</defaultValue>
         <deprecated>false</deprecated>
+        <description>Manually populated field indicating giving renewal form will be sent by Email.</description>
         <externalId>false</externalId>
         <label>Renew By Email</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -19716,6 +19933,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
         <fullName>rC_Giving__Renew_By_Postal_Mail__c</fullName>
         <defaultValue>true</defaultValue>
         <deprecated>false</deprecated>
+        <description>Manually populated field indicating giving renewal form will be sent by mail.</description>
         <externalId>false</externalId>
         <label>Renew By Postal Mail</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -19725,6 +19943,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Reporting_Schedule__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated,indicates the frequency that grant reports are scheduled to be disbursed as agreed in donor contract. These can include financial statements, narrative assessments, Impact reports etc... Likely not standard rC reports.</description>
         <externalId>false</externalId>
         <label>Reporting Schedule</label>
         <picklist>
@@ -19785,6 +20004,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Retention_Rate__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated field indicating the retention rate.</description>
         <externalId>false</externalId>
         <label>Retention Rate</label>
         <precision>18</precision>
@@ -19809,6 +20029,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Rollup_Giving__c</fullName>
         <deprecated>false</deprecated>
+        <description>System-level field used for sync/async/data loader recalculation of child giving records</description>
         <externalId>false</externalId>
         <label>Rollup Giving</label>
         <required>false</required>
@@ -19831,10 +20052,10 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Sale_Date__c</fullName>
         <deprecated>false</deprecated>
-        <description>Used for In Kind gifts - Date gift is sold.</description>
+        <description>Deprecated Sale Date.</description>
         <externalId>false</externalId>
         <inlineHelpText>Value of gift available for tax deduction.</inlineHelpText>
-        <label>Sale Date</label>
+        <label>@Deprecated(Version=2.2)</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -19843,10 +20064,10 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Sale_Proceeds__c</fullName>
         <deprecated>false</deprecated>
-        <description>Used for In Kind gifts - Amount organization receives from Sale of gift.</description>
+        <description>Deprecated Sale Proceeds.</description>
         <externalId>false</externalId>
         <inlineHelpText>Amount organization receives from Sale of gift.</inlineHelpText>
-        <label>Sale Proceeds</label>
+        <label>@Deprecated(Version=2.2)</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -19917,6 +20138,7 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
     <fields>
         <fullName>rC_Giving__Sorting_Number__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing a &quot;Sorting #&quot; for the Giving record.</description>
         <externalId>false</externalId>
         <formula>IF(ISBLANK(rC_Giving__Parent__c), LPAD(TEXT(CloseDate -  BLANKVALUE($Setup.rC_Giving__Opportunity_Setting__c.rC_Giving__Sorting_Number_Start_Date__c, DATEVALUE(&apos;1970-01-01&apos;))), 5, &apos;0&apos;) + CASE(rC_Giving__Giving_Type__c, &apos;New&apos;, &apos;1&apos;, &apos;Additional&apos;, &apos;2&apos;, &apos;Upgrade&apos;, &apos;3&apos;, &apos;Renewal&apos;, &apos;5&apos;, &apos;Rejoin&apos;, &apos;7&apos;, &apos;?&apos;), LPAD(TEXT(rC_Giving__Parent__r.CloseDate - BLANKVALUE($Setup.rC_Giving__Opportunity_Setting__c.rC_Giving__Sorting_Number_Start_Date__c, DATEVALUE(&apos;1970-01-01&apos;))), 5, &apos;0&apos;)  + CASE(rC_Giving__Parent__r.rC_Giving__Giving_Type__c, &apos;New&apos;, &apos;1&apos;, &apos;Additional&apos;, &apos;2&apos;, &apos;Upgrade&apos;, &apos;3&apos;, &apos;Renewal&apos;, &apos;5&apos;, &apos;Rejoin&apos;, &apos;7&apos;, &apos;?&apos;) + LPAD(TEXT(CloseDate - rC_Giving__Parent__r.CloseDate), 5, &apos;0&apos;) + CASE(rC_Giving__Transaction_Type__c, &apos;Payment&apos;, &apos;+&apos;, &apos;Refund&apos;, &apos;-&apos;, &apos;&apos;))</formula>
         <label>Sorting #</label>
@@ -20178,6 +20400,56 @@ rC_Giving__Summary__r.rC_Giving__Giving_Level_Pending_Date__c))))))</formula>
             </picklistValues>
             <picklistValues>
                 <fullName>In Celebration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Update_Transactions__c</fullName>
+        <deprecated>false</deprecated>
+        <description>System-level field used for sync/async/data loader recalculation of transaction records</description>
+        <externalId>false</externalId>
+        <inlineHelpText>System-level field used for sync/async/data loader recalculation of transaction records</inlineHelpText>
+        <label>Update Transactions</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Valuation_Date__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used for Inkind Giving to show the date the &quot;Expected Giving Amount&quot; was determined.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used for Inkind Giving to show the date the &quot;Expected Giving Amount&quot; was determined.</inlineHelpText>
+        <label>Valuation Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Valuation_Type__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Used for Inkind Giving to show the type of valuation that the &quot;Expected Giving Amount&quot; represents.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Used for Inkind Giving to show the type of valuation that the &quot;Expected Giving Amount&quot; represents.</inlineHelpText>
+        <label>Valuation Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Assessed Value</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Face Value</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Market Value</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -26707,7 +26979,7 @@ FALSE</errorConditionFormula>
     <validationRules>
         <fullName>rC_Giving__Giving_Amount_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Setup.rC_Giving__Opportunity_Validation__c.rC_Giving__Giving_Amount_Required__c, rC_Giving__Is_Giving__c, ISBLANK(rC_Giving__Giving_Amount__c))</errorConditionFormula>
+        <errorConditionFormula>AND($Setup.rC_Giving__Opportunity_Validation__c.rC_Giving__Giving_Amount_Required__c, rC_Giving__Is_Giving__c, NOT(rC_Giving__Is_Giving_Inkind__c), ISBLANK(rC_Giving__Giving_Amount__c))</errorConditionFormula>
         <errorDisplayField>rC_Giving__Giving_Amount__c</errorDisplayField>
         <errorMessage>Required field on a Giving record: Giving Amount</errorMessage>
     </validationRules>
@@ -26735,7 +27007,7 @@ FALSE</errorConditionFormula>
     <validationRules>
         <fullName>rC_Giving__Giving_Frequency_Invalid</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( $Setup.rC_Giving__Opportunity_Validation__c.rC_Giving__Giving_Frequency_Invalid__c , ISBLANK(CASE(rC_Giving__Giving_Frequency__c, &apos;&apos;, 1, &apos;One Payment&apos; , 1, &apos;Annually&apos;, 1, &apos;Semi-Annually&apos;, 1, &apos;Quarterly&apos;, 1, &apos;Monthly&apos;, 1, &apos;Bi-Monthly&apos;, 1, &apos;Bi-Weekly&apos;, 1, &apos;Weekly&apos;, 1,  NULL)))</errorConditionFormula>
+        <errorConditionFormula>AND( $Setup.rC_Giving__Opportunity_Validation__c.rC_Giving__Giving_Frequency_Invalid__c , ISBLANK(CASE(rC_Giving__Giving_Frequency__c, &apos;&apos;, 1, &apos;One Payment&apos; , 1, &apos;Annually&apos;, 1, &apos;Semi-Annually&apos;, 1, &apos;Quarterly&apos;, 1, &apos;Monthly&apos;, 1, &apos;Bi-Monthly&apos;, 1, &apos;Semi-Monthly&apos;, 1, &apos;Bi-Weekly&apos;, 1, &apos;Weekly&apos;, 1,  &apos;Total&apos;,1, &apos;Irregular&apos;,1,  NULL)))</errorConditionFormula>
         <errorDisplayField>rC_Giving__Giving_Frequency__c</errorDisplayField>
         <errorMessage>Invalid picklist value: Giving Frequency</errorMessage>
     </validationRules>
@@ -26851,6 +27123,26 @@ FALSE</errorConditionFormula>
         <errorMessage>One Payments cannot also be Sustainers</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>rC_Giving__Payment_Count_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Setup.rC_Giving__Opportunity_Validation__c.rC_Giving__Payment_Count_Required__c, 
+            rC_Giving__Is_Giving__c, 
+            AND(
+                        ISBLANK(rC_Giving__Payment_Count__c),   TEXT(rC_Giving__Giving_Frequency__c) == &apos;Irregular&apos; )
+)</errorConditionFormula>
+        <errorMessage>The number of payments is required for Irregular frequencies.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>rC_Giving__Payment_Count_Required_Blank</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( $Setup.rC_Giving__Opportunity_Validation__c.rC_Giving__Payment_Count_Required__c, 
+rC_Giving__Is_Giving__c, 
+AND( 
+NOT(ISBLANK(rC_Giving__Payment_Count__c)), TEXT(rC_Giving__Giving_Frequency__c) != &apos;Irregular&apos; ) 
+)</errorConditionFormula>
+        <errorMessage>The number of payments is only required for Irregular frequencies.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>rC_Giving__Payment_Day_Invalid</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Setup.rC_Giving__Opportunity_Validation__c.rC_Giving__Payment_Day_Invalid__c, ISBLANK(CASE(rC_Giving__Payment_Day__c, &apos;&apos;, 1, &apos;Default&apos;, 1, &apos;1st&apos;, 1, &apos;15th&apos;, 1, &apos;28th&apos;, 1, NULL)))</errorConditionFormula>
@@ -26874,7 +27166,7 @@ FALSE</errorConditionFormula>
     <validationRules>
         <fullName>rC_Giving__Payment_Frequency_Invalid</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Setup.rC_Giving__Opportunity_Validation__c.rC_Giving__Payment_Frequency_Invalid__c, ISBLANK(CASE(rC_Giving__Payment_Frequency__c, &apos;&apos;, 1, &apos;One Payment&apos; , 1, &apos;Annually&apos;, 1, &apos;Semi-Annually&apos;, 1, &apos;Quarterly&apos;, 1, &apos;Monthly&apos;, 1, &apos;Bi-Monthly&apos;, 1, &apos;Bi-Weekly&apos;, 1, &apos;Weekly&apos;, 1,  NULL)))</errorConditionFormula>
+        <errorConditionFormula>AND($Setup.rC_Giving__Opportunity_Validation__c.rC_Giving__Payment_Frequency_Invalid__c, ISBLANK(CASE(rC_Giving__Payment_Frequency__c, &apos;&apos;, 1, &apos;One Payment&apos; , 1, &apos;Annually&apos;, 1, &apos;Semi-Annually&apos;, 1, &apos;Quarterly&apos;, 1, &apos;Monthly&apos;, 1, &apos;Bi-Monthly&apos;, 1, &apos;Semi-Monthly&apos;, 1, &apos;Bi-Weekly&apos;, 1, &apos;Weekly&apos;, 1, &apos;Irregular&apos;,1,  NULL)))</errorConditionFormula>
         <errorDisplayField>rC_Giving__Payment_Frequency__c</errorDisplayField>
         <errorMessage>Invalid picklist value: Payment Frequency</errorMessage>
     </validationRules>
@@ -27062,7 +27354,7 @@ FALSE</errorConditionFormula>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
         <linkType>page</linkType>
-        <masterLabel>Manage Giving</masterLabel>
+        <masterLabel>Manage Giving @Deprecated(Version=2.0)</masterLabel>
         <openType>replace</openType>
         <page>rC_Giving__Opportunity_ManageGivingRedirect</page>
         <protected>false</protected>

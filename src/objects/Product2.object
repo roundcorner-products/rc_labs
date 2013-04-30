@@ -35,6 +35,7 @@
     <fields>
         <fullName>rC_Giving__Affiliation__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manualy populated, this field indicates the Affiliation using this &quot;Item/Package&quot;.</description>
         <externalId>false</externalId>
         <label>Affiliation</label>
         <picklist>
@@ -142,6 +143,7 @@
     <fields>
         <fullName>rC_Giving__Delivery_Method__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated field indicating the method used to deliver a giving item.</description>
         <externalId>false</externalId>
         <label>Delivery Method</label>
         <picklist>
@@ -233,6 +235,8 @@
     <fields>
         <fullName>rC_Giving__ISBN__c</fullName>
         <deprecated>false</deprecated>
+        <description>&quot;Manually populated field displaying the |
+International Standard Book Number (ISBN) is a unique numeric commercial book identifier based upon the 9-digit Standard Book Numbering (SBN)</description>
         <externalId>false</externalId>
         <label>ISBN</label>
         <length>80</length>
@@ -255,6 +259,7 @@
     <fields>
         <fullName>rC_Giving__Image_URL_For_Thumbnail__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated, this field contqins the location of Image Thumbnail file.</description>
         <externalId>false</externalId>
         <label>Image URL For Thumbnail</label>
         <required>false</required>
@@ -302,6 +307,7 @@ IF(LEN(rC_Giving__Image_FileName__c) &gt; 0,
     <fields>
         <fullName>rC_Giving__Inventory_Type__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated, this picklist alows you to indicate an &quot;Inventory Rype.&quot;  &apos;Standard Inventory,&apos; &apos;Direct Shipped&apos; etc.</description>
         <externalId>false</externalId>
         <label>Inventory Type</label>
         <picklist>
@@ -328,6 +334,7 @@ IF(LEN(rC_Giving__Image_FileName__c) &gt; 0,
     <fields>
         <fullName>rC_Giving__Item_Category__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated, this field is dependent on &quot;Item Family&quot; and describes the Type of Item:</description>
         <externalId>false</externalId>
         <label>Item Category</label>
         <picklist>
@@ -494,6 +501,7 @@ IF(LEN(rC_Giving__Image_FileName__c) &gt; 0,
         <fullName>rC_Giving__Parent_Item__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Manually populated lookup to a &quot;Parent Item&quot; record.</description>
         <externalId>false</externalId>
         <label>Parent Item</label>
         <referenceTo>Product2</referenceTo>
@@ -650,6 +658,7 @@ IF(LEN(rC_Giving__Image_FileName__c) &gt; 0,
     <fields>
         <fullName>rC_Giving__Special_Notes__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated, this field records comments or notes about the Item or Package.</description>
         <externalId>false</externalId>
         <label>Special Notes</label>
         <length>32768</length>
@@ -669,6 +678,7 @@ IF(LEN(rC_Giving__Image_FileName__c) &gt; 0,
     <fields>
         <fullName>rC_Giving__Thumbnail_Image__c</fullName>
         <deprecated>false</deprecated>
+        <description>Populated by Formula, displays a &quot;Thumbnail Image&quot; of the Item.</description>
         <externalId>false</externalId>
         <formula>IF(NOT(ISBLANK(rC_Giving__Image_URL_For_Thumbnail__c)), IMAGE(rC_Giving__Image_URL_For_Thumbnail__c,&quot;Thumbnail&quot;,256,256), &quot;URL Not Found&quot; )</formula>
         <label>Thumbnail Image</label>
@@ -701,6 +711,7 @@ IF(LEN(rC_Giving__Image_FileName__c) &gt; 0,
     <fields>
         <fullName>rC_Giving__Unit_Cost__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated, displays the &quot;Unit Cost&quot; of an Item.</description>
         <externalId>false</externalId>
         <label>Unit Cost</label>
         <precision>12</precision>

@@ -1064,9 +1064,32 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>rC_Giving__Current_Calendar_Year_Hard_Credit_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Current Calendar Year Hard Credit Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Current_Calendar_Year_Hard_Credit_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Current Calendar Year Hard Credit Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Current_Year_Hard_Credit_Amount__c</fullName>
         <deprecated>false</deprecated>
-        <description>Dollar value of gifts on Account where Hard Credits were received for the current calendar year starting January 1.</description>
+        <description>Dollar value of gifts on Account where Hard Credits were received for the current member year.</description>
         <externalId>false</externalId>
         <inlineHelpText>Dollar value of gifts on Account where Hard Credits were received for the current calendar year starting January 1.</inlineHelpText>
         <label>Current Year Hard Credit Amount</label>
@@ -1079,7 +1102,7 @@
     <fields>
         <fullName>rC_Giving__Current_Year_Hard_Credit_Count__c</fullName>
         <deprecated>false</deprecated>
-        <description>Number of gifts on Account where Hard Credits were received for the current calendar year starting January 1.</description>
+        <description>Number of gifts on Account where Hard Credits were received for the current member year.</description>
         <externalId>false</externalId>
         <inlineHelpText>Number of gifts on Account where Hard Credits were received for the current calendar year starting January 1.</inlineHelpText>
         <label>Current Year Hard Credit Count</label>
@@ -1115,7 +1138,7 @@
     <fields>
         <fullName>rC_Giving__Current_Year_Soft_Credit_Amount__c</fullName>
         <deprecated>false</deprecated>
-        <description>Dollar value of gifts on Account where Soft Credits were received for the current calendar year starting January 1.</description>
+        <description>It&apos;s the credit amount calculated based on Dollar value of gifts and distribution % the organization decides to give. It is calculated based on the Gifts which were received for the current calendar year starting January 1.</description>
         <externalId>false</externalId>
         <inlineHelpText>Dollar value of gifts on Account where Soft Credits were received for the current calendar year starting January 1.</inlineHelpText>
         <label>Current Year Soft Credit Amount</label>
@@ -1242,6 +1265,7 @@
         <fullName>rC_Giving__Is_Sustaining_Giver__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, indicates Account is a Sustaining Giver.</description>
         <externalId>false</externalId>
         <label>Sustaining Giver?</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1406,7 +1430,7 @@
     <fields>
         <fullName>rC_Giving__Lifetime_Soft_Credit_Amount__c</fullName>
         <deprecated>false</deprecated>
-        <description>Total dollar value of Soft Credits this Account has received.</description>
+        <description>Soft Credit Amount is the credit amount calculated based on dollar value of gifts and distribution % the organization decides to give. Its the total value of Soft Credits this Account has received.</description>
         <externalId>false</externalId>
         <inlineHelpText>Total dollar value of Soft Credits this Account has received.</inlineHelpText>
         <label>Lifetime Soft Credit Amount</label>
@@ -1483,8 +1507,33 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>rC_Giving__Pending_Payment_Details__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Manually populated notes or comments about a pending payment.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Manually populated notes or comments about a pending payment.</inlineHelpText>
+        <label>Pending Payment Details</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Pending_Payment__c</fullName>
+        <defaultValue>false</defaultValue>
+        <deprecated>false</deprecated>
+        <description>Automatically populated field indicating when an organization or giving-level is set to Active Only On Payment, and at least one pledge has been made but no payments have been received, this field will be checked.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>When an organization or giving-level is set to Active Only On Payment, and at least one pledge has been made but no payments have been received, this field will be checked.</inlineHelpText>
+        <label>Pending Payment?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>rC_Giving__Primary_Affiliation__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated field indicating the Account&apos;s primary Affiliation.It is populated based on the custom setting defined in opportunity</description>
         <externalId>false</externalId>
         <label>Primary Affiliation</label>
         <picklist>
@@ -1509,6 +1558,7 @@
         <fullName>rC_Giving__Primary_Giving_Level__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Automatically Populated, Lookup to Primary Giving Level for this Account.</description>
         <externalId>false</externalId>
         <label>Primary Giving Level</label>
         <referenceTo>rC_Giving__Giving_Level__c</referenceTo>
@@ -1521,6 +1571,7 @@
     <fields>
         <fullName>rC_Giving__Primary_Membership_Expiration_Date__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated field indicating the Expiration date for the Primary memberdship on the Account.</description>
         <externalId>false</externalId>
         <label>Primary Membership Expiration Date</label>
         <required>false</required>
@@ -1530,12 +1581,36 @@
     <fields>
         <fullName>rC_Giving__Primary_Membership_Status__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated field indicating the Status for the Primary memberdship on the Account.</description>
         <externalId>false</externalId>
         <label>Primary Membership Status</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Prior_Calendar_Year_Hard_Credit_Amount__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Prior Calendar Year Hard Credit Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>rC_Giving__Prior_Calendar_Year_Hard_Credit_Count__c</fullName>
+        <deprecated>false</deprecated>
+        <externalId>false</externalId>
+        <label>Prior Calendar Year Hard Credit Count</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Number</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -1618,6 +1693,7 @@
         <fullName>rC_Giving__Recalculate_Giving__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
+        <description>This flag needs to be true for the Recalculate Giving Batch job to process the record.</description>
         <externalId>false</externalId>
         <label>Recalculate Giving?</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1626,6 +1702,7 @@
     <fields>
         <fullName>rC_Giving__Rollup_Affiliations_Status__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field indicating status of Affiliation information on Account. Status of &apos;Ok&apos; means data is up to date.</description>
         <externalId>false</externalId>
         <formula>IF(NOT(rC_Giving__Track_Affiliations__c), &apos;Not Enabled&apos;, IF(ISBLANK(rC_Giving__Rollup_Affiliations__c), &apos;Pending Refresh&apos;, &apos;Ok&apos;))</formula>
         <label>Rollup Affiliations Status</label>
@@ -1636,6 +1713,7 @@
     <fields>
         <fullName>rC_Giving__Rollup_Affiliations__c</fullName>
         <deprecated>false</deprecated>
+        <description>Indicates the date and time from the most recently updated Affiliation record.</description>
         <externalId>false</externalId>
         <label>Rollup Affiliations</label>
         <required>false</required>
@@ -1657,6 +1735,7 @@
     <fields>
         <fullName>rC_Giving__Rollup_Hard_Credits__c</fullName>
         <deprecated>false</deprecated>
+        <description>The Value is set to null so that the record get picked up for processing.</description>
         <externalId>false</externalId>
         <label>Rollup Hard Credits</label>
         <required>false</required>
@@ -1666,7 +1745,7 @@
     <fields>
         <fullName>rC_Giving__Rollup_Soft_Credits_Status__c</fullName>
         <deprecated>false</deprecated>
-        <description>Status of Soft Credit information on Account. Status of &apos;Ok&apos; means data is up to date.</description>
+        <description>Status of Soft Credit information on Account. Status of &apos;Ok&apos; means data is up to date.Once the update is completed , &quot;Rollup Soft Credits&quot; is set to time it was processed</description>
         <externalId>false</externalId>
         <formula>IF(NOT(rC_Giving__Track_Soft_Credits__c), &apos;Not Enabled&apos;, IF(ISBLANK(rC_Giving__Rollup_Soft_Credits__c), &apos;Pending Refresh&apos;, &apos;Ok&apos;))</formula>
         <inlineHelpText>Status of Soft Credit information on Account. Status of &apos;Ok&apos; means data is up to date.</inlineHelpText>
@@ -1678,6 +1757,7 @@
     <fields>
         <fullName>rC_Giving__Rollup_Soft_Credits__c</fullName>
         <deprecated>false</deprecated>
+        <description>The Value is set to null so that it&apos;s picked for processing.</description>
         <externalId>false</externalId>
         <label>Rollup Soft Credits</label>
         <required>false</required>
@@ -1687,6 +1767,7 @@
     <fields>
         <fullName>rC_Giving__Rollup_Summaries_Status__c</fullName>
         <deprecated>false</deprecated>
+        <description>Status of Summaries information. Status of &apos;Ok&apos; means data is up to date. Once the update is completed , &quot;Rollup Summaries &quot; is set to time it was processed.</description>
         <externalId>false</externalId>
         <formula>IF(NOT(rC_Giving__Track_Summaries__c), &apos;Not Enabled&apos;, IF(ISBLANK(rC_Giving__Rollup_Summaries__c), &apos;Pending Refresh&apos;, &apos;Ok&apos;))</formula>
         <label>Rollup Summaries Status</label>
@@ -1697,6 +1778,7 @@
     <fields>
         <fullName>rC_Giving__Rollup_Summaries__c</fullName>
         <deprecated>false</deprecated>
+        <description>The Value is set to null so that the records gets picked up for processing.</description>
         <externalId>false</externalId>
         <label>Rollup Summaries</label>
         <required>false</required>
@@ -1707,6 +1789,7 @@
         <fullName>rC_Giving__Track_Affiliations__c</fullName>
         <defaultValue>true</defaultValue>
         <deprecated>false</deprecated>
+        <description>Indicates Affiliations should be tracked if checked.</description>
         <externalId>false</externalId>
         <label>Track Affiliations?</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1738,6 +1821,7 @@
         <fullName>rC_Giving__Track_Summaries__c</fullName>
         <defaultValue>true</defaultValue>
         <deprecated>false</deprecated>
+        <description>Populated by trigger, indicates if Summaries should be tracked.</description>
         <externalId>false</externalId>
         <label>Track Summaries?</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1746,6 +1830,7 @@
     <fields>
         <fullName>rC_Giving__Update_Gift_Membership_Summaries__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, Internal field: Shows the last time that child summaries were recalculated from giving records. Reset to blank/null to force a recalculation.</description>
         <externalId>false</externalId>
         <label>Update Gift Membership Summaries</label>
         <required>false</required>
@@ -1755,6 +1840,7 @@
     <fields>
         <fullName>rC_Giving__Update_Lifetime_Summaries__c</fullName>
         <deprecated>false</deprecated>
+        <description>Automatically populated, Internal field: Shows the last time that child summaries were recalculated from giving records. Reset to blank/null to force a recalculation.</description>
         <externalId>false</externalId>
         <inlineHelpText>Internal field: Shows the last time that child summaries were recalculated from giving records. Reset to blank/null to force a recalculation.</inlineHelpText>
         <label>Update Lifetime Summaries</label>
@@ -1766,6 +1852,7 @@
         <fullName>rC_Giving__Update_Summaries__c</fullName>
         <defaultValue>NOW()</defaultValue>
         <deprecated>false</deprecated>
+        <description>Automatically populated, Internal field: Shows the last time that child summaries were recalculated from giving records. Reset to blank/null to force a recalculation.</description>
         <externalId>false</externalId>
         <inlineHelpText>Internal field: Shows the last time that child summaries were recalculated from giving records. Reset to blank/null to force a recalculation.</inlineHelpText>
         <label>Update Summaries</label>
