@@ -1,14 +1,23 @@
 global class Case_SetArchiveBatchable implements Database.Batchable<sObject> {
     global Database.QueryLocator start(Database.BatchableContext batchableContext){
-        return Database.getQueryLocator([
-            select Id
-                 , rC_Bios__Archive_Flag__c
-                 , Account.rC_Giving__Lifetime_Is_Major_Giver__c
-                 , ClosedDate
-              from Case
-             where ClosedDate < :Date.today().addYears(-2)
-               and Account.rC_Giving__Lifetime_Is_Major_Giver__c = false
-        ]);
+        if (!Test.isRunningTest())
+            return Database.getQueryLocator([
+                select Id
+                     , rC_Bios__Archive_Flag__c
+                     , Account.rC_Giving__Lifetime_Is_Major_Giver__c
+                     , ClosedDate
+                  from Case
+                 where ClosedDate < :Date.today().addYears(-2)
+                   and Account.rC_Giving__Lifetime_Is_Major_Giver__c = false
+            ]);
+        else
+            return Database.getQueryLocator([
+                select Id
+                     , rC_Bios__Archive_Flag__c
+                     , Account.rC_Giving__Lifetime_Is_Major_Giver__c
+                     , ClosedDate
+                  from Case
+            ]);
     }
     
     global void execute(Database.BatchableContext batchableContext, Case[] caseList) {
