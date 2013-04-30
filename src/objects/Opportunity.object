@@ -17168,6 +17168,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Original_Summary__c</fullName>
+        <externalId>false</externalId>
+        <label>Original_Summary</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>StageName</fullName>
         <picklist>
             <picklistValues>

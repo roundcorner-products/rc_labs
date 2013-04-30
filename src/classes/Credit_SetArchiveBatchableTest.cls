@@ -9,11 +9,27 @@ public class Credit_SetArchiveBatchableTest {
         
         System.assert(null != account.Id, 'Credit_SetArchiveBatchableTest.test() : Account record insertion is failed'+account);
         
+        Campaign campaign = new Campaign();
+        campaign.Name = 'RCSBIRD Campaign Name';
+        campaign.IsActive = true;
+        campaign.rC_Giving__Source_Code__c = 'RCSBIRD_TEST';
+        campaign.rC_Giving__Affiliation__c = 'RCSBIRD';
+        insert campaign;
+        System.assert(null != campaign.Id, 'Allocation_DeleteArchivedBatchableTest.test() : Campaign record insertion is failed'+campaign);
+        
         Opportunity opportunity = new Opportunity();
+        opportunity.rC_Giving__Affiliation__c = 'RCSBIRD';
         opportunity.AccountId = account.Id;
-        opportunity.Name = 'Opportunity Name';
-        opportunity.StageName = 'Closed';
+        opportunity.Amount = 0;
+        opportunity.CampaignId = campaign.Id;
         opportunity.CloseDate = Date.today();
+        opportunity.rC_Giving__Giving_Amount__c = 10;
+        opportunity.rC_Giving__Giving_Frequency__c = 'One Payment';
+        opportunity.rC_Giving__Giving_Years__c = 1;
+        opportunity.rC_Giving__Giving_Type_Engine__c = 'Standard';
+        opportunity.rC_Giving__Payment_Frequency__c = 'One Payment';
+        opportunity.StageName = 'Closed';
+        opportunity.Name = 'Opportunity Name';
         opportunity.rC_Giving__Archive_Flag__c = true;
         insert opportunity;
         

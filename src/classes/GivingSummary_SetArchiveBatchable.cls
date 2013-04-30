@@ -78,11 +78,6 @@ global class GivingSummary_SetArchiveBatchable implements Database.Batchable<sOb
             updateOpportunities(aggregatedSummaryMap,summaryList);
             
             delete summaryList;
-                        
-            system.debug('_____________aggregatedSummaryMap = ' + aggregatedSummaryMap.values());
-            system.debug('_____________aggregatedSummaryMap.size = ' + aggregatedSummaryMap.size());  
-            system.debug('_____________summaryList = ' + summaryList);
-            system.debug('_____________summaryList.size = ' + summaryList.size());
         }
     }
     
@@ -242,7 +237,7 @@ global class GivingSummary_SetArchiveBatchable implements Database.Batchable<sOb
                                            + ', ' + startYear
                                            + ', ' + 'To'
                                            + ', ' + endYear;*/
-            aggregatedSummary.rC_Giving__Historical_Year__c = startYear + ' To ' + endYear;   
+            aggregatedSummary.rC_Giving__Historical_Year__c = startYear + ' to ' + endYear;   
                                       
             
             // CSV values
@@ -280,8 +275,10 @@ global class GivingSummary_SetArchiveBatchable implements Database.Batchable<sOb
         
         for (Opportunity opportunity :OpportunityList) {
         	rC_Giving__Summary__c aggregatedSummary = aggregatedSummaryMap.get(opportunity.rC_Giving__Affiliation__c);
-        	if (aggregatedSummary.Id != null)
-                opportunity.rC_Giving__Summary__c = aggregatedSummary.Id;	
+        	if (aggregatedSummary.Id != null) {
+                opportunity.Original_Summary__c = opportunity.rC_Giving__Summary__c;
+                opportunity.rC_Giving__Summary__c = aggregatedSummary.Id;
+        	}    	
         }
         
         update OpportunityList;    
