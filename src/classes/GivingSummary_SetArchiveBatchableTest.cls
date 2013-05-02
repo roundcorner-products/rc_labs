@@ -1,17 +1,13 @@
 @isTest
-public class Opportunity_SetArchiveBatchableTest {
-    @isTest
+public class GivingSummary_SetArchiveBatchableTest {
+	@isTest
     public static void test() {
-        rC_Giving__Opportunity_Setting__c setting = rC_Giving__Opportunity_Setting__c.getInstance();
-        setting.rC_Giving__Disable_All__c = true;
-        upsert setting;
-        
         Account account = new Account();
         account.name = 'Account Name';
         account.rC_Giving__Lifetime_Is_Major_Giver__c = false;
         insert account;
-               
-        System.assert(null != account.Id, 'Opportunity_SetArchiveBatchableTest.test() : Account record insertion is failed'+account);
+        
+        System.assert(null != account.Id, 'GivingSummary_SetArchiveBatchableTest.test() : Account record insertion is failed'+account);
         
         Campaign campaign = new Campaign();
         campaign.Name = 'RCSBIRD Campaign Name';
@@ -20,6 +16,9 @@ public class Opportunity_SetArchiveBatchableTest {
         campaign.rC_Giving__Affiliation__c = 'RCSBIRD';
         insert campaign;
         System.assert(null != campaign.Id, 'Allocation_DeleteArchivedBatchableTest.test() : Campaign record insertion is failed'+campaign);
+        
+        rC_LabsGivingTests rc = new rC_LabsGivingTests();
+        rc.initializeGivingLevelList();
         
         Opportunity opportunity = new Opportunity();
         opportunity.rC_Giving__Affiliation__c = 'RCSBIRD';
@@ -36,12 +35,10 @@ public class Opportunity_SetArchiveBatchableTest {
         opportunity.Name = 'Opportunity Name';
         insert opportunity;
         
-        System.assert(null != opportunity.Id, 'Opportunity_SetArchiveBatchableTest.test() : Opportunity record insertion is failed'+opportunity);
-        
-        System.assertEquals(false, [select rC_Giving__Archive_Flag__c from Opportunity where Id =: opportunity.Id].rC_Giving__Archive_Flag__c, 'Opportunity_SetArchiveBatchableTest.test() : Archived Opportunity record inserted'+opportunity);
         Test.startTest();
-        System.assert(true, Database.executeBatch(new Opportunity_SetArchiveBatchable(), 1) != null);
+        Database.executeBatch(new GivingSummary_SetArchiveBatchable(1590,2113,account.Id), 100);
         Test.stopTest();
-        System.assertEquals(true, [select rC_Giving__Archive_Flag__c from Opportunity where Id =: opportunity.Id].rC_Giving__Archive_Flag__c, 'Opportunity_SetArchiveBatchableTest.test() : Opportunity record updation is failed'+opportunity);
+        
     }
+
 }

@@ -46,7 +46,6 @@ global class GivingSummary_SetArchiveBatchable implements Database.Batchable<sOb
             if (summaryList.size() == 0)
                 continue;
             
-            //rC_Giving__Summary__c summary = new rC_Giving__Summary__c();
             Map<String,rC_Giving__Summary__c> aggregatedSummaryMap = new Map<String,rC_Giving__Summary__c>();
             
             for (rC_Giving__Summary__c summary: summaryList) {
@@ -195,7 +194,6 @@ global class GivingSummary_SetArchiveBatchable implements Database.Batchable<sOb
             aggregatedSummary.rC_Giving__Most_Recent_Giving_Date__c = summary.rC_Giving__Most_Recent_Giving_Date__c;
             aggregatedSummary.rC_Giving__Entered_Current_Amount__c = summary.rC_Giving__Entered_Current_Amount__c;
             aggregatedSummary.rC_Giving__Entered_Current_Annual_Amount__c = summary.rC_Giving__Entered_Current_Annual_Amount__c;
-            
             aggregatedSummary.rC_Giving__Entered_Current_Renewal_Amount__c = summary.rC_Giving__Entered_Current_Renewal_Amount__c;
             aggregatedSummary.rC_Giving__Entered_Current_Annual_Amount__c = summary.rC_Giving__Entered_Current_Annual_Amount__c;
             aggregatedSummary.rC_Giving__Entered_First_Giving_Amount__c = summary.rC_Giving__Entered_First_Giving_Amount__c;
@@ -376,16 +374,12 @@ global class GivingSummary_SetArchiveBatchable implements Database.Batchable<sOb
         summary.rC_Giving__Account__c = null;
         summary.rC_Giving__Activity_Type__c = null;
         summary.rC_Giving__Affiliation__c = null;
-        //summary.rC_Giving__Channel__c = null;
-        summary.rC_Giving__Is_Annual__c = null;
+        summary.rC_Giving__Is_Annual__c = false;
         summary.rC_Giving__Lifetime_Summary__c = null;
         
-        // 
-        //summary.rC_Giving__Type__c = null;
-        summary.rC_Giving__Archive_Flag__c = null;
-        summary.rC_Giving__Is_Lifetime__c = null;
-        summary.rC_Giving__Is_Historical__c = null;
-        //summary.rC_Giving__Title__c = null;
+        summary.rC_Giving__Archive_Flag__c = false;
+        summary.rC_Giving__Is_Lifetime__c = false;
+        summary.rC_Giving__Is_Historical__c = false;
         
         // CSV value
         summary.rC_Giving__Entered_Currency__c = null;
