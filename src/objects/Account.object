@@ -2659,6 +2659,16 @@
         <url>http://www.genwatt.com/genwatt/billing.htm?actname={!Account_Name}</url>
     </webLinks>
     <webLinks>
+        <fullName>Giving_Tree_Clone</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>page</linkType>
+        <masterLabel>Giving Tree Clone</masterLabel>
+        <openType>replace</openType>
+        <page>Account_ManageGivingTree</page>
+        <protected>false</protected>
+    </webLinks>
+    <webLinks>
         <fullName>rC_Bios__Manage_Contacts</fullName>
         <availability>online</availability>
         <displayType>button</displayType>

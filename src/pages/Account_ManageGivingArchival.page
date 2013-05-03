@@ -20,16 +20,24 @@ table.list tr.dataRow {
 </style>
     
     <apex:form id="form">
-        <apex:pageBlock id="thepgblock" title="{!objectName} Archived Data">
+        <apex:pageBlock id="thepgblock" title="{!objectName} Archived Data" rendered="{!opportunityList.size != 0}">
             <table class="list" cellpadding="0" cellspacing="0" border="0">
                 <thead class="rich-table-thead">
                     <tr class="headerRow">
                         <apex:repeat var="headerLabel" value="{!headerList}">
                             <th class="headerRow" scope="col" colspan="1" style="text-align:center;"><apex:outputText value="{!headerLabel}"/></th>
                         </apex:repeat>
+                        <th></th>
+                        <th class="headerRow" scope="col" colspan="1" style="text-align:center;"><apex:outputText value="Details"/></th>
+                        <th class="headerRow" scope="col" colspan="1" style="text-align:center;"><apex:outputText value="Items"/></th>
+                        <th class="headerRow" scope="col" colspan="1" style="text-align:center;"><apex:outputText value="Pay Methods"/></th>
+                        <th class="headerRow" scope="col" colspan="1" style="text-align:center;"><apex:outputText value="Credits"/></th>
+                        <th class="headerRow" scope="col" colspan="1" style="text-align:center;"><apex:outputText value="Allocations"/></th>
+                        <th class="headerRow" scope="col" colspan="1" style="text-align:center;"><apex:outputText value="Deliverables"/></th>
                     </tr>
                 </thead>
                 
+                <apex:variable var="rowCount" value="{!0}"/>
                 <apex:repeat var="archivedData" value="{!dataList}">
                     <tr class="dataRow">
                     <apex:repeat var="actualData" value="{!archivedData}">
@@ -38,10 +46,44 @@ table.list tr.dataRow {
                                 <apex:outputLink value="{!URLFOR('/'+actualData,actualData)}" target="_blank" styleClass="actionLink" rendered="{!(LEN(actualData) == 15 || LEN(actualData) == 18) && CONTAINS(allObjectKeyPrefix, LEFT(actualData,3))}">{!actualData}</apex:outputLink>
                             </td>
                     </apex:repeat>
+                        <td></td>
+                        <td>
+                            <apex:outputLink value="{!URLFOR('/'+opportunityList[rowCount].Id,opportunityList[rowCount].Id)}" target="_blank" styleClass="btn" style="text-decoration:none;">
+                                View
+                            </apex:outputLink>
+                        </td>
+                        <td>
+                            <apex:outputLink target="_blank" styleClass="btn" style="text-decoration:none;">
+                                View
+                            </apex:outputLink>
+                        </td>
+                        <td>
+                            <apex:outputLink target="_blank" styleClass="btn" style="text-decoration:none;">
+                                View
+                            </apex:outputLink>
+                        </td>
+                        <td>
+                            <apex:outputLink target="_blank" styleClass="btn" style="text-decoration:none;">
+                                View
+                            </apex:outputLink>
+                        </td>
+                        <td>
+                            <apex:outputLink target="_blank" styleClass="btn" style="text-decoration:none;">
+                                View
+                            </apex:outputLink>
+                        </td>
+                        <td>
+                            <apex:outputLink target="_blank" styleClass="btn" style="text-decoration:none;">
+                                View
+                            </apex:outputLink>
+                        </td>
                    </tr>
+                   <apex:variable var="rowCount" value="{!rowCount + 1}"/>
                 </apex:repeat>
             </table>
-            <apex:pageBlockSection rendered="{!iCount == 0}">
+        </apex:pageBlock>
+        <apex:pageBlock title="{!objectName} Archived Data" rendered="{!opportunityList.size == 0}">
+            <apex:pageBlockSection rendered="{!opportunityList.size == 0}">
                 no records archived
             </apex:pageBlockSection>
         </apex:pageBlock>

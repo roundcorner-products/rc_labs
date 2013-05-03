@@ -4,16 +4,16 @@ global class GivingSummary_SetArchiveBatchable implements Database.Batchable<sOb
     public static Map<string,schema.RecordTypeInfo> RT_MAP = rC_Giving__Summary__c.SObjectType.getDescribe().getRecordTypeInfosByName();
     
     public static string RT_ANNAUL_NAME = 'Annual';
+    public static string RT_LIFETIME_NAME = 'Lifetime';
     public static string RT_ANNAUL_AGGREGATE_NAME = 'Annual Aggregate';
     
     public static Id RT_ANNUAL_ID = getRecordTypeId(RT_ANNAUL_NAME);
     public static Id RT_ANNUAL_AGGREGATE_ID = getRecordTypeId(RT_ANNAUL_AGGREGATE_NAME);
-    
-    
+    public static Id RT_LIFETIME_ID = getRecordTypeId(RT_LIFETIME_NAME);
+        
     static Id getRecordTypeId(String name) {
         return RT_MAP.get(name) != null ? RT_MAP.get(name).getRecordTypeId() : null;
     }
-    
     
     public String startYear;
     public String endYear;
@@ -195,7 +195,6 @@ global class GivingSummary_SetArchiveBatchable implements Database.Batchable<sOb
             aggregatedSummary.rC_Giving__Entered_Current_Amount__c = summary.rC_Giving__Entered_Current_Amount__c;
             aggregatedSummary.rC_Giving__Entered_Current_Annual_Amount__c = summary.rC_Giving__Entered_Current_Annual_Amount__c;
             aggregatedSummary.rC_Giving__Entered_Current_Renewal_Amount__c = summary.rC_Giving__Entered_Current_Renewal_Amount__c;
-            aggregatedSummary.rC_Giving__Entered_Current_Annual_Amount__c = summary.rC_Giving__Entered_Current_Annual_Amount__c;
             aggregatedSummary.rC_Giving__Entered_First_Giving_Amount__c = summary.rC_Giving__Entered_First_Giving_Amount__c;
             aggregatedSummary.rC_Giving__Entered_Largest_Giving_Amount__c = summary.rC_Giving__Entered_Largest_Giving_Amount__c;
             aggregatedSummary.rC_Giving__Entered_Most_Recent_Giving_Amount__c = summary.rC_Giving__Entered_Most_Recent_Giving_Amount__c;
@@ -252,10 +251,7 @@ global class GivingSummary_SetArchiveBatchable implements Database.Batchable<sOb
             aggregatedSummary.rC_Giving__Is_Shopper__c = summary.rC_Giving__Is_Shopper__c == true ? true : aggregatedSummary.rC_Giving__Is_Shopper__c;
             
         }
-                      
-        for(rC_Giving__Summary__c summary : summaryList)
-            summary.rC_Giving__Entered_Currency__c = null;
-                
+                                      
     }
     
     public void updateOpportunities(Map<String,rC_Giving__Summary__c> aggregatedSummaryMap, rC_Giving__Summary__c[] summaryList) {

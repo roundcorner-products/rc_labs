@@ -1035,6 +1035,10 @@
         </availableFields>
         <description>Account_ManageGivingTree</description>
         <displayedFields>
+            <field>Campaign.Name</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
             <field>rC_Giving__Source_Code__c</field>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -1052,10 +1056,6 @@
         </displayedFields>
         <displayedFields>
             <field>rC_Giving__Current_Giving_Amount__c</field>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Campaign.Name</field>
             <isRequired>false</isRequired>
         </displayedFields>
         <label>Account_ManageGivingTree</label>

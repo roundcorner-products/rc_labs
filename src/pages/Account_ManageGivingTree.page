@@ -1,0 +1,100 @@
+<apex:page standardController="Account" extensions="Account_ManageGivingTree" action="{!initialize}">
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" />
+    <apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" />
+    <apex:stylesheet value="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/smoothness/jquery-ui.css" />
+    <apex:sectionHeader title="Manage {!$ObjectType.Opportunity.Label} Tree" subtitle="{!account.Name}" />
+
+    <style>
+table.detailList tr td.labelCol,.pbSubsection table.detailList tr td.dataCol,.pbSubsection table.detailList tr td.data2Col
+	{
+	height: 2.5em !important;
+	vertical-align: middle;
+}
+
+table.list tr td.dataCell {
+	height: 2.5em !important;
+	vertical-align: middle;
+}
+
+.dateHelper span.dateFormat {
+    display: none;
+}
+</style>
+
+    <script type="text/javascript" src="//www.google.com/jsapi"></script>
+    <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChartTimeline);
+    
+    function drawChartTimeline() {
+        var data = google.visualization.arrayToDataTable([
+            ['When', 'Open', 'Closed', 'Lost', 'Refunded'],
+        <apex:variable var="separator" value="" />
+        <apex:repeat var="timelineData" value="{!timelineDataList}">
+            <apex:outputText value="{!separator}['{!timelineData.name}', {!timelineData.open}, {!timelineData.closed}, {!timelineData.lost}, {!timelineData.refund}]" />
+            <apex:variable var="separator" value="," />
+        </apex:repeat>
+        ]);
+
+        var options = {
+            colors: ['#d7b83b', 'green', 'red', 'red']
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById('timeline_chart'));
+        chart.draw(data, options);
+      }
+    </script>
+    
+    <!-- Replace the Recent items list on the side -->
+    <script>
+    $(document).ready(function() {
+        // base template
+        var template = $('.sidebarModule.recentItemModule');
+    });
+    
+    </script>
+    
+    <apex:form >
+    
+    <apex:pageBlock title="Timeline of Transactions" mode="maindetail">
+        <apex:pageBlockSection columns="1" collapsible="false" title="" />
+        <div id="timeline_chart" style="width: 100%; height: 200px;"></div>
+    </apex:pageBlock>
+
+<!--     <apex:form > -->
+        <apex:pageBlock title="Record Details" mode="maindetail">
+            <apex:pageBlockButtons location="top">
+                <apex:commandButton action="{!redirectToShowArchivedGiving}" value="Show Archived Giving" rendered="{!AND(showOpportunityArchival)}" />
+                <apex:commandButton action="{!redirectToShowTransactions}" value="Show Transactions" rendered="{!NOT(isRenderedTransactions)}" />
+                <apex:commandButton action="{!redirectToHideTransactions}" value="Hide Transactions" rendered="{!AND(isRenderedTransactions)}" />
+            </apex:pageBlockButtons>
+
+            <apex:pageBlockSection columns="1" collapsible="false" title="" />
+
+            <apex:pageBlockSection columns="1" collapsible="false" rendered="{!hasMessages}">
+                <apex:pageMessages />
+            </apex:pageBlockSection>
+
+            <apex:pageBlockTable var="opportunityData" value="{!opportunityDataList}">
+                <apex:column >
+                    <apex:facet name="header">
+                        <apex:outputLabel value="{!$ObjectType.Opportunity.Fields.Name.Label}" />
+                    </apex:facet>
+
+                    <apex:outputPanel layout="none">
+                        <apex:outputText rendered="{!opportunityData.indentation != 0}" style="padding-left: {!opportunityData.indentation * 1.5}em;">&nbsp;</apex:outputText>
+                        <apex:outputText rendered="{!opportunityData.indentation != 0}">↳</apex:outputText>
+                        <apex:outputText rendered="{!opportunityData.indentation != 0}" style="padding-right: 1em;">&nbsp;</apex:outputText>
+
+                        <apex:outputLink value="{!URLFOR($Action.Opportunity.View, opportunityData.opportunity.Id)}">
+                            <apex:outputText value="{!opportunityData.opportunity.Name}" />
+                        </apex:outputLink>
+                    </apex:outputPanel>
+                </apex:column>
+
+                <apex:repeat var="field" value="{!$ObjectType.Opportunity.FieldSets.rC_Giving__Account_ManageGivingTree}">
+                    <apex:column value="{!opportunityData.opportunity[field]}" headerClass="{!field.Type}Column" styleClass="{!field.Type}Column" footerClass="{!field.Type}Column" />
+                </apex:repeat>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

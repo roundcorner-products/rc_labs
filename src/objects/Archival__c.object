@@ -212,5 +212,17 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>restapi_Opportunity_Detail__c</fullName>
+        <defaultValue>&quot;/Opportunity/GetOpportunity?OpportunityId=&quot;</defaultValue>
+        <description>the RESTful api service that queries by opportunity id</description>
+        <externalId>false</externalId>
+        <inlineHelpText>the RESTful api service that queries by opportunity id</inlineHelpText>
+        <label>RESTful API Opportunity Detail</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <label>Archival</label>
 </CustomObject>

@@ -98,5 +98,10 @@
         <label><!-- User Name --></label>
         <name>User_Name__c</name>
     </fields>
+    <fields>
+        <help><!-- the RESTful api service that queries by opportunity id --></help>
+        <label><!-- RESTful API Opportunity Detail --></label>
+        <name>restapi_Opportunity_Detail__c</name>
+    </fields>
     <startsWith>Consonant</startsWith>
 </CustomObjectTranslation>
