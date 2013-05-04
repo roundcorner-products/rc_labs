@@ -48,32 +48,32 @@ table.list tr.dataRow {
                     </apex:repeat>
                         <td></td>
                         <td>
-                            <apex:outputLink value="{!URLFOR('/'+opportunityList[rowCount].Id,opportunityList[rowCount].Id)}" target="_blank" styleClass="btn" style="text-decoration:none;">
+                            <apex:outputLink value="{!detailsLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showDetailsButton)}">
                                 View
                             </apex:outputLink>
                         </td>
                         <td>
-                            <apex:outputLink target="_blank" styleClass="btn" style="text-decoration:none;">
+                            <apex:outputLink value="{!itemsLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showItemsButton)}">
                                 View
                             </apex:outputLink>
                         </td>
                         <td>
-                            <apex:outputLink target="_blank" styleClass="btn" style="text-decoration:none;">
+                            <apex:outputLink value="{!paymentMethodsLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showPaymentMethodButton)}">
                                 View
                             </apex:outputLink>
                         </td>
                         <td>
-                            <apex:outputLink target="_blank" styleClass="btn" style="text-decoration:none;">
+                            <apex:outputLink value="{!creditsLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showCreditButton)}">
                                 View
                             </apex:outputLink>
                         </td>
                         <td>
-                            <apex:outputLink target="_blank" styleClass="btn" style="text-decoration:none;">
+                            <apex:outputLink value="{!allocationsLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showAllocationButton)}">
                                 View
                             </apex:outputLink>
                         </td>
                         <td>
-                            <apex:outputLink target="_blank" styleClass="btn" style="text-decoration:none;">
+                            <apex:outputLink value="{!deliverablesLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showDeliverableButton)}">
                                 View
                             </apex:outputLink>
                         </td>

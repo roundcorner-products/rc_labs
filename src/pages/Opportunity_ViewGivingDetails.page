@@ -1,0 +1,37 @@
+<apex:page standardController="Opportunity" extensions="Opportunity_ViewGivingDetails" action="{!initialize}">
+    
+    <style type="text/css">
+tr,td {
+    border: none;
+}
+
+td {
+    border-width: 0 0 1px 0 !important;
+}
+
+table.list .dataCell {
+    min-width: 8em;
+    text-align:center;
+}
+
+table.list tr.dataRow {
+    height: 2em !important;
+}
+</style>
+    
+    <apex:form id="form">
+        <apex:pageBlock id="thepgblock" title="{!$ObjectType.Opportunity.Label} Details">
+            <apex:pageBlockSection columns="1">
+            <apex:repeat var="actualData" value="{!archivedDataMap1}">
+                <apex:pageBlockSectionItem >
+                <apex:outputText value="{!actualData}"/>
+                <apex:outputText value="{!archivedDataMap1[actualData]}"/>
+                </apex:pageBlockSectionItem>
+            </apex:repeat>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection rendered="{!iCount == 0}">
+                no records archived
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

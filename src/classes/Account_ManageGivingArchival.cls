@@ -3,6 +3,13 @@ public class Account_ManageGivingArchival extends SobjectExtension {
     public Integer iCount { set; get; }
     public String objectName { set; get; }
     
+    public Boolean showDetailsButton { set; get; }
+    public Boolean showItemsButton { set; get; }
+    public Boolean showPaymentMethodButton { set; get; }
+    public Boolean showCreditButton { set; get; }
+    public Boolean showAllocationButton { set; get; }
+    public Boolean showDeliverableButton { set; get; }
+    
     public String[] headerList { set; get; }
     public List<List<String>> dataList { set; get; }
     public String allObjectKeyPrefix { set; get; }
@@ -22,6 +29,12 @@ public class Account_ManageGivingArchival extends SobjectExtension {
         String strURL;
         if (archivalSetting != null) {
             strURL = (archivalSetting.RESTful_Host__c != null && archivalSetting.Database__c != null) ? '' + archivalSetting.RESTful_Host__c + archivalSetting.Database__c : null;
+            showDetailsButton = archivalSetting.restapi_Opportunity_Detail__c != null;
+            showItemsButton = archivalSetting.RESTapi_OpportunityLineItem__c != null;
+            showPaymentMethodButton = archivalSetting.RESTapi_rC_Giving_Payment_Method__c != null;
+            showCreditButton = archivalSetting.RESTapi_rC_Giving_Opportunity_Credit__c != null;
+            showAllocationButton = archivalSetting.RESTapi_rC_Giving_Opportunity_Allocation__c != null;
+            showDeliverableButton = archivalSetting.RESTapi_rC_Giving_Deliverable__c != null;
         }
         
         for (Schema.SObjectType objectType : Schema.getGlobalDescribe().values()) {
@@ -100,13 +113,48 @@ public class Account_ManageGivingArchival extends SobjectExtension {
         return null;
     }
     
-    private String capitalizeEachWord(String headerName) {
-        String actualHeader = '';
-        for(String str : headerName.split('_')) {
-            actualHeader += str.capitalize();
-            actualHeader += '_';
-        }
-        return actualHeader.replace('_',' ').trim();
+    private PageReference buildLink(String objectName) {
+        Pagereference reference;
+        
+        if (objectName.equalsIgnoreCase('Opportunity'))
+            reference = Page.Opportunity_ViewGivingDetails;
+        else if (objectName.equalsIgnoreCase('Items'))
+            reference = Page.Opportunity_ViewArchivedItems;
+        else if (objectName.equalsIgnoreCase('Payment Method'))
+            reference = Page.Account_ViewArchivedData;
+        else if (objectName.equalsIgnoreCase('Credit'))
+            reference = Page.Opportunity_ViewArchivedCredits;
+        else if (objectName.equalsIgnoreCase('Allocation'))
+            reference = Page.Account_ViewArchivedData;
+        else if (objectName.equalsIgnoreCase('Deliverable'))
+            reference = Page.Account_ViewArchivedData;
+        
+        reference.setRedirect(true);
+        return reference;
+    }
+    
+    public PageReference getDetailsLink() {
+        return buildLink('Opportunity');
+    }
+    
+    public PageReference getItemsLink() {
+        return buildLink('Items');
+    }
+    
+    public PageReference getPaymentMethodsLink() {
+        return buildLink('Payment Method');
+    }
+    
+    public PageReference getCreditsLink() {
+        return buildLink('Credit');
+    }
+    
+    public PageReference getAllocationsLink() {
+        return buildLink('Allocation');
+    }
+    
+    public PageReference getDeliverablesLink() {
+        return buildLink('Deliverable');
     }
     
     public static String getTestResponse() {

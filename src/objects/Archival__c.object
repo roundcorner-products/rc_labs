@@ -170,7 +170,7 @@
     </fields>
     <fields>
         <fullName>RESTapi_rC_Giving_Payment_Method__c</fullName>
-        <defaultValue>&quot;/rC_Giving__Payment_Method/GetAccount?accountID=&quot;</defaultValue>
+        <defaultValue>&quot;/rC_Giving__Payment_Method/GetPaymentMethod?ID=&quot;</defaultValue>
         <description>the RESTAPI URL for the rC_Giving__Payment_Method__c object</description>
         <externalId>false</externalId>
         <inlineHelpText>the RESTAPI URL for the rC_Giving__Payment_Method__c object</inlineHelpText>
@@ -214,7 +214,7 @@
     </fields>
     <fields>
         <fullName>restapi_Opportunity_Detail__c</fullName>
-        <defaultValue>&quot;/Opportunity/GetOpportunity?OpportunityId=&quot;</defaultValue>
+        <defaultValue>&quot;/Opportunity/GetOpportunity?opportunityId=&quot;</defaultValue>
         <description>the RESTful api service that queries by opportunity id</description>
         <externalId>false</externalId>
         <inlineHelpText>the RESTful api service that queries by opportunity id</inlineHelpText>

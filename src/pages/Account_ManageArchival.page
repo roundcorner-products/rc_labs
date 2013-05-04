@@ -1,16 +1,16 @@
 <apex:page standardController="Account" extensions="Account_ManageArchival" action="{!initialize}">
     <apex:form id="form">
         <apex:panelGrid columns="2" width="70%" cellpadding="5" cellspacing="5" style="text-align:left; padding-top:10px; padding-left:150px;">
-            <apex:outputLink value="{!campaignMemberLink.url}" target="_blank" rendered="{!showCampaignMemberLink == true}">
+            <apex:outputLink value="{!campaignMemberLink.url}" target="_blank" rendered="{!AND(showCampaignMemberLink)}">
                 View Archived Campaign Members
             </apex:outputLink>
-            <apex:outputLink value="{!caseLink.url}" target="_blank" rendered="{!showCaseLink == true}">
+            <apex:outputLink value="{!caseLink.url}" target="_blank" rendered="{!AND(showCaseLink)}">
                 View Archived Cases
             </apex:outputLink>
-            <apex:outputLink value="{!preferenceLink.url}" target="_blank" rendered="{!showPreferenceLink == true}">
+            <apex:outputLink value="{!preferenceLink.url}" target="_blank" rendered="{!AND(showPreferenceLink)}">
                 View Archived Preferences
             </apex:outputLink>
-            <apex:outputLink value="{!taskLink.url}" target="_blank" rendered="{!showTaskLink == true}">
+            <apex:outputLink value="{!taskLink.url}" target="_blank" rendered="{!AND(showTaskLink)}">
                 View Archived Tasks
             </apex:outputLink>
         </apex:panelGrid>
