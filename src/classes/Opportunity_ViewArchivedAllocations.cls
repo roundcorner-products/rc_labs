@@ -1,4 +1,4 @@
-public class Opportunity_ViewArchivedCredits extends SobjectExtension {
+public class Opportunity_ViewArchivedAllocations extends SobjectExtension {
     public Opportunity opportunity { set; get; }
     public Integer iCount { set; get; }
     public String objectName { set; get; }
@@ -9,7 +9,7 @@ public class Opportunity_ViewArchivedCredits extends SobjectExtension {
     
     public Archival__c archivalSetting { set; get; }
     
-    public Opportunity_ViewArchivedCredits(ApexPages.StandardController controller) {
+    public Opportunity_ViewArchivedAllocations(ApexPages.StandardController controller) {
         super(controller);
         opportunity = (Opportunity) controller.getRecord();
     }
@@ -33,7 +33,7 @@ public class Opportunity_ViewArchivedCredits extends SobjectExtension {
         }
         
         if (strURL != null) {
-                strURL += archivalSetting.RESTapi_rC_Giving_Opportunity_Credit__c;
+                strURL += archivalSetting.RESTapi_rC_Giving_Opportunity_Allocation__c;
             
             strURL += opportunity.Id;
             
@@ -54,7 +54,7 @@ public class Opportunity_ViewArchivedCredits extends SobjectExtension {
             headerList = new String[]{};
             Set<String> headerSet = new Set<String>();
             
-            for (Schema.FieldSetMember fieldSetMember : SObjectType.rC_Giving__Opportunity_Credit__c.FieldSets.getMap().get('Opportunity_ViewArchivedCredits').getFields()) {
+            for (Schema.FieldSetMember fieldSetMember : SObjectType.rC_Giving__Opportunity_Allocation__c.FieldSets.getMap().get('Opportunity_ViewArchivedAllocations').getFields()) {
                 headerSet.add(fieldSetMember.getLabel().toLowerCase().replace(' ', '_'));
                 tempHeaderList.add(fieldSetMember.getLabel().toLowerCase().replace(' ', '_'));
                 headerList.add(fieldSetMember.getLabel());

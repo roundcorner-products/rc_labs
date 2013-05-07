@@ -2,6 +2,39 @@
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <enableFeeds>false</enableFeeds>
     <fieldSets>
+        <fullName>Opportunity_ViewArchivedGivingItem</fullName>
+        <description>Opportunity_ViewArchivedGivingItem</description>
+        <displayedFields>
+            <field>rC_Giving__Item__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Quantity</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>rC_Giving__Expected_Total_Price__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>ServiceDate</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>rC_Giving__Beneficiary__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>rC_Giving__Delivery_Status__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>rC_Giving__Package_Name__c</field>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>Opportunity_ViewArchivedGivingItem</label>
+    </fieldSets>
+    <fieldSets>
         <fullName>rC_Giving__Opportunity_Manage_ListItems</fullName>
         <availableFields>
             <field>rC_Giving__Delivery_Comments__c</field>

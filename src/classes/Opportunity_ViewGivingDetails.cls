@@ -9,7 +9,6 @@ public class Opportunity_ViewGivingDetails extends SobjectExtension {
     public Archival__c archivalSetting { set; get; }
     
     public Map<String,String> archivedDataMap { set; get; }
-    public Map<String,String> archivedDataMap1 { set; get; }
     
     public Opportunity_ViewGivingDetails(ApexPages.StandardController controller) {
         super(controller);
@@ -37,18 +36,18 @@ public class Opportunity_ViewGivingDetails extends SobjectExtension {
         if (strURL != null) {
                 strURL += archivalSetting.restapi_Opportunity_Detail__c;
             
-            strURL += account.Id;
+            strURL += opportunity.Id;
             
             HttpRequest request = new HttpRequest();
             request.setEndpoint(strURL);
             request.setMethod('GET');
             String body;
             
-            //if (!Test.isRunningTest()) {
-                //body = (new Http()).send(request).getBody();
-            //} else {
-                 body = getTestResponse();
-            //}
+            if (!Test.isRunningTest()) {
+                body = (new Http()).send(request).getBody();
+            } else {
+                 body = Account_ManageGivingArchival.getTestResponse();
+            }
             
             JSONParser parser = JSON.createParser(body);
             
@@ -65,38 +64,24 @@ public class Opportunity_ViewGivingDetails extends SobjectExtension {
             dataList = new List<List<String>>();
             List<String> strList = new List<String>();
             archivedDataMap = new Map<String,String>();
-            archivedDataMap1 = new Map<String,String>();
             
             while (parser.nextToken() != null) {
                 if (parser.getCurrentToken() == JSONToken.START_OBJECT){
                     strList = new List<String>();
                     archivedDataMap = new Map<String,String>();
                     for(String header : tempHeaderList) {
-                        archivedDataMap.put(header,'');
-                        archivedDataMap1.put(labelNameMap.get(header),'');
+                        archivedDataMap.put(labelNameMap.get(header),'');
                     }
-                    continue;
-                }
-                if (parser.getCurrentToken() == JSONToken.END_OBJECT){
-                	for(String header : tempHeaderList)
-                	    strList.add(archivedDataMap.get(header));
-                    dataList.add(strList);
                     continue;
                 }
                 if (parser.getCurrentName() != null) {
                     parser.nextValue();
-                    if (archivedDataMap.containskey(parser.getCurrentName())) {
-                        archivedDataMap.put(parser.getCurrentName(),parser.getText());
-                        archivedDataMap1.put(labelNameMap.get(parser.getCurrentName()),parser.getText());
+                    if (archivedDataMap.containskey(labelNameMap.get(parser.getCurrentName()))) {
+                        archivedDataMap.put(labelNameMap.get(parser.getCurrentName()),parser.getText());
                     }
                 }
             }
         }
         return null;
     }
-    
-    public static String getTestResponse() {
-        return '[{"close_date":"2010-10-25 00:00:00.0","fiscal_period":"2007 3","force_canceled":"false","force_completed":"false","force_suspended":"false","force_uncollectible":"false","giving":"false","giving_transaction":"false","is_archived":"false","matching":"false","name":"Edge SLA","opportunity_id":"006G000000KO345IAD","payment_refunded":"false","refundable":"false","restricted":"false","stage":"Closed Won","sustainer":"false"}]';
-    }
-    
 }

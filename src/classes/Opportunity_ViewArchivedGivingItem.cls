@@ -1,4 +1,4 @@
-public class Opportunity_ViewArchivedCredits extends SobjectExtension {
+public class Opportunity_ViewArchivedGivingItem extends SobjectExtension {
     public Opportunity opportunity { set; get; }
     public Integer iCount { set; get; }
     public String objectName { set; get; }
@@ -9,7 +9,7 @@ public class Opportunity_ViewArchivedCredits extends SobjectExtension {
     
     public Archival__c archivalSetting { set; get; }
     
-    public Opportunity_ViewArchivedCredits(ApexPages.StandardController controller) {
+    public Opportunity_ViewArchivedGivingItem(ApexPages.StandardController controller) {
         super(controller);
         opportunity = (Opportunity) controller.getRecord();
     }
@@ -33,7 +33,7 @@ public class Opportunity_ViewArchivedCredits extends SobjectExtension {
         }
         
         if (strURL != null) {
-                strURL += archivalSetting.RESTapi_rC_Giving_Opportunity_Credit__c;
+                strURL += archivalSetting.RESTapi_OpportunityLineItem__c;
             
             strURL += opportunity.Id;
             
@@ -45,7 +45,7 @@ public class Opportunity_ViewArchivedCredits extends SobjectExtension {
             if (!Test.isRunningTest()) {
                 body = (new Http()).send(request).getBody();
             } else {
-                 body = getTestResponse();
+                 body = Account_ManageGivingArchival.getTestResponse();
             }
             
             JSONParser parser = JSON.createParser(body);
@@ -54,7 +54,7 @@ public class Opportunity_ViewArchivedCredits extends SobjectExtension {
             headerList = new String[]{};
             Set<String> headerSet = new Set<String>();
             
-            for (Schema.FieldSetMember fieldSetMember : SObjectType.rC_Giving__Opportunity_Credit__c.FieldSets.getMap().get('Opportunity_ViewArchivedCredits').getFields()) {
+            for (Schema.FieldSetMember fieldSetMember : SObjectType.OpportunityLineItem.FieldSets.getMap().get('Opportunity_ViewArchivedGivingItem').getFields()) {
                 headerSet.add(fieldSetMember.getLabel().toLowerCase().replace(' ', '_'));
                 tempHeaderList.add(fieldSetMember.getLabel().toLowerCase().replace(' ', '_'));
                 headerList.add(fieldSetMember.getLabel());
@@ -88,9 +88,4 @@ public class Opportunity_ViewArchivedCredits extends SobjectExtension {
         }
         return null;
     }
-    
-    public static String getTestResponse() {
-        return '[{"close_date":"2010-10-25 00:00:00.0","fiscal_period":"2007 3","force_canceled":"false","force_completed":"false","force_suspended":"false","force_uncollectible":"false","giving":"false","giving_transaction":"false","is_archived":"false","matching":"false","name":"Edge SLA","opportunity_id":"006G000000KO345IAD","payment_refunded":"false","refundable":"false","restricted":"false","stage":"Closed Won","sustainer":"false"}]';
-    }
-    
 }

@@ -21,16 +21,20 @@ table.list tr.dataRow {
     
     <apex:form id="form">
         <apex:pageBlock id="thepgblock" title="{!$ObjectType.Opportunity.Label} Details">
-            <apex:pageBlockSection columns="1">
-            <apex:repeat var="actualData" value="{!archivedDataMap1}">
-                <apex:pageBlockSectionItem >
-                <apex:outputText value="{!actualData}"/>
-                <apex:outputText value="{!archivedDataMap1[actualData]}"/>
-                </apex:pageBlockSectionItem>
-            </apex:repeat>
+            <apex:pageBlockSection columns="2">
+                <apex:repeat var="actualData" value="{!archivedDataMap}">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputText value="{!actualData}"/>
+                        <apex:outputPanel >
+                        <apex:outputText value="{!archivedDataMap[actualData]}" rendered="{!LEN(archivedDataMap[actualData]) != 15 && LEN(archivedDataMap[actualData]) != 18 && NOT(CONTAINS(allObjectKeyPrefix, LEFT(archivedDataMap[actualData],3)))}"/>
+                        <apex:outputLink value="{!URLFOR('/'+archivedDataMap[actualData],archivedDataMap[actualData])}" target="_blank" styleClass="actionLink" rendered="{!(LEN(archivedDataMap[actualData]) == 15 || LEN(archivedDataMap[actualData]) == 18) && CONTAINS(allObjectKeyPrefix, LEFT(archivedDataMap[actualData],3))}">{!archivedDataMap[actualData]}</apex:outputLink>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:repeat>
             </apex:pageBlockSection>
-            <apex:pageBlockSection rendered="{!iCount == 0}">
-                no records archived
+            
+            <apex:pageBlockSection rendered="{!archivedDataMap == null}">
+                Unable to find archived Giving
             </apex:pageBlockSection>
         </apex:pageBlock>
     </apex:form>

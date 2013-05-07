@@ -1,4 +1,4 @@
-<apex:page standardController="Opportunity" extensions="Opportunity_ViewArchivedCredits" action="{!initialize}">
+<apex:page standardController="Opportunity" extensions="Opportunity_ViewArchivedGivingItem" action="{!initialize}">
     
     <style type="text/css">
 tr,td {
@@ -20,7 +20,7 @@ table.list tr.dataRow {
 </style>
     
     <apex:form id="form">
-        <apex:pageBlock id="thepgblock" title="{!$ObjectType.rC_Giving__Opportunity_Credit__c.Label} Archived Data" rendered="{!dataList.size > 0}">
+        <apex:pageBlock id="thepgblock" title="{!$ObjectType.OpportunityLineItem.Label} Archived Data" rendered="{!dataList.size > 0}">
             <table class="list" cellpadding="0" cellspacing="0" border="0">
                 <thead class="rich-table-thead">
                     <tr class="headerRow">
@@ -42,7 +42,7 @@ table.list tr.dataRow {
                 </apex:repeat>
             </table>
         </apex:pageBlock>
-        <apex:pageBlock title="{!$ObjectType.rC_Giving__Opportunity_Credit__c.Label} Archived Data" rendered="{!dataList.size == 0}">
+        <apex:pageBlock title="{!$ObjectType.OpportunityLineItem.Label} Archived Data" rendered="{!dataList.size == 0}">
             <apex:pageBlockSection >
                 no records archived
             </apex:pageBlockSection>

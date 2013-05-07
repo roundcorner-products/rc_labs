@@ -119,15 +119,15 @@ public class Account_ManageGivingArchival extends SobjectExtension {
         if (objectName.equalsIgnoreCase('Opportunity'))
             reference = Page.Opportunity_ViewGivingDetails;
         else if (objectName.equalsIgnoreCase('Items'))
-            reference = Page.Opportunity_ViewArchivedItems;
+            reference = Page.Opportunity_ViewArchivedGivingItem;
         else if (objectName.equalsIgnoreCase('Payment Method'))
-            reference = Page.Account_ViewArchivedData;
+            reference = Page.Account_ManageGivingArchival;
         else if (objectName.equalsIgnoreCase('Credit'))
             reference = Page.Opportunity_ViewArchivedCredits;
         else if (objectName.equalsIgnoreCase('Allocation'))
-            reference = Page.Account_ViewArchivedData;
+            reference = Page.Opportunity_ViewArchivedAllocations;
         else if (objectName.equalsIgnoreCase('Deliverable'))
-            reference = Page.Account_ViewArchivedData;
+            reference = Page.Opportunity_ViewArchivedDeliverables;
         
         reference.setRedirect(true);
         return reference;
