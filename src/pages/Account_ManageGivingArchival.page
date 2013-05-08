@@ -39,40 +39,41 @@ table.list tr.dataRow {
                 
                 <apex:variable var="rowCount" value="{!0}"/>
                 <apex:repeat var="archivedData" value="{!dataList}">
+                    <apex:variable var="isPaymentMethodPresent" value="{!opportunityList[rowCount].rC_Giving__Payment_Method_Selected__c!= null}"/>
                     <tr class="dataRow">
-                    <apex:repeat var="actualData" value="{!archivedData}">
+                        <apex:repeat var="actualData" value="{!archivedData}">
                             <td class="dataCell">
                                 <apex:outputText value="{!actualData}" rendered="{!LEN(actualData) != 15 && LEN(actualData) != 18 && NOT(CONTAINS(allObjectKeyPrefix, LEFT(actualData,3)))}"/>
                                 <apex:outputLink value="{!URLFOR('/'+actualData,actualData)}" target="_blank" styleClass="actionLink" rendered="{!(LEN(actualData) == 15 || LEN(actualData) == 18) && CONTAINS(allObjectKeyPrefix, LEFT(actualData,3))}">{!actualData}</apex:outputLink>
                             </td>
-                    </apex:repeat>
+                        </apex:repeat>
                         <td></td>
-                        <td>
+                        <td style="text-align:center;">
                             <apex:outputLink value="{!detailsLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showDetailsButton)}">
-                                View
+                                View 
                             </apex:outputLink>
                         </td>
-                        <td>
+                        <td style="text-align:center;">
                             <apex:outputLink value="{!itemsLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showItemsButton)}">
                                 View
                             </apex:outputLink>
                         </td>
-                        <td>
-                            <apex:outputLink value="{!paymentMethodsLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showPaymentMethodButton)}">
+                        <td style="text-align:center;">
+                            <apex:outputLink value="{!paymentMethodsLink.url +'?id='+opportunityList[rowCount].rC_Giving__Payment_Method_Selected__c}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{! AND(showPaymentMethodButton,isPaymentMethodPresent)}">
                                 View
                             </apex:outputLink>
                         </td>
-                        <td>
+                        <td style="text-align:center;">
                             <apex:outputLink value="{!creditsLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showCreditButton)}">
                                 View
                             </apex:outputLink>
                         </td>
-                        <td>
+                        <td style="text-align:center;">
                             <apex:outputLink value="{!allocationsLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showAllocationButton)}">
                                 View
                             </apex:outputLink>
                         </td>
-                        <td>
+                        <td style="text-align:center;">
                             <apex:outputLink value="{!deliverablesLink.url +'?id='+opportunityList[rowCount].Id}" target="_blank" styleClass="btn" style="text-decoration:none;" rendered="{!AND(showDeliverableButton)}">
                                 View
                             </apex:outputLink>

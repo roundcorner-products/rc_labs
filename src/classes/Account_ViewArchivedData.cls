@@ -16,7 +16,6 @@ public class Account_ViewArchivedData extends SobjectExtension {
     
     public override PageReference initialize() {
         archivalSetting = Archival__c.getInstance();
-        //objectName = Apexpages.currentPage().getParameters().get('objectName');
         objectName = getParam('objectName');
         iCount = 0;
         String strURL;

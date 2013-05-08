@@ -2663,7 +2663,7 @@
         <availability>online</availability>
         <displayType>button</displayType>
         <linkType>page</linkType>
-        <masterLabel>Giving Tree Clone</masterLabel>
+        <masterLabel>Giving Tree with Archived Data</masterLabel>
         <openType>replace</openType>
         <page>Account_ManageGivingTree</page>
         <protected>false</protected>

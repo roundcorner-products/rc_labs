@@ -3,7 +3,6 @@ public class Opportunity_ViewGivingDetails extends SobjectExtension {
     public Integer iCount { set; get; }
     
     public String[] headerList { set; get; }
-    public List<List<String>> dataList { set; get; }
     public String allObjectKeyPrefix { set; get; }
     
     public Archival__c archivalSetting { set; get; }
@@ -34,7 +33,7 @@ public class Opportunity_ViewGivingDetails extends SobjectExtension {
         }
         
         if (strURL != null) {
-                strURL += archivalSetting.restapi_Opportunity_Detail__c;
+            strURL += archivalSetting.restapi_Opportunity_Detail__c;
             
             strURL += opportunity.Id;
             
@@ -61,7 +60,6 @@ public class Opportunity_ViewGivingDetails extends SobjectExtension {
                 labelNameMap.put(fieldSetMember.getLabel().toLowerCase().replace(' ', '_'), fieldSetMember.getLabel());
             }
             
-            dataList = new List<List<String>>();
             List<String> strList = new List<String>();
             archivedDataMap = new Map<String,String>();
             

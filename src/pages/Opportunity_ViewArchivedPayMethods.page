@@ -1,0 +1,41 @@
+<apex:page standardController="rC_Giving__Payment_Method__c" extensions="Opportunity_ViewArchivedPayMethods" action="{!initialize}">
+    
+    <style type="text/css">
+tr,td {
+    border: none;
+}
+
+td {
+    border-width: 0 0 1px 0 !important;
+}
+
+table.list .dataCell {
+    min-width: 8em;
+    text-align:center;
+}
+
+table.list tr.dataRow {
+    height: 2em !important;
+}
+</style>
+    
+    <apex:form id="form">
+        <apex:pageBlock id="thepgblock" title="{!$ObjectType.rC_Giving__Payment_Method__c.Label} Details">
+            <apex:pageBlockSection columns="1">
+                <apex:repeat var="actualData" value="{!archivedDataMap}">
+                    <apex:pageBlockSectionItem >
+                        <apex:outputText value="{!actualData}"/>
+                        <apex:outputPanel >
+                        <apex:outputText value="{!archivedDataMap[actualData]}" rendered="{!LEN(archivedDataMap[actualData]) != 15 && LEN(archivedDataMap[actualData]) != 18 && NOT(CONTAINS(allObjectKeyPrefix, LEFT(archivedDataMap[actualData],3)))}"/>
+                        <apex:outputLink value="{!URLFOR('/'+archivedDataMap[actualData],archivedDataMap[actualData])}" target="_blank" styleClass="actionLink" rendered="{!(LEN(archivedDataMap[actualData]) == 15 || LEN(archivedDataMap[actualData]) == 18) && CONTAINS(allObjectKeyPrefix, LEFT(archivedDataMap[actualData],3))}">{!archivedDataMap[actualData]}</apex:outputLink>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                </apex:repeat>
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockSection rendered="{!archivedDataMap == null}">
+                Unable to find archived Payment Method
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

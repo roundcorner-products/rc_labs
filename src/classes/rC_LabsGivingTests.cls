@@ -11,6 +11,9 @@ public class rC_LabsGivingTests {
     public Campaign campaign ;
     public Account account;
     public Opportunity opportunity;
+    public rC_Giving__Payment_Method__c paymentMethod;
+    public rC_Giving__GAU__c[] accountingUnitList;
+    public rC_Giving__Opportunity_Allocation__c opportunityAllocation;
      
     public rC_Giving__Giving_Level__c[] initializeGivingLevelList() {
         givingLevelList = new rC_Giving__Giving_Level__c[] {};
@@ -93,6 +96,55 @@ public class rC_LabsGivingTests {
         if (isInsertable == true)
             insert opportunity;
         return opportunity;
+    }
+    
+    public rC_Giving__Payment_Method__c initializePaymentMethod(Boolean isInsertable){
+		paymentMethod = new rC_Giving__Payment_Method__c();
+        paymentMethod.rC_Giving__Account__c = account.Id;
+        paymentMethod.rC_Giving__Billing_Street__c = '123 Main St #1001';
+        paymentMethod.rC_Giving__Billing_City__c = 'Lone Tree';
+        paymentMethod.rC_Giving__Billing_State__c = 'CO';
+        paymentMethod.rC_Giving__Billing_Postal_Code__c = '80124';
+        paymentMethod.rC_Giving__Billing_Country__c = 'US';
+        paymentMethod.rC_Giving__Card_Holder_Name__c = 'RCSBIRD';
+        paymentMethod.rC_Giving__Card_Expiration_Month__c = '01';
+        paymentMethod.rC_Giving__Card_Expiration_Year__c = '02';
+        paymentMethod.rC_Giving__Card_Number__c = '4111111111111111';
+        paymentMethod.rC_Giving__Is_Active__c = true;
+        paymentMethod.rC_Giving__Is_Default__c = false;
+        
+        if(isInsertable)
+	    	insert paymentMethod;
+	    return paymentMethod;	     	
+    }
+    
+    public rC_Giving__GAU__c[] initializeAccountingUnitList() {
+        accountingUnitList = new rC_Giving__GAU__c[] {};
+        
+        for(Integer i = 0; i < 3; i++) {
+            rC_Giving__GAU__c accountingUnit = new rC_Giving__GAU__c();
+            accountingUnit.Name = 'RCSBIRD Accounting Unit ' + i;
+            accountingUnitList.add(accountingUnit);
+        }
+        
+        insert accountingUnitList;
+        return accountingUnitList;
+    }
+    
+    public rC_Giving__Opportunity_Allocation__c initializeOpportunityAllocation() {
+        system.assert(null != opportunity, 'rC_LabsGivingTests.initializeOpportunityAllocation(): Precheck Failed: null == opportunity');
+        system.assert(null != opportunity.Id, 'rC_LabsGivingTests.initializeOpportunityAllocation(): Precheck Failed: null == opportunity.Id');
+        system.assert(null != accountingUnitList, 'rC_LabsGivingTests.initializeOpportunityAllocation(): Precheck Failed: null == accountingUnitList');
+        system.assert(0 != accountingUnitList.size(), 'rC_LabsGivingTests.initializeOpportunityAllocation(): Precheck Failed: 0 == accountingUnitList.size()');
+        system.assert(null != accountingUnitList[0].Id, 'rC_LabsGivingTests.initializeOpportunityAllocation(): Precheck Failed: null == accountingUnitList[0].Id');
+        
+        opportunityAllocation = new rC_Giving__Opportunity_Allocation__c();
+        opportunityAllocation.rC_Giving__Distribution__c = 100;
+        opportunityAllocation.rC_Giving__Opportunity__c = opportunity.Id;
+        opportunityAllocation.rC_Giving__GAU__c = accountingUnitList[0].Id;
+        
+        insert opportunityAllocation;
+        return opportunityAllocation;
     }
     
     public void assertCountLifetimeSummaries(Integer expectedCount) {

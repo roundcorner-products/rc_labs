@@ -105,6 +105,8 @@ public class Account_ManageGivingArchival extends SobjectExtension {
                         opportunity.Name = parser.getText();
                     if (parser.getCurrentName().equalsIgnoreCase('opportunity_id'))
                         opportunity = new Opportunity(Name = opportunity.Name, Id = parser.getText());
+                    if (parser.getCurrentName().equalsIgnoreCase('selected_payment_method'))
+                        opportunity.rC_Giving__Payment_Method_Selected__c = parser.getText();
                     if (archivedDataMap.containskey(parser.getCurrentName()))
                         archivedDataMap.put(parser.getCurrentName(),parser.getText());
                 }
@@ -121,7 +123,7 @@ public class Account_ManageGivingArchival extends SobjectExtension {
         else if (objectName.equalsIgnoreCase('Items'))
             reference = Page.Opportunity_ViewArchivedGivingItem;
         else if (objectName.equalsIgnoreCase('Payment Method'))
-            reference = Page.Account_ManageGivingArchival;
+            reference = Page.Opportunity_ViewArchivedPayMethods;
         else if (objectName.equalsIgnoreCase('Credit'))
             reference = Page.Opportunity_ViewArchivedCredits;
         else if (objectName.equalsIgnoreCase('Allocation'))
@@ -158,7 +160,7 @@ public class Account_ManageGivingArchival extends SobjectExtension {
     }
     
     public static String getTestResponse() {
-        return '[{"close_date":"2010-10-25 00:00:00.0","fiscal_period":"2007 3","force_canceled":"false","force_completed":"false","force_suspended":"false","force_uncollectible":"false","giving":"false","giving_transaction":"false","is_archived":"false","matching":"false","name":"Edge SLA","opportunity_id":"006G000000KO345IAD","payment_refunded":"false","refundable":"false","restricted":"false","stage":"Closed Won","sustainer":"false"}]';
+        return '[{"close_date":"2010-10-25 00:00:00.0","fiscal_period":"2007 3","force_canceled":"false","force_completed":"false","force_suspended":"false","force_uncollectible":"false","giving":"false","giving_transaction":"false","is_archived":"false","matching":"false","name":"Edge SLA","opportunity_id":"006G000000KO345IAD","selected_payment_method": "a0mG00000026ofqIAA","payment_refunded":"false","amount": "12.500000","refundable":"false","restricted":"false","stage":"Closed Won","sustainer":"false","general_accounting_unit": "a0VG00000041YDeMAM","item": "01tG0000002yl8oIAA","type_of_deliverable": "Benefit"}]';
     }
     
 }
