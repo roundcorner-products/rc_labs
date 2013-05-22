@@ -2267,14 +2267,11 @@
         <type>Picklist</type>
     </fields>
     <listViews>
-        <fullName>AllActiveCampaigns</fullName>
+        <fullName>All</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>CAMPAIGN.ACTIVE</field>
-            <operation>equals</operation>
-            <value>1</value>
-        </filters>
-        <label>All Active Campaigns</label>
+        <label>All Campaigns</label>
     </listViews>
     <listViews>
         <fullName>MyActiveCampaigns</fullName>
