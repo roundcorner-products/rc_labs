@@ -26,11 +26,11 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
         public String charity_name;
         public String designation_name;
         public Integer did;
-        public Integer eid;
         public String end_date;
         public Decimal goal;
         public Integer host_id;
         public String host_name;
+        public Integer id;
         public String name;
         public Integer num_donations;
         public Integer num_donors;
@@ -44,6 +44,19 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
         public Integer type_id;
         public String venue;
         public String zip;
+        
+        // Helpers
+        public DateTime start_date_time {
+            get {
+                return StayClassy.getDateTime(start_date);
+            }
+        }
+        
+        public DateTime end_date_time {
+            get {
+                return StayClassy.getDateTime(end_date);
+            }
+        }
     }
     
     public class CampaignTicket {
@@ -55,6 +68,26 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
         public String ticket_name;
         public Decimal ticket_price;
         public Integer total_sold;
+    }
+    
+    public class Fundraiser {
+        public String fundraiser_url;
+        public String campaign_name;
+        public Integer charity_id;
+        public String charity_name;
+        public String designation_name;
+        public Integer did;
+        public Integer eid;
+        public Integer fcid;
+        public Decimal goal;
+        public String member_email;
+        public String member_image_large;
+        public String member_image_medium;
+        public String member_image_small;
+        public String member_name;
+        public Integer num_donors;
+        public String page_title;
+        public Decimal total_raised;
     }
     
     // Helper methods
@@ -93,7 +126,14 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
     global static final Map<String, Map<String, String>> ENDPOINT_MATRIX = new Map<String, Map<String, String>> {
         'stayclassy://campaigns' => new Map<String, String> {
             'insert' => 'StayClassy_InsertCampaign',
-            'update' => 'StayClassy_UpdateCampaign'
+            'update' => 'StayClassy_UpdateCampaign',
+            'delete' => 'StayClassy_DeleteCampaign'
+        },
+        
+        'stayclassy://fundraisers' => new Map<String, String> {
+            'insert' => 'StayClassy_InsertFundraiser',
+            'update' => 'StayClassy_UpdateFundraiser',
+            'delete' => 'StayClassy_DeleteFundraiser'
         }
     };
     
@@ -150,7 +190,27 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
         message.rC_Messaging__Deletable_Date__c = addMinutes(DateTime.now(), message.rC_Messaging__Deletable_Cache_Time__c);
     }
     
-    public DateTime addMinutes(DateTime base, Decimal offset) {
+    public static DateTime addMinutes(DateTime base, Decimal offset) {
         return base.addMinutes(offset == null ? 0 : offset.intValue());
+    }
+    
+    public static DateTime getDateTime(String dt) {
+        if (dt == null || dt.length() == 0) {
+            return null;
+        }
+        
+        // Something like this: "2013-05-20 20:00:00"
+        return DateTime.newInstance(
+            Integer.valueOf(dt.substring(0, 4)),
+            Integer.valueOf(dt.substring(5, 7)),
+            Integer.valueOf(dt.substring(8, 10)),
+            Integer.valueOf(dt.substring(11, 13)),
+            Integer.valueOf(dt.substring(14, 16)),
+            Integer.valueOf(dt.substring(17, 19))
+        );
+    }
+    
+    public static String getTruncated(String value, Integer maxlen) {
+        return value == null || value.trim().length() <= maxlen ? value : value.substring(0, maxlen - 3) + '...';
     }
 }
