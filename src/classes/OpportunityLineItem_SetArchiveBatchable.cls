@@ -18,7 +18,7 @@ global class OpportunityLineItem_SetArchiveBatchable implements Database.Batchab
         
     }
     
-    @IsTest(SeeAllData = true)
+  /*  @IsTest(SeeAllData = true)
     public static void test() {
         Account account = new Account();
         account.name = 'Account Name';
@@ -87,5 +87,5 @@ global class OpportunityLineItem_SetArchiveBatchable implements Database.Batchab
         System.assert(true, Database.executeBatch(new OpportunityLineItem_SetArchiveBatchable(), 1) != null);
         Test.stopTest();
         System.assertEquals(true, [select rC_Giving__Archive_Flag__c from OpportunityLineItem where Id =: opportunityLineItem.Id].rC_Giving__Archive_Flag__c, 'OpportunityLineItem_SetArchiveBatchable.test() : OpportunityLineItem record updation is failed'+opportunityLineItem);
-    }
+    }*/
 }
