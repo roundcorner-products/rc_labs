@@ -105,6 +105,10 @@
                 <behavior>Edit</behavior>
                 <field>rC_Giving__External_ID__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>StayClassy_ID__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -225,6 +229,16 @@
         <fields>TITLE</fields>
         <fields>COMPANY</fields>
         <relatedList>RelatedCampaignMemberList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>OBJECT_ID</fields>
+        <fields>rC_Connect__Batch_Upload_Status__c</fields>
+        <fields>rC_Connect__Batch_Upload_Flagged_Reason__c</fields>
+        <fields>rC_Connect__Batch_Upload_Flagged_Technical_Reason__c</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <fields>LAST_UPDATE</fields>
+        <relatedList>rC_Connect__Batch_Upload__c.rC_Connect__Batch_Upload_Campaign_Matched__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

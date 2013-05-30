@@ -16,6 +16,11 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
     
     
     // API objects
+    public class CampaignResponseList {
+        public String status_code;
+        public StayClassy.Campaign[] campaigns;
+    }
+    
     public class Campaign {
         public String campaign_image_large;
         public String campaign_image_medium;
@@ -70,23 +75,101 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
         public Integer total_sold;
     }
     
+    public class FundraiserResponseList {
+        public String status_code;
+        public StayClassy.Fundraiser[] fundraisers;
+    }
+    
     public class Fundraiser {
+        public Integer fundraiser_campaign_id;
         public String fundraiser_url;
         public String campaign_name;
         public Integer charity_id;
         public String charity_name;
         public String designation_name;
-        public Integer did;
-        public Integer eid;
-        public Integer fcid;
+        public Integer event_id;
+        public String event_name;
+        public String first_name;
         public Decimal goal;
+        public String last_name;
+        public String member_address;
+        public String member_city;
         public String member_email;
+        public Integer member_id;
         public String member_image_large;
         public String member_image_medium;
         public String member_image_small;
         public String member_name;
+        public String member_state;
+        public String member_zip;
         public Integer num_donors;
         public String page_title;
+        public Integer project_id;
+        public String project_name;
+        public Integer team_id;
+        public String team_name;
+        public Decimal total_raised;
+    }
+    
+    public class DonationResponseList {
+        public String status_code;
+        public StayClassy.Donation[] donations;
+    }
+    
+    public class Donation {
+        public String address;
+        public String address2;
+        public String city;
+        public String country;
+        public Decimal donate_amount;
+        public String donation_date;
+        public String email;
+        public String first_name;
+        public String fundraiser;
+        public String in_honor_of;
+        public String last_name;
+        public String member_image_large;
+        public String member_image_medium;
+        public String member_image_small;
+        public Integer order_id;
+        public String state;
+        public String zip;
+
+        // Helpers
+        public DateTime donation_date_time {
+            get {
+                return StayClassy.getDateTime(donation_date);
+            }
+        }
+    }
+    
+    public class TeamResponseList {
+        public String status_code;
+        public StayClassy.Team[] teams;
+    }
+    
+    public class Team {
+        public Integer category_id;
+        public String category_name;
+        public Integer charity_id;
+        public String charity_name;
+        public String donation_url;
+        public Integer event_id;
+        public String event_name;
+        public String fundraising_team_id;
+        public Decimal goal;
+        public String join_url;
+        public Integer num_donors;
+        public Integer project_id;
+        public String project_name;
+        public String team_image_large;
+        public String team_image_medium;
+        public String team_image_small;
+        public String team_lead_email;
+        public Integer team_lead_id;
+        public String team_lead_name;
+        public String team_name;
+        public String team_url;
         public Decimal total_raised;
     }
     
@@ -125,15 +208,27 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
     // Main processor
     global static final Map<String, Map<String, String>> ENDPOINT_MATRIX = new Map<String, Map<String, String>> {
         'stayclassy://campaigns' => new Map<String, String> {
-            'insert' => 'StayClassy_InsertCampaign',
-            'update' => 'StayClassy_UpdateCampaign',
+            'insert' => 'StayClassy_UpsertCampaign',
+            'update' => 'StayClassy_UpsertCampaign',
             'delete' => 'StayClassy_DeleteCampaign'
         },
         
         'stayclassy://fundraisers' => new Map<String, String> {
-            'insert' => 'StayClassy_InsertFundraiser',
-            'update' => 'StayClassy_UpdateFundraiser',
+            'insert' => 'StayClassy_UpsertFundraiser',
+            'update' => 'StayClassy_UpsertFundraiser',
             'delete' => 'StayClassy_DeleteFundraiser'
+        },
+        
+        'stayclassy://donations' => new Map<String, String> {
+            'insert' => 'StayClassy_InsertDonation',
+            'update' => 'StayClassy_UpdateDonation',
+            'delete' => 'StayClassy_DeleteDonation'
+        },
+        
+        'stayclassy://teams' => new Map<String, String> {
+            'insert' => 'StayClassy_InsertTeam',
+            'update' => 'StayClassy_UpdateTeam',
+            'delete' => 'StayClassy_DeleteTeam'
         }
     };
     

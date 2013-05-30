@@ -1089,6 +1089,15 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>StayClassy_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>StayClassy ID</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Type</fullName>
         <picklist>
             <picklistValues>
@@ -2270,6 +2279,8 @@
         <fullName>All</fullName>
         <columns>CAMPAIGN.NAME</columns>
         <columns>CAMPAIGN.CREATED_DATE</columns>
+        <columns>rC_Giving__External_ID__c</columns>
+        <columns>StayClassy_ID__c</columns>
         <filterScope>Everything</filterScope>
         <label>All Campaigns</label>
     </listViews>

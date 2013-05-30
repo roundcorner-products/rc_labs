@@ -1208,6 +1208,16 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>StayClassy_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>StayClassy ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>rC_Bios__Active__c</fullName>
         <defaultValue>true</defaultValue>
         <deprecated>false</deprecated>

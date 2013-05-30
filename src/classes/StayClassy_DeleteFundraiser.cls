@@ -7,12 +7,21 @@ global class StayClassy_DeleteFundraiser implements rC_Messaging.MessageServicer
         Campaign[] campaignList = [
             select Id
               from Campaign
-             where rC_Giving__External_ID__c = :'stayclassy-' + message.rC_Messaging__Related_Record__c
+             where StayClassy_ID__c = :message.rC_Messaging__Related_Record__c
+               and StayClassy_ID__c != null
              limit 1
         ];
         
-        if (campaignList.isEmpty() == false) {
-            delete campaignList;
+        // Establish a savepoint
+        System.Savepoint savepoint = Database.setSavepoint();
+        
+        try {
+            if (campaignList.isEmpty() == false) {
+                delete campaignList;
+            }
+        } catch (System.Exception pException) {
+            Database.rollback(savepoint);
+            throw pException;
         }
     }
 }
