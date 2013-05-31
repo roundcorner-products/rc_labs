@@ -164,6 +164,7 @@
     <fields>
         <fullName>rC_Connect__City__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated, &quot;City&quot; where product is to be delivered.</description>
         <externalId>false</externalId>
         <label>City</label>
         <length>255</length>
@@ -174,6 +175,7 @@
     <fields>
         <fullName>rC_Connect__Country__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated,  &quot;Country&quot; of person being delivered a product.</description>
         <externalId>false</externalId>
         <label>Country</label>
         <length>3</length>
@@ -184,6 +186,7 @@
     <fields>
         <fullName>rC_Connect__Delivery_Address__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing concatenation of address fields.</description>
         <externalId>false</externalId>
         <formula>IF(AND(ISBLANK(rC_Connect__Street_Line_1__c), ISBLANK(rC_Connect__Street_Line_2__c), ISBLANK(rC_Connect__City__c), ISBLANK(rC_Connect__State__c),ISBLANK(rC_Connect__Postal_Code__c),ISBLANK(rC_Connect__Country__c)),
  &apos;&apos; ,
@@ -217,6 +220,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
     <fields>
         <fullName>rC_Connect__Email__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated, &quot;Email address&quot; of person being delivered a product.</description>
         <externalId>false</externalId>
         <label>Email</label>
         <required>false</required>
@@ -224,8 +228,46 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>rC_Connect__First_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Auto populated, &quot;First Name&quot; of person who is to receive product.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>&quot;First Name&quot; of person who is to receive product.</inlineHelpText>
+        <label>First Name</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Last_Name__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Auto populated, &quot;Last Name&quot; of person being delivered product.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>&quot;Last Name&quot; of person being delivered product.</inlineHelpText>
+        <label>Last Name</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Person_Details__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Formula field providing the Salutation, First Name, Last Name and Suffix of person being delivered a product.</description>
+        <externalId>false</externalId>
+        <formula>rC_Connect__Salutation__c  &amp; &apos; &apos;&amp; rC_Connect__First_Name__c&amp; &apos; &apos;&amp; rC_Connect__Last_Name__c&amp; &apos; &apos;&amp; rC_Connect__Suffix__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <inlineHelpText>Salutation, First Name, Last Name and Suffix of person being delivered a product.</inlineHelpText>
+        <label>Person Details</label>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>rC_Connect__Postal_Code__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated, &quot;Postal Code&quot; of person being delivered a product.</description>
         <externalId>false</externalId>
         <label>Postal Code</label>
         <length>255</length>
@@ -234,10 +276,38 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>rC_Connect__Salutation__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Auto populated, &quot;Salutation&quot; of person being delivered a product.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>&quot;Salutation&quot; of person being delivered a product.</inlineHelpText>
+        <label>Salutation</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>rC_Connect__Selected_Delivery_Address__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field providing the &quot;Selected Delivery Address&quot; of person being delivered a product.</description>
         <externalId>false</externalId>
-        <formula>BLANKVALUE(rC_Connect__Delivery_Address__c, &apos;None selected&apos;) + &apos; [&apos; + HYPERLINK(&apos;/apex/rc_connect__opportunity_managedeliveryaddresses?id=&apos; +  OpportunityId + &apos;&amp;opportunityLineItem.Id=&apos; + Id + &apos;&amp;contact.Id=&apos; + rC_Giving__Beneficiary__c , &apos;Change&apos;, &apos;_self&apos;) + &apos;]&apos;</formula>
+        <formula>IF (
+OR( ISPICKVAL( rC_Giving__Delivery_Method__c , &apos;Billing Address&apos;) , 
+    ISPICKVAL(  rC_Giving__Delivery_Method__c , &apos;Shipping Address&apos;),
+    ISPICKVAL(  rC_Giving__Delivery_Method__c , &apos;Mailing Address&apos;), 
+    ISPICKVAL(  rC_Giving__Delivery_Method__c , &apos;Other Address&apos;) 
+) 
+ , BLANKVALUE(rC_Connect__Delivery_Address__c, &apos;None selected&apos;) + &apos; [&apos; + HYPERLINK(&apos;/apex/rc_connect__opportunity_managedeliveryaddresses?id=&apos; +  OpportunityId +     &apos;&amp;opportunityLineItem.Id=&apos; + Id + &apos;&amp;contact.Id=&apos; + rC_Giving__Beneficiary__c , &apos;Change&apos;, &apos;_self&apos;) + &apos;]&apos; ,
+ IF( ISPICKVAL(  rC_Giving__Delivery_Method__c , &apos;Email&apos;)
+ , BLANKVALUE( rC_Connect__Email__c , &apos;None selected&apos;) + &apos; [&apos; + HYPERLINK(&apos;/apex/rc_connect__opportunity_managedeliveryaddresses?id=&apos; +  OpportunityId +     &apos;&amp;opportunityLineItem.Id=&apos; + Id + &apos;&amp;contact.Id=&apos; + rC_Giving__Beneficiary__c , &apos;Change&apos;, &apos;_self&apos;) + &apos;]&apos;  ,
+ IF(
+    ISPICKVAL( rC_Giving__Delivery_Method__c , &apos;In Person&apos;) 
+	, BLANKVALUE(rC_Connect__Person_Details__c , &apos;None selected&apos;) + &apos; [&apos; + HYPERLINK(&apos;/apex/rc_connect__opportunity_managedeliveryaddresses?id=&apos; +  OpportunityId +     &apos;&amp;opportunityLineItem.Id=&apos; + Id + &apos;&amp;contact.Id=&apos; + rC_Giving__Beneficiary__c , &apos;Change&apos;, &apos;_self&apos;) + &apos;]&apos; 
+    , &apos;None selected&apos; + &apos; [&apos; + HYPERLINK(&apos;/apex/rc_connect__opportunity_managedeliveryaddresses?id=&apos; +  OpportunityId +     &apos;&amp;opportunityLineItem.Id=&apos; + Id + &apos;&amp;contact.Id=&apos; + rC_Giving__Beneficiary__c , &apos;Change&apos;, &apos;_self&apos;) + &apos;]&apos;  
+  ) 
+ ) 
+)</formula>
         <label>Selected Delivery Address</label>
         <required>false</required>
         <type>Text</type>
@@ -246,6 +316,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
     <fields>
         <fullName>rC_Connect__State__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated, &quot;State&quot; of person being delivered a product.</description>
         <externalId>false</externalId>
         <label>State</label>
         <length>255</length>
@@ -256,6 +327,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
     <fields>
         <fullName>rC_Connect__Street_Address__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated, &quot;Street Address&quot; of person being delivered a product.</description>
         <externalId>false</externalId>
         <formula>IF(AND(ISBLANK(rC_Connect__Street_Line_1__c), ISBLANK(rC_Connect__Street_Line_2__c)), NULL, IF(ISBLANK(rC_Connect__Street_Line_2__c), rC_Connect__Street_Line_1__c, rC_Connect__Street_Line_1__c + &apos;, &apos; + rC_Connect__Street_Line_2__c))</formula>
         <label>Street Address</label>
@@ -266,6 +338,7 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
     <fields>
         <fullName>rC_Connect__Street_Line_1__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated, &quot;Street Line 1&quot; of person being delivered a product.</description>
         <externalId>false</externalId>
         <label>Street Line 1</label>
         <length>255</length>
@@ -276,8 +349,21 @@ IF(rC_Connect__Country__c==&apos;&apos;, &apos;&apos; , rC_Connect__Country__c)
     <fields>
         <fullName>rC_Connect__Street_Line_2__c</fullName>
         <deprecated>false</deprecated>
+        <description>Auto populated, &quot;Street Line 2&quot; of person being delivered a product.</description>
         <externalId>false</externalId>
         <label>Street Line 2</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Suffix__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Auto populated, &quot;Suffix&quot; of person being delivered a product.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Suffix of person being delivered a product.</inlineHelpText>
+        <label>Suffix</label>
         <length>255</length>
         <required>false</required>
         <type>Text</type>

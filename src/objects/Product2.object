@@ -19,7 +19,7 @@
         <deprecated>false</deprecated>
         <description>If true, then any awards will be checked against inventory levels, if the inventory levels become less than 0, the award will fail. Uncheck to allow the award of items when no inventory is available.</description>
         <externalId>false</externalId>
-        <label>Check Inventory Levels (Do Not Use)</label>
+        <label>Check Inventory Levels @Deprecated(2.1)</label>
         <type>Checkbox</type>
     </fields>
     <fields>

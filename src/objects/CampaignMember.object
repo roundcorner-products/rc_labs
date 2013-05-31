@@ -82,6 +82,7 @@
         <fullName>rC_Connect__Has_Volunteered__c</fullName>
         <defaultValue>false</defaultValue>
         <deprecated>false</deprecated>
+        <description>Manually populated, indicates the Campaign Member &apos;Has Volunteered.&quot;</description>
         <externalId>false</externalId>
         <label>Has Volunteered?</label>
         <type>Checkbox</type>
@@ -89,8 +90,9 @@
     <fields>
         <fullName>rC_Connect__Hours_Voluntered__c</fullName>
         <deprecated>false</deprecated>
+        <description>Manually populated, indicates the number of &quot;Hours Volunteered.&quot;</description>
         <externalId>false</externalId>
-        <label># Hours Voluntered</label>
+        <label># Hours Voluntereed</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>
@@ -117,4 +119,15 @@
         <label>Send To Email Campaign</label>
         <type>Checkbox</type>
     </fields>
+    <webLinks>
+        <fullName>rC_Connect__Save_Volunteer_Data</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <height>600</height>
+        <linkType>page</linkType>
+        <masterLabel>Save Volunteer Data</masterLabel>
+        <openType>sidebar</openType>
+        <page>rC_Connect__CampaignMember_ManageVolunteerData</page>
+        <protected>false</protected>
+    </webLinks>
 </CustomObject>

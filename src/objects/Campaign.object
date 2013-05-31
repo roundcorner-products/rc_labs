@@ -1155,6 +1155,7 @@
     <fields>
         <fullName>rC_Connect__Duration__c</fullName>
         <deprecated>false</deprecated>
+        <description>Formula field returning the duration of the campaign in seconds.</description>
         <externalId>false</externalId>
         <formula>IF(OR(ISBLANK(rC_Giving__Start_Date_Time__c), ISBLANK(rC_Giving__End_Date_Time__c)), 0, 60 * 60 * 24 * (rC_Giving__End_Date_Time__c - rC_Giving__Start_Date_Time__c))</formula>
         <inlineHelpText>Duration of the campaign in seconds.</inlineHelpText>
@@ -1169,6 +1170,7 @@
         <fullName>rC_Connect__Form_Mapping__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Manually populated, look up to the form mapping record related to this campaign.</description>
         <externalId>false</externalId>
         <label>Form Mapping</label>
         <referenceTo>rC_Connect__Form_Mapping__c</referenceTo>
@@ -1178,9 +1180,44 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>rC_Connect__Heartland_Merchant__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <deprecated>false</deprecated>
+        <description>Manually populated Heartland Merchant record that will be used to process Giving records associated with this Campaign.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Heartland Merchant record that will be used to process Giving records associated with this Campaign.</inlineHelpText>
+        <label>Heartland Merchant</label>
+        <referenceTo>rC_Payments__Heartland_Merchant__c</referenceTo>
+        <relationshipLabel>Campaigns</relationshipLabel>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>rC_Connect__Payment_Processor__c</fullName>
+        <deprecated>false</deprecated>
+        <description>Selects which payment processor to use based on values populated in &apos;Sage Merchant&apos; and &apos;Heartland Merchant&apos; lookups. If no value is present, the system uses the value in Payment_Method_setting__c.Default_Payment_Processor__c</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Selects which payment processor to use based on values populated in &apos;Sage Merchant&apos; and &apos;Heartland Merchant&apos; lookups.</inlineHelpText>
+        <label>Payment Processor</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Heartland</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>rC_Connect__Sage_Merchant__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <deprecated>false</deprecated>
+        <description>Manually populated Sage Merchant record that will be used to process Giving records associated with this Campaign.</description>
         <externalId>false</externalId>
         <label>Sage Merchant</label>
         <referenceTo>rC_Payments__Sage_Merchant__c</referenceTo>
