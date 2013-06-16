@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>ChoosePricebook</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>EditAllProduct</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
     <enableFeeds>false</enableFeeds>
     <fieldSets>
         <fullName>Opportunity_ViewArchivedGivingItem</fullName>
@@ -37,63 +61,15 @@
     <fieldSets>
         <fullName>rC_Giving__Opportunity_Manage_ListItems</fullName>
         <availableFields>
-            <field>rC_Giving__Delivery_Comments__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>SystemModstamp</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>Subtotal</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>SortOrder</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>ServiceDate</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>PricebookEntryId</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>OpportunityId</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Expected_Total_Price__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Giving_Level__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Item__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Package_Name__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Package__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Transferor__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>CreatedById</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
             <field>CreatedDate</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Delivery_Comments__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -105,6 +81,14 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>rC_Giving__Expected_Total_Price__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Giving_Level__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>Id</field>
             <isRequired>false</isRequired>
         </availableFields>
@@ -113,11 +97,51 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>rC_Giving__Item__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>LastModifiedById</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
             <field>ListPrice</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>OpportunityId</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Package_Name__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Package__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>PricebookEntryId</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ServiceDate</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>SortOrder</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Subtotal</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>SystemModstamp</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Transferor__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <description>Opportunity_Manage</description>
@@ -161,6 +185,14 @@
         <description>This fieldset is used in the Shipment_Manage page, it specifically requires only one field rC_Giving__Delivery_Status__c.</description>
         <label>LineItem Status</label>
     </fieldSets>
+    <fields>
+        <fullName>OpportunityId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Product2Id</fullName>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>rC_Connect__City__c</fullName>
         <deprecated>false</deprecated>

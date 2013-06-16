@@ -1,10 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddCampaign</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>AdvancedSetup</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
     <enableFeeds>false</enableFeeds>
     <fieldSets>
         <fullName>rC_Connect__Campaign_ExposeTimeslots</fullName>
         <availableFields>
+            <field>ActualCost</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>AmountAllOpportunities</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>AmountWonOpportunities</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>rC_Giving__Archive_Flag__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>BudgetedCost</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>CampaignMemberRecordTypeId</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -16,7 +72,35 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>CreatedById</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>CreatedDate</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>rC_Giving__Creative_Package__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Description</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Connect__Duration__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>EndDate</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ExpectedResponse</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ExpectedRevenue</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -33,82 +117,6 @@
         </availableFields>
         <availableFields>
             <field>rC_Giving__Giving_Type__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Is_Shopper__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Response_Mechanism__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Send_To_Email_Campaign__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Solicitation_Type__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Source_Code_Partial__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Sub_Channel__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Support_Designation__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Connect__Duration__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>ActualCost</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>AmountAllOpportunities</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>AmountWonOpportunities</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>BudgetedCost</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>CampaignMemberRecordTypeId</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>CreatedById</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>CreatedDate</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>Description</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>EndDate</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>ExpectedResponse</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>ExpectedRevenue</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -168,6 +176,10 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>rC_Giving__Is_Shopper__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>LastActivityDate</field>
             <isRequired>false</isRequired>
         </availableFields>
@@ -216,11 +228,35 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>rC_Giving__Response_Mechanism__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Send_To_Email_Campaign__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Solicitation_Type__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Source_Code_Partial__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>StartDate</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
             <field>Status</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Sub_Channel__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Support_Designation__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -273,7 +309,27 @@
     <fieldSets>
         <fullName>rC_Connect__Campaign_ManageTimeslots</fullName>
         <availableFields>
+            <field>ActualCost</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>AmountAllOpportunities</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>AmountWonOpportunities</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>rC_Giving__Archive_Flag__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>BudgetedCost</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>CampaignMemberRecordTypeId</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -281,11 +337,39 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>CreatedById</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>CreatedDate</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>rC_Giving__Creative_Package__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>Description</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Connect__Duration__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>rC_Giving__Effort__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>EndDate</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ExpectedResponse</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>ExpectedRevenue</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -302,82 +386,6 @@
         </availableFields>
         <availableFields>
             <field>rC_Giving__Giving_Type__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Is_Shopper__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Response_Mechanism__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Segment__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Send_To_Email_Campaign__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Source_Code_Partial__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Sub_Channel__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Support_Designation__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Connect__Duration__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>ActualCost</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>AmountAllOpportunities</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>AmountWonOpportunities</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>BudgetedCost</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>CampaignMemberRecordTypeId</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>CreatedById</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>CreatedDate</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>Description</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>EndDate</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>ExpectedResponse</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>ExpectedRevenue</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -437,6 +445,10 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>rC_Giving__Is_Shopper__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>LastActivityDate</field>
             <isRequired>false</isRequired>
         </availableFields>
@@ -489,11 +501,35 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>rC_Giving__Response_Mechanism__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Segment__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Send_To_Email_Campaign__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Source_Code_Partial__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>StartDate</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
             <field>Status</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Sub_Channel__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Support_Designation__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -538,34 +574,6 @@
     <fieldSets>
         <fullName>rC_Giving__Campaign_BatchEditSelection</fullName>
         <availableFields>
-            <field>rC_Giving__Archive_Flag__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Creative_Package__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__External_ID__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Giving_Type_Engine__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Giving_Type__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Send_To_Email_Campaign__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Source_Code_Partial__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>ActualCost</field>
             <isRequired>false</isRequired>
         </availableFields>
@@ -575,6 +583,10 @@
         </availableFields>
         <availableFields>
             <field>AmountWonOpportunities</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Archive_Flag__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -594,6 +606,10 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>rC_Giving__Creative_Package__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>Description</field>
             <isRequired>false</isRequired>
         </availableFields>
@@ -607,6 +623,18 @@
         </availableFields>
         <availableFields>
             <field>ExpectedRevenue</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__External_ID__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Giving_Type_Engine__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Giving_Type__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -715,6 +743,14 @@
         </availableFields>
         <availableFields>
             <field>OwnerId</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Send_To_Email_Campaign__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Source_Code_Partial__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -803,26 +839,6 @@
     <fieldSets>
         <fullName>rC_Giving__Campaign_ManageSubCampaigns</fullName>
         <availableFields>
-            <field>rC_Giving__Archive_Flag__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>SystemModstamp</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Giving_Type_Engine__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Giving_Type__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>rC_Giving__Source_Code_Partial__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>ActualCost</field>
             <isRequired>false</isRequired>
         </availableFields>
@@ -832,6 +848,10 @@
         </availableFields>
         <availableFields>
             <field>AmountWonOpportunities</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Archive_Flag__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -860,6 +880,18 @@
         </availableFields>
         <availableFields>
             <field>ExpectedRevenue</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__External_ID__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Giving_Type_Engine__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>rC_Giving__Giving_Type__c</field>
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
@@ -915,14 +947,6 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
-            <field>rC_Giving__External_ID__c</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
-            <field>Status</field>
-            <isRequired>false</isRequired>
-        </availableFields>
-        <availableFields>
             <field>IsDeleted</field>
             <isRequired>false</isRequired>
         </availableFields>
@@ -975,7 +999,19 @@
             <isRequired>false</isRequired>
         </availableFields>
         <availableFields>
+            <field>rC_Giving__Source_Code_Partial__c</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
             <field>StartDate</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>Status</field>
+            <isRequired>false</isRequired>
+        </availableFields>
+        <availableFields>
+            <field>SystemModstamp</field>
             <isRequired>false</isRequired>
         </availableFields>
         <description>Campaign_ManageSubCampaigns</description>
@@ -1065,6 +1101,18 @@
         </displayedFields>
         <label>Campaign_ManageSubCampaigns</label>
     </fieldSets>
+    <fields>
+        <fullName>CampaignMemberRecordTypeId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>OwnerId</fullName>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>ParentId</fullName>
+        <type>Lookup</type>
+    </fields>
     <fields>
         <fullName>Status</fullName>
         <picklist>
