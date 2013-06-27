@@ -3,10 +3,25 @@ global class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.S
     
     // Should only be called by the StayClassyServicer code.
     global virtual void processMessage(rC_Messaging__Message__c message, Dom.Document payload) {
-        StayClassy.Campaign objectData = (StayClassy.Campaign) Json.createParser(StayClassy.getEndpointResponse('/api1/campaign-info', new Map<String, String> {
+        String jsonData = StayClassy.getEndpointResponse('/api1/campaign-info', new Map<String, String> {
             'eid' => message.rC_Messaging__Related_Record__c
-        })).readValueAs(StayClassy.Campaign.class);
+        });
         
+        StayClassy.Campaign objectData;
+        
+        try {
+            objectData = (StayClassy.Campaign) Json.createParser(StayClassy.getEndpointResponse('/api1/campaign-info', new Map<String, String> {
+                'eid' => message.rC_Messaging__Related_Record__c
+            })).readValueAs(StayClassy.Campaign.class);
+        } catch (System.Exception pException) {
+            throw new StayClassy.ProcessingException(''
+                + pException.getTypeName()
+                + ': '
+                + pException.getMessage() 
+                + ': '
+                + jsonData
+            );
+        }
         // Try to find the campaign by campaign ID
         Campaign[] campaignList = [
             select Id

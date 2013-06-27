@@ -1,4 +1,6 @@
 global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
+    public class ProcessingException extends Exception {}
+    
     // Org settings
     public static StayClassy__c SETTINGS {
         get {
@@ -22,16 +24,18 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
     }
     
     public class Campaign {
-        public String campaign_image_large;
-        public String campaign_image_medium;
-        public String campaign_image_small;
-        public String campaign_url;
+        public String address;
         public String city;
         public Integer charity_id;
         public String charity_name;
         public String designation_name;
         public Integer did;
         public String end_date;
+        public String event_image_large;
+        public String event_image_medium;
+        public String event_image_small;
+        public Integer event_type_id;
+        public String event_url;
         public Decimal goal;
         public Integer host_id;
         public String host_name;
@@ -121,18 +125,29 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
         public String address2;
         public String city;
         public String country;
+        public String designation_id;
+        public String designation_name;
         public Decimal donate_amount;
         public String donation_date;
         public String email;
+        public Integer event_id;
+        public String event_name;
         public String first_name;
         public String fundraiser;
+        public Integer fundraiser_id;
         public String in_honor_of;
         public String last_name;
+        public Integer member_id;
         public String member_image_large;
         public String member_image_medium;
         public String member_image_small;
         public Integer order_id;
+        public String payment_type;
+        public Integer recurring_id;
         public String state;
+        public String status;
+        public String team_id;
+        public String team_name;
         public String zip;
 
         // Helpers
