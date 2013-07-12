@@ -3,10 +3,21 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
     
     // Should only be called by the StayClassyServicer code.
     global virtual void processMessage(rC_Messaging__Message__c message, Dom.Document payload) {
-        // Get the fundraiser 
-        StayClassy.Fundraiser objectData = (StayClassy.Fundraiser) Json.createParser(StayClassy.getEndpointResponse('/api1/fundraiser-info', new Map<String, String> {
+        StayClassy.FundraiserResponseList objectDataList = (StayClassy.FundraiserResponseList) Json.createParser(StayClassy.getEndpointResponse('/api1/fundraisers', new Map<String, String> {
             'fcid' => message.rC_Messaging__Related_Record__c
-        })).readValueAs(StayClassy.Fundraiser.class);
+        })).readValueAs(StayClassy.FundraiserResponseList.class);
+        
+        // Any results?
+        if (objectDataList.fundraisers == null || objectDataList.fundraisers.size() == 0) {
+            throw new StayClassy.ServicerException('No results returned from StayClassy for ID: ' + message.rC_Messaging__Related_Record__c);
+        }
+        
+        if (objectDataList.fundraisers.size() >= 2) {
+            throw new StayClassy.ServicerException('Too many results returned from StayClassy for ID: ' + message.rC_Messaging__Related_Record__c);
+        }
+        
+        // Extract the one record
+        StayClassy.Fundraiser objectData = objectDataList.fundraisers[0];
         
         // Validations
         if (objectData.page_title == null || objectData.page_title == '') {
@@ -15,9 +26,16 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
         }
         
         // Get the fundraiser team
-        StayClassy.Team objectTeamData = (StayClassy.Team) Json.createParser(StayClassy.getEndpointResponse('/api1/team-info', new Map<String, String> {
+        StayClassy.TeamResponseList objectTeamDataList = (StayClassy.TeamResponseList) Json.createParser(StayClassy.getEndpointResponse('/api1/teams', new Map<String, String> {
             'ftid' => String.valueOf(objectData.team_id)
-        })).readValueAs(StayClassy.Team.class);
+        })).readValueAs(StayClassy.TeamResponseList.class);
+        
+        // Extract the one record
+        StayClassy.Team objectTeamData = null;
+        
+        if (objectTeamDataList != null && objectTeamDataList.teams != null && objectTeamDataList.teams.isEmpty() == false) {
+            objectTeamData = objectTeamDataList.teams[0];
+        }
         
         // Try to find the campaign by campaign ID
         Campaign[] campaignList = [

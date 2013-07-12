@@ -3,25 +3,23 @@ global class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.S
     
     // Should only be called by the StayClassyServicer code.
     global virtual void processMessage(rC_Messaging__Message__c message, Dom.Document payload) {
-        String jsonData = getEndpointResponse('/api1/campaign-info', new Map<String, String> {
+        // Get the donations 
+        StayClassy.CampaignResponseList objectDataList = (StayClassy.CampaignResponseList) Json.createParser(StayClassy.getEndpointResponse('/api1/campaigns', new Map<String, String> {
             'eid' => message.rC_Messaging__Related_Record__c
-        });
+        })).readValueAs(StayClassy.CampaignResponseList.class);
         
-        StayClassy.Campaign objectData;
-        
-        try {
-            objectData = (StayClassy.Campaign) Json.createParser(StayClassy.getEndpointResponse('/api1/campaign-info', new Map<String, String> {
-                'eid' => message.rC_Messaging__Related_Record__c
-            })).readValueAs(StayClassy.Campaign.class);
-        } catch (System.Exception pException) {
-            throw new StayClassy.ProcessingException(''
-                + pException.getTypeName()
-                + ': '
-                + pException.getMessage() 
-                + ': '
-                + jsonData
-            );
+        // Any results?
+        if (objectDataList.campaigns == null || objectDataList.campaigns.size() == 0) {
+            throw new StayClassy.ServicerException('No results returned from StayClassy for ID: ' + message.rC_Messaging__Related_Record__c);
         }
+        
+        if (objectDataList.campaigns.size() >= 2) {
+            throw new StayClassy.ServicerException('Too many results returned from StayClassy for ID: ' + message.rC_Messaging__Related_Record__c);
+        }
+        
+        // Extract the one record
+        StayClassy.Campaign objectData = objectDataList.campaigns[0];
+        
         // Try to find the campaign by campaign ID
         Campaign[] campaignList = [
             select Id
@@ -53,7 +51,7 @@ global class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.S
             campaign.StayClassy_ID__c = message.rC_Messaging__Related_Record__c;
             campaign.rC_Giving__Start_Date_Time__c = objectData.start_date_time;
             campaign.rC_Giving__End_Date_Time__c = objectData.end_date_time;
-            update campaign;
+            upsert campaign;
         } catch (System.Exception pException) {
             Database.rollback(savepoint);
             throw pException;
