@@ -234,6 +234,12 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
             'delete' => 'StayClassy_DeleteFundraiser'
         },
         
+        
+        'stayclassy://teams' => new Map<String, String> {
+            'insert' => 'StayClassy_UpsertTeam',
+            'update' => 'StayClassy_UpsertTeam'
+        },
+        
         'stayclassy://donations' => new Map<String, String> {
             'insert' => 'StayClassy_UpsertDonation',
             'update' => 'StayClassy_UpsertDonation'
