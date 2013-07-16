@@ -29,13 +29,8 @@ global class StayClassy_UpsertDonation implements rC_Messaging.MessageServicer.S
              limit 1
         ];
         
-        // For the update case, if the campaign is missing, block execution for now
-        if (opportunityList.isEmpty() && 'update'.equalsIgnoreCase(message.rC_Messaging__Related_Method__c)) {
-            throw new StayClassy.ServicerException('Unknown StayClassy ID: ' + message.rC_Messaging__Related_Record__c);
-        }
-        
-        // For the insert case, if the campaign is missing, create a new one
-        if (opportunityList.isEmpty() && 'insert'.equalsIgnoreCase(message.rC_Messaging__Related_Method__c)) {
+        // If the campaign is missing, create a new one
+        if (opportunityList.isEmpty()) {
             opportunityList = new Opportunity[] { 
                 new Opportunity(StayClassy_ID__c = message.rC_Messaging__Related_Record__c)
             };

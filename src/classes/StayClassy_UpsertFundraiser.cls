@@ -46,13 +46,8 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
              limit 1
         ];
         
-        // For the update case, if the campaign is missing, block execution
-        if (campaignList.isEmpty() && 'update'.equalsIgnoreCase(message.rC_Messaging__Related_Method__c)) {
-            throw new StayClassy.ServicerException('Unknown StayClassy ID: ' + message.rC_Messaging__Related_Record__c);
-        }
-        
-        // For the insert case, if the campaign is missing, create a new one
-        if (campaignList.isEmpty() && 'insert'.equalsIgnoreCase(message.rC_Messaging__Related_Method__c)) {
+        // If the campaign is missing, create a new one
+        if (campaignList.isEmpty()) {
             campaignList = new Campaign[] { 
                 new Campaign(StayClassy_ID__c = message.rC_Messaging__Related_Record__c)
             };
@@ -66,6 +61,17 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
              limit 1
         ];
         
+        // Find the parent team record, if it exists 
+        Campaign[] campaignParentTeamList = [
+            select Id
+              from Campaign
+             where StayClassy_ID__c = :String.valueOf(objectData.team_id)
+               and StayClassy_ID__c != null
+               and StayClassy_ID__c != '0'
+             limit 1
+        ];
+        
+        // Only the parent is required. The team is optional.
         if (campaignParentList.isEmpty()) {
             throw new StayClassy.ServicerException('Missing parent StayClassy ID: ' + objectData.event_id);
         }
@@ -76,16 +82,22 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
         try {
             // Upsert a campaign
             Campaign campaign = campaignList[0];
-            campaign.ParentId = campaignParentList[0].Id;
             campaign.Name = StayClassy.getTruncated(objectData.page_title, 80);
             campaign.Type = 'StayClassy Fundraiser';
             campaign.StayClassy_ID__c = message.rC_Messaging__Related_Record__c;
+            
+            // If the team is present, use that, otherwise use the parent
+            if (campaignParentTeamList.isEmpty() == false) {
+                campaign.ParentId = campaignParentTeamList[0].Id;
+            } else {
+                campaign.ParentId = campaignParentList[0].Id;
+            }
+            
             upsert campaign; // @todo - add other data
             
             // Insert a new batch upload record
             rC_Connect__Batch_Upload__c batchUpload = new rC_Connect__Batch_Upload__c();
             batchUpload.rC_Connect__Batch_Upload_Campaign_Matched__c = campaign.Id;
-            // ?? batchUpload.rC_Connect__Exclude_Giving__c = true;
             batchUpload.rC_Connect__Contact_1_First_Name__c  = objectData.first_name;
             batchUpload.rC_Connect__Contact_1_Last_Name__c  = objectData.last_name;
             batchUpload.rC_Connect__Contact_1_Email__c = objectData.member_email;

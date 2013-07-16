@@ -29,13 +29,8 @@ global class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.S
              limit 1
         ];
         
-        // For the update case, if the campaign is missing, block execution
-        if (campaignList.isEmpty() && 'update'.equalsIgnoreCase(message.rC_Messaging__Related_Method__c)) {
-            throw new StayClassy.ServicerException('Unknown StayClassy ID: ' + message.rC_Messaging__Related_Record__c);
-        }
-        
-        // For the insert case, if the campaign is missing, create a new one
-        if (campaignList.isEmpty() && 'insert'.equalsIgnoreCase(message.rC_Messaging__Related_Method__c)) {
+        // If the campaign is missing, create a new one
+        if (campaignList.isEmpty()) {
             campaignList = new Campaign[] { 
                 new Campaign(StayClassy_ID__c = message.rC_Messaging__Related_Record__c)
             };
