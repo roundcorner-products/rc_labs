@@ -37,6 +37,23 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
             objectTeamData = objectTeamDataList.teams[0];
         }
         
+        // Find the 
+        Integer parentId = (objectData.team_id == 0 || objectData.team_id == null) ? objectData.event_id : objectData.team_id;
+        
+        // Find the parent campaign record 
+        Campaign[] campaignParentList = [
+            select Id
+              from Campaign
+             where StayClassy_ID__c = :String.valueOf(parentId)
+               and StayClassy_ID__c != null
+             limit 1
+        ];
+        
+        // The parent is required
+        if (campaignParentList.isEmpty()) {
+            throw new StayClassy.ServicerException('Missing parent StayClassy ID: ' + parentId);
+        }
+        
         // Try to find the campaign by campaign ID
         Campaign[] campaignList = [
             select Id
@@ -52,29 +69,6 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
                 new Campaign(StayClassy_ID__c = message.rC_Messaging__Related_Record__c)
             };
         }
-        // Find the parent campaign record 
-        Campaign[] campaignParentList = [
-            select Id
-              from Campaign
-             where StayClassy_ID__c = :String.valueOf(objectData.event_id)
-               and StayClassy_ID__c != null
-             limit 1
-        ];
-        
-        // Find the parent team record, if it exists 
-        Campaign[] campaignParentTeamList = [
-            select Id
-              from Campaign
-             where StayClassy_ID__c = :String.valueOf(objectData.team_id)
-               and StayClassy_ID__c != null
-               and StayClassy_ID__c != '0'
-             limit 1
-        ];
-        
-        // Only the parent is required. The team is optional.
-        if (campaignParentList.isEmpty()) {
-            throw new StayClassy.ServicerException('Missing parent StayClassy ID: ' + objectData.event_id);
-        }
         
         // Establish a savepoint
         System.Savepoint savepoint = Database.setSavepoint();
@@ -85,14 +79,7 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
             campaign.Name = StayClassy.getTruncated(objectData.page_title, 80);
             campaign.Type = 'StayClassy Fundraiser';
             campaign.StayClassy_ID__c = message.rC_Messaging__Related_Record__c;
-            
-            // If the team is present, use that, otherwise use the parent
-            if (campaignParentTeamList.isEmpty() == false) {
-                campaign.ParentId = campaignParentTeamList[0].Id;
-            } else {
-                campaign.ParentId = campaignParentList[0].Id;
-            }
-            
+            campaign.ParentId = campaignParentList[0].Id;
             upsert campaign; // @todo - add other data
             
             // Insert a new batch upload record
