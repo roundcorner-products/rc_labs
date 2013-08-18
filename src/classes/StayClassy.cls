@@ -258,6 +258,35 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
         scheduler.schedule();
     }
     
+    @Future
+    public static void processMessageFuture(Id messageId) {
+        rC_Messaging__Message__c[] messageList = [
+            select rC_Messaging__Endpoint__c
+                 , rC_Messaging__Related_Method__c
+                 , rC_Messaging__Related_Record__c
+                 , rC_Messaging__Effective_Date__c
+                 , rC_Messaging__Processed_Date__c
+                 , rC_Messaging__Deletable_Date__c
+                 , rC_Messaging__Deletable_Cache_Time__c
+              from rC_Messaging__Message__c
+             where Id = :messageId
+             limit 1
+        ];
+        
+        if (messageList.isEmpty()) {
+            return;
+        }
+        
+        try {
+            new StayClassy().processMessage(messageList[0], null);
+            update messageList;
+        } catch (System.Exception pException) {
+            //rC_Messaging__Message_Error__c messageError = new rC_Messaging__Message_Error__c();
+            //messageError.rC_Messaging
+            //insert messageError;
+        }
+    }
+    
     global virtual void processMessage(rC_Messaging__Message__c message, Dom.Document payload) {
         if (message == null) {
             return;
