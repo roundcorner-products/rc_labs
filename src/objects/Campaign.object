@@ -1201,6 +1201,13 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>URL__c</fullName>
+        <externalId>false</externalId>
+        <label>URL</label>
+        <required>false</required>
+        <type>Url</type>
+    </fields>
+    <fields>
         <fullName>rC_Connect__Duration__c</fullName>
         <deprecated>false</deprecated>
         <description>Formula field returning the duration of the campaign in seconds.</description>

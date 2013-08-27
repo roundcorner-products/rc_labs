@@ -59,8 +59,16 @@
                 <behavior>Edit</behavior>
                 <field>ParentId</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>URL__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>rC_Giving__Campaign_Type__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>NumberOfLeads</field>
