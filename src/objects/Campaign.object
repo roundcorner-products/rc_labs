@@ -1146,7 +1146,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>SubType__c</fullName>
+        <fullName>Subtype__c</fullName>
         <externalId>false</externalId>
         <label>Sub-Type</label>
         <picklist>
@@ -1162,7 +1162,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Fundraise for Entry Event</fullName>
+                <fullName>Fundraise For Entry Event</fullName>
                 <controllingFieldValues>StayClassy Campaign</controllingFieldValues>
                 <default>false</default>
             </picklistValues>

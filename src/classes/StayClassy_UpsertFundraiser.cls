@@ -80,6 +80,7 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
             campaign.Type = 'StayClassy Fundraiser';
             campaign.StayClassy_ID__c = message.rC_Messaging__Related_Record__c;
             campaign.ParentId = campaignParentList[0].Id;
+            campaign.ExpectedRevenue = objectData.goal;
             upsert campaign; // @todo - add other data
             
             // Insert a new batch upload record

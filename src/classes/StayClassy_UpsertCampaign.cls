@@ -44,9 +44,13 @@ global class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.S
             campaign.Name = StayClassy.getTruncated(objectData.name, 80);
             campaign.Type = 'StayClassy Campaign';
             campaign.StayClassy_ID__c = message.rC_Messaging__Related_Record__c;
+            campaign.StartDate = objectData.start_date_time.date();
+            campaign.EndDate = objectData.end_date_time.date();
+            campaign.ExpectedRevenue = objectData.goal;
+            campaign.Subtype__c = objectData.event_type;
             campaign.rC_Giving__Start_Date_Time__c = objectData.start_date_time;
             campaign.rC_Giving__End_Date_Time__c = objectData.end_date_time;
-            upsert campaign;
+            upsert campaign; 
         } catch (System.Exception pException) {
             Database.rollback(savepoint);
             throw pException;

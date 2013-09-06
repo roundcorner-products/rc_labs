@@ -63,6 +63,7 @@ global class StayClassy_UpsertTeam implements rC_Messaging.MessageServicer.Servi
             campaign.Name = StayClassy.getTruncated(objectData.team_name, 80);
             campaign.Type = 'StayClassy Team';
             campaign.StayClassy_ID__c = message.rC_Messaging__Related_Record__c;
+            campaign.ExpectedRevenue = objectData.goal;
             upsert campaign; // @todo - add other data
         } catch (System.Exception pException) {
             Database.rollback(savepoint);

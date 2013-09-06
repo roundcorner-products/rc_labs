@@ -66,6 +66,18 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
                 return StayClassy.getDateTime(end_date);
             }
         }
+        
+        public String event_type {
+            get {
+                return new Map<Integer, String> {
+                    1 => 'Ticketed Event',
+                    2 => 'Registration Event',
+                    3 => 'Fundraise For Entry Event',
+                    4 => 'Fundraising Campaign',
+                    5 => 'Donation Page'
+                }.get(event_type_id);
+            }
+        }
     }
     
     public class CampaignTicket {

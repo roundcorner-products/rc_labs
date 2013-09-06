@@ -65,7 +65,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>SubType__c</field>
+                <field>Subtype__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
