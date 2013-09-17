@@ -4,7 +4,7 @@ global class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.S
     // Should only be called by the StayClassyServicer code.
     global virtual void processMessage(rC_Messaging__Message__c message, Dom.Document payload) {
         // Get the donations 
-        StayClassy.CampaignResponseList objectDataList = (StayClassy.CampaignResponseList) Json.createParser(StayClassy.getEndpointResponse('/api1/campaigns', new Map<String, String> {
+        StayClassy.CampaignResponseList objectDataList = (StayClassy.CampaignResponseList) Json.createParser(getEndpointResponse('/api1/campaigns', new Map<String, String> {
             'eid' => message.rC_Messaging__Related_Record__c
         })).readValueAs(StayClassy.CampaignResponseList.class);
         
@@ -62,6 +62,20 @@ global class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.S
             return StayClassy.getEndpointResponse(endpoint, endpointParams);
         }
         
+        StayClassy.CampaignResponseList recordList = new StayClassy.CampaignResponseList();
+        recordList.status_code = 'SUCCESS';
+        recordList.campaigns = new StayClassy.Campaign[] {};
+        
+        StayClassy.Campaign record = new StayClassy.Campaign();
+        record.id = 22000;
+        record.name = 'TEST Campaign';
+        record.start_date = '2013-05-07 00:00:00';
+        record.start_date = '2013-12-01 00:00:00';
+        recordList.campaigns.add(record);
+        
+        return Json.serialize(recordList);
+        
+        /*
         // Return test json
         return '{'
              + '    "status_code": "SUCCESS",'
@@ -101,5 +115,6 @@ global class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.S
              + '        }'
              + '    ]'
              + '}';
+         */
     }
 }
