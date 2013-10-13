@@ -33,6 +33,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>Merge</actionName>
         <type>Default</type>
     </actionOverrides>

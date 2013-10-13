@@ -17,6 +17,10 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
+        <actionName>ListClean</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>New</actionName>
         <content>rC_Bios__Account_ManageContacts</content>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
