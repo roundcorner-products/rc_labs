@@ -38,11 +38,11 @@ global class StayClassy_UpsertDonation implements rC_Messaging.MessageServicer.S
         
         // Find the parent campaign record 
         Campaign[] campaignParentList = [
-            select Id
-              from Campaign
-             where StayClassy_ID__c = :String.valueOf(objectData.event_id)
-               and StayClassy_ID__c != null
-             limit 1
+            SELECT Id
+              FROM Campaign
+             WHERE StayClassy_ID__c = :String.valueOf(objectData.event_id)
+               AND StayClassy_ID__c != null
+             LIMIT 1
         ];
         
         if (campaignParentList.isEmpty()) {
@@ -86,18 +86,18 @@ global class StayClassy_UpsertDonation implements rC_Messaging.MessageServicer.S
             
             // Giving frequency
             if (objectData.recurring_id == 0) {
-                batchUpload.rC_Connect__Giving_Giving_Frequency__c = 'Monthly';
-            } else {
                 batchUpload.rC_Connect__Giving_Giving_Frequency__c = 'One Payment';
+            } else {
+                batchUpload.rC_Connect__Giving_Giving_Frequency__c = 'Monthly';
             }
             
             // Try to find a matching contact via the member_id field.
             Contact[] contactMemberList = [
-                select StayClassy_ID__c
-                  from Contact
-                 where StayClassy_ID__c = :String.valueOf(objectData.member_id)
-                   and StayClassy_ID__c != null
-                 limit 1
+                SELECT StayClassy_ID__c
+                  FROM Contact
+                 WHERE StayClassy_ID__c = :String.valueOf(objectData.member_id)
+                   AND StayClassy_ID__c != null
+                 LIMIT 1
             ];
             
             if (contactMemberList.isEmpty() == false) {

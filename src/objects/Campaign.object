@@ -1138,12 +1138,13 @@
     </fields>
     <fields>
         <fullName>StayClassy_ID__c</fullName>
-        <externalId>false</externalId>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
         <label>StayClassy ID</label>
         <length>255</length>
         <required>false</required>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>true</unique>
     </fields>
     <fields>
         <fullName>Subtype__c</fullName>

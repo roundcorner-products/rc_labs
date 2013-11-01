@@ -1,0 +1,1 @@
+<apex:page standardController="rC_Messaging__Message__c" extensions="Message_ProcessStayClassy" action="{!initialize}" />

@@ -270,7 +270,7 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
         scheduler.schedule();
     }
     
-    @Future
+    @Future(callout=true)
     public static void processMessageFuture(Id messageId) {
         rC_Messaging__Message__c[] messageList = [
             select rC_Messaging__Endpoint__c
@@ -293,9 +293,11 @@ global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
             new StayClassy().processMessage(messageList[0], null);
             update messageList;
         } catch (System.Exception pException) {
-            //rC_Messaging__Message_Error__c messageError = new rC_Messaging__Message_Error__c();
-            //messageError.rC_Messaging
-            //insert messageError;
+            rC_Messaging__Message_Error__c messageError = new rC_Messaging__Message_Error__c();
+            messageError.rC_Messaging__Message__c = messageList[0].Id;
+            messageError.rC_Messaging__Description__c = pException.getMessage();
+            messageError.rC_Messaging__Type__c = pException.getTypeName();
+            insert messageError;
         }
     }
     

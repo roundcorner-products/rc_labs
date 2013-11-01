@@ -22,11 +22,12 @@ global class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.S
         
         // Try to find the campaign by campaign ID
         Campaign[] campaignList = [
-            select Id
-              from Campaign
-             where StayClassy_ID__c = :message.rC_Messaging__Related_Record__c
-               and StayClassy_ID__c != null
-             limit 1
+            SELECT Id
+              FROM Campaign
+             WHERE StayClassy_ID__c = :message.rC_Messaging__Related_Record__c
+               AND StayClassy_ID__c != null
+             LIMIT 1
+               FOR UPDATE
         ];
         
         // If the campaign is missing, create a new one
