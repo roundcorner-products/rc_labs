@@ -36,11 +36,13 @@ global class StayClassy_UpsertDonation implements rC_Messaging.MessageServicer.S
             };
         }
         
-        // Find the parent campaign record 
+        //// Find the parent campaign record 
+        //np011113 - find the most granular fundraising page to which donation was made
         Campaign[] campaignParentList = [
             SELECT Id
               FROM Campaign
-             WHERE StayClassy_ID__c = :String.valueOf(objectData.event_id)
+            // WHERE StayClassy_ID__c = :String.valueOf(objectData.event_id)
+               WHERE StayClassy_ID__c = :String.valueOf(objectData.fundraiser_id)
                AND StayClassy_ID__c != null
              LIMIT 1
         ];
@@ -76,13 +78,21 @@ global class StayClassy_UpsertDonation implements rC_Messaging.MessageServicer.S
             batchUpload.rC_Connect__Preferences_1_Subcategory__c = 'Donation';
             
             // Giving Info
-            batchUpload.rC_Connect__Giving_Giving_Number__c = message.rC_Messaging__Related_Record__c;
+            // batchUpload.rC_Connect__Giving_Giving_Number__c = message.rC_Messaging__Related_Record__c;
             batchUpload.rC_Connect__Giving_Giving_Amount__c = objectData.donate_amount;
             batchUpload.rC_Connect__Giving_Close_Date__c = objectData.donation_date_time.date();
             batchUpload.rC_Connect__Giving_Close_Date_Time__c = objectData.donation_date_time;
             batchUpload.rC_Connect__Giving_Paid__c = true;
             batchUpload.rC_Connect__Giving_Transaction_Type__c = 'Payment';
             batchUpload.rC_Connect__Payment_Method_Payment_Type__c = 'Charge Card';
+            batchUpload.rC_Connect__Giving_Record_Type__c = 'Donation';
+            
+            // Set Giving number for recurring only
+            if (objectData.recurring_id == 0) {
+                batchUpload.rC_Connect__Giving_Giving_Number__c = '';
+            } else {
+                batchUpload.rC_Connect__Giving_Giving_Number__c = message.rC_Messaging__Related_Record__c;
+            }
             
             // Giving frequency
             if (objectData.recurring_id == 0) {

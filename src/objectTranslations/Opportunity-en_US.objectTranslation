@@ -1,0 +1,2012 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Gving</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Giving</value>
+    </caseValues>
+    <fields>
+        <label><!-- Current Generator(s) --></label>
+        <name>CurrentGenerators__c</name>
+    </fields>
+    <fields>
+        <label><!-- Delivery/Installation Status --></label>
+        <name>DeliveryInstallationStatus__c</name>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In progress</masterLabel>
+            <translation><!-- In progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yet to begin</masterLabel>
+            <translation><!-- Yet to begin --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <name>LeadSource</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partner Referral</masterLabel>
+            <translation><!-- Partner Referral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone Inquiry</masterLabel>
+            <translation><!-- Phone Inquiry --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchased List</masterLabel>
+            <translation><!-- Purchased List --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Main Competitor(s) --></label>
+        <name>MainCompetitors__c</name>
+    </fields>
+    <fields>
+        <label><!-- Order Number --></label>
+        <name>OrderNumber__c</name>
+    </fields>
+    <fields>
+        <label><!-- Original_Summary --></label>
+        <name>Original_Summary__c</name>
+    </fields>
+    <fields>
+        <name>StageName</name>
+        <picklistValues>
+            <masterLabel>Canceled</masterLabel>
+            <translation><!-- Canceled --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed Lost</masterLabel>
+            <translation><!-- Closed Lost --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed Won</masterLabel>
+            <translation><!-- Closed Won --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Completed</masterLabel>
+            <translation><!-- Completed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Id. Decision Makers</masterLabel>
+            <translation><!-- Id. Decision Makers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Needs Analysis</masterLabel>
+            <translation><!-- Needs Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Negotiation/Review</masterLabel>
+            <translation><!-- Negotiation/Review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Open</masterLabel>
+            <translation><!-- Open --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partially Collected</masterLabel>
+            <translation><!-- Partially Collected --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partially Complete</masterLabel>
+            <translation><!-- Partially Complete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Perception Analysis</masterLabel>
+            <translation><!-- Perception Analysis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proposal/Price Quote</masterLabel>
+            <translation><!-- Proposal/Price Quote --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prospecting</masterLabel>
+            <translation><!-- Prospecting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qualification</masterLabel>
+            <translation><!-- Qualification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suspended</masterLabel>
+            <translation><!-- Suspended --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Uncollectible</masterLabel>
+            <translation><!-- Uncollectible --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Value Proposition</masterLabel>
+            <translation><!-- Value Proposition --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- StayClassy ID --></label>
+        <name>StayClassy_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tracking Number --></label>
+        <name>TrackingNumber__c</name>
+    </fields>
+    <fields>
+        <name>Type</name>
+        <picklistValues>
+            <masterLabel>Existing Customer - Downgrade</masterLabel>
+            <translation><!-- Existing Customer - Downgrade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Existing Customer - Replacement</masterLabel>
+            <translation><!-- Existing Customer - Replacement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Existing Customer - Upgrade</masterLabel>
+            <translation><!-- Existing Customer - Upgrade --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Customer</masterLabel>
+            <translation><!-- New Customer --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Auto-Submit Payment? --></label>
+        <name>rC_Connect__Is_Auto_Submit_Payment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indicates the most recent Heartland Transaction date/time. --></help>
+        <label><!-- Rollup Heartland Transactions --></label>
+        <name>rC_Connect__Rollup_Heartland_Transactions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rollup Sage Vault Bankcards --></label>
+        <name>rC_Connect__Rollup_Sage_Vault_Bankcards__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rollup Sage Vault Virtual Checks --></label>
+        <name>rC_Connect__Rollup_Sage_Vault_Virtual_Checks__c</name>
+    </fields>
+    <fields>
+        <label><!-- Account Name --></label>
+        <name>rC_Giving__Account_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field is only used for data import when the value for the account number is known, but the account ID is not known but the external system. --></help>
+        <label><!-- Account Number --></label>
+        <name>rC_Giving__Account_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date Acknowledgement sent --></help>
+        <label><!-- Acknowledged Date --></label>
+        <name>rC_Giving__Acknowledged_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Has an acknowledgement been sent? --></help>
+        <label><!-- Acknowledged? --></label>
+        <name>rC_Giving__Acknowledged__c</name>
+    </fields>
+    <fields>
+        <help><!-- Defines type of Activity associated with gift. Mirrors the Giving record type. --></help>
+        <label><!-- Activity Type --></label>
+        <name>rC_Giving__Activity_Type__c</name>
+        <picklistValues>
+            <masterLabel>Donation</masterLabel>
+            <translation><!-- Donation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Grant</masterLabel>
+            <translation><!-- Grant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inkind</masterLabel>
+            <translation><!-- Inkind --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Membership</masterLabel>
+            <translation><!-- Membership --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Purchase</masterLabel>
+            <translation><!-- Purchase --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Represents groups within the organization. Each Affiliation has its own Summary record on Account. --></help>
+        <label><!-- Affiliation --></label>
+        <name>rC_Giving__Affiliation__c</name>
+        <picklistValues>
+            <masterLabel>Group 1</masterLabel>
+            <translation><!-- Group 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group 2</masterLabel>
+            <translation><!-- Group 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Group 3</masterLabel>
+            <translation><!-- Group 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Amount that has currently been allocated to different Accounting Units --></help>
+        <label><!-- Allocation Amount --></label>
+        <name>rC_Giving__Allocation_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Anniversary Date --></label>
+        <name>rC_Giving__Anniversary_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the next upcoming anniversary date of the sustainer, and will be the date when new premiums are scheduled and shipped based on the sustainer&apos;s Giving Level. --></help>
+        <label><!-- Anniversary Renewal Date --></label>
+        <name>rC_Giving__Anniversary_Renewal_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Annual Giving Amount is the calculated amount the donor will give from the time period of the most recent Anniversary Date to the most recent Anniversary Date + 1 year --></help>
+        <label><!-- Annual Giving Amount --></label>
+        <name>rC_Giving__Annual_Giving_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Deadline to submit application. --></help>
+        <label><!-- Application Deadline --></label>
+        <name>rC_Giving__Application_Deadline__c</name>
+    </fields>
+    <fields>
+        <help><!-- Internal ID for the Application. --></help>
+        <label><!-- Application ID --></label>
+        <name>rC_Giving__Application_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Identifies a record to be archived in roundData and removed from Salesforce. It will reside in roundData for storage and query runs. --></help>
+        <label><!-- Archive? --></label>
+        <name>rC_Giving__Archive_Flag__c</name>
+    </fields>
+    <fields>
+        <help><!-- Disposition of constituent toward committing to determined Pledge ask amount. --></help>
+        <label><!-- Ask Readiness --></label>
+        <name>rC_Giving__Ask_Readiness__c</name>
+        <picklistValues>
+            <masterLabel>Cold</masterLabel>
+            <translation><!-- Cold --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hot</masterLabel>
+            <translation><!-- Hot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warm</masterLabel>
+            <translation><!-- Warm --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date at which the donor can be charged. e.g. Grant provisionally awarded on 1st June but activities cannot begin until funds become available for charging on 16th June. --></help>
+        <label><!-- Available Billing Date --></label>
+        <name>rC_Giving__Available_Billing_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date grant related projects/programs begin. Grant may be won in June but related activities do not begin until July. --></help>
+        <label><!-- Awarded Grant End Date --></label>
+        <name>rC_Giving__Awarded_Grant_End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date grant related projects/programs end. --></help>
+        <label><!-- Awarded Grant Start Date --></label>
+        <name>rC_Giving__Awarded_Grant_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Best Case Amount --></label>
+        <name>rC_Giving__Best_Case_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Best Case Bar --></label>
+        <name>rC_Giving__Best_Case_Bar__c</name>
+    </fields>
+    <fields>
+        <label><!-- Best Case Ratio --></label>
+        <name>rC_Giving__Best_Case_Ratio__c</name>
+    </fields>
+    <fields>
+        <help><!-- Giving Type determined by roundCause rules for the specified giving type engine. --></help>
+        <label><!-- Calculated Giving Type --></label>
+        <name>rC_Giving__Calculated_Giving_Type__c</name>
+        <picklistValues>
+            <masterLabel>Additional</masterLabel>
+            <translation><!-- Additional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejoin</masterLabel>
+            <translation><!-- Rejoin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renew</masterLabel>
+            <translation><!-- Renew --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrade</masterLabel>
+            <translation><!-- Upgrade --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Defines a value which is automatically set to the related Campaign Channel value. --></help>
+        <label><!-- Campaign Channel --></label>
+        <name>rC_Giving__Campaign_Channel__c</name>
+        <picklistValues>
+            <masterLabel>Broadcast</masterLabel>
+            <translation><!-- Broadcast --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail</masterLabel>
+            <translation><!-- Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phone</masterLabel>
+            <translation><!-- Phone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telesales</masterLabel>
+            <translation><!-- Telesales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Campaign: Response Mechanism --></label>
+        <name>rC_Giving__Campaign_Response_Mechanism__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign: Source Code --></label>
+        <name>rC_Giving__Campaign_Source_Code__c</name>
+    </fields>
+    <fields>
+        <label><!-- Campaign: Support Designation --></label>
+        <name>rC_Giving__Campaign_Support_Designation__c</name>
+    </fields>
+    <fields>
+        <help><!-- Calculated Charitable Deduction for Planned Giving. --></help>
+        <label><!-- Charitable Deduction --></label>
+        <name>rC_Giving__Charitable_Deduction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Check Date --></label>
+        <name>rC_Giving__Check_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Check # --></label>
+        <name>rC_Giving__Check_Number__c</name>
+    </fields>
+    <fields>
+        <label><!-- Close Date/Time --></label>
+        <name>rC_Giving__Close_Date_Time__c</name>
+    </fields>
+    <fields>
+        <label><!-- Closed Amount --></label>
+        <name>rC_Giving__Closed_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Closed Bar --></label>
+        <name>rC_Giving__Closed_Bar__c</name>
+    </fields>
+    <fields>
+        <help><!-- Reason the Giving is listed Closed Lost. --></help>
+        <label><!-- Closed Lost Reason --></label>
+        <name>rC_Giving__Closed_Lost_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Budget Cut</masterLabel>
+            <translation><!-- Budget Cut --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign Change</masterLabel>
+            <translation><!-- Campaign Change --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dropped</masterLabel>
+            <translation><!-- Dropped --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media Rates</masterLabel>
+            <translation><!-- Media Rates --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No Response</masterLabel>
+            <translation><!-- No Response --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ratings</masterLabel>
+            <translation><!-- Ratings --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Closed Ratio --></label>
+        <name>rC_Giving__Closed_Ratio__c</name>
+    </fields>
+    <fields>
+        <help><!-- Holds Comments related to Tribute information on a Giving record. --></help>
+        <label><!-- Comments --></label>
+        <name>rC_Giving__Comments__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commit Amount --></label>
+        <name>rC_Giving__Commit_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commit Bar --></label>
+        <name>rC_Giving__Commit_Bar__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commit Ratio --></label>
+        <name>rC_Giving__Commit_Ratio__c</name>
+    </fields>
+    <fields>
+        <help><!-- Deadline for submitting required concept docs to donor. e.g. planned activities, scope and impact, competitive edge. --></help>
+        <label><!-- Concept Paper Deadline --></label>
+        <name>rC_Giving__Concept_Paper_Deadline__c</name>
+    </fields>
+    <fields>
+        <help><!-- Internal reference of the signed contract with donor. --></help>
+        <label><!-- Contract # --></label>
+        <name>rC_Giving__Contract_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Status of the Grant Contract. --></help>
+        <label><!-- Contract Status --></label>
+        <name>rC_Giving__Contract_Status__c</name>
+        <picklistValues>
+            <masterLabel>Executed</masterLabel>
+            <translation><!-- Executed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Received</masterLabel>
+            <translation><!-- Received --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Signed</masterLabel>
+            <translation><!-- Signed --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Current Giving Amount --></label>
+        <name>rC_Giving__Current_Giving_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Giving Bar --></label>
+        <name>rC_Giving__Current_Giving_Bar__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Giving Divergence --></label>
+        <name>rC_Giving__Current_Giving_Divergence__c</name>
+    </fields>
+    <fields>
+        <label><!-- Current Giving Ratio --></label>
+        <name>rC_Giving__Current_Giving_Ratio__c</name>
+    </fields>
+    <fields>
+        <help><!-- Month in which latest Discount Rate was populated. --></help>
+        <label><!-- Discount Rate Month --></label>
+        <name>rC_Giving__Discount_Rate_Month__c</name>
+        <picklistValues>
+            <masterLabel>01</masterLabel>
+            <translation><!-- 01 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>02</masterLabel>
+            <translation><!-- 02 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>03</masterLabel>
+            <translation><!-- 03 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>04</masterLabel>
+            <translation><!-- 04 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>05</masterLabel>
+            <translation><!-- 05 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>06</masterLabel>
+            <translation><!-- 06 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>07</masterLabel>
+            <translation><!-- 07 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>08</masterLabel>
+            <translation><!-- 08 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>09</masterLabel>
+            <translation><!-- 09 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10</masterLabel>
+            <translation><!-- 10 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11</masterLabel>
+            <translation><!-- 11 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12</masterLabel>
+            <translation><!-- 12 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Year in which latest Discount Rate was populated. --></help>
+        <label><!-- Discount Rate Year --></label>
+        <name>rC_Giving__Discount_Rate_Year__c</name>
+        <picklistValues>
+            <masterLabel>2004</masterLabel>
+            <translation><!-- 2004 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2005</masterLabel>
+            <translation><!-- 2005 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2006</masterLabel>
+            <translation><!-- 2006 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2007</masterLabel>
+            <translation><!-- 2007 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2008</masterLabel>
+            <translation><!-- 2008 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2009</masterLabel>
+            <translation><!-- 2009 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2010</masterLabel>
+            <translation><!-- 2010 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2011</masterLabel>
+            <translation><!-- 2011 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2012</masterLabel>
+            <translation><!-- 2012 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2013</masterLabel>
+            <translation><!-- 2013 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2014</masterLabel>
+            <translation><!-- 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2015</masterLabel>
+            <translation><!-- 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation><!-- 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2017</masterLabel>
+            <translation><!-- 2017 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation><!-- Unknown --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Discount Rate --></label>
+        <name>rC_Giving__Discount_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective Giving Type Date --></label>
+        <name>rC_Giving__Effective_Giving_Type_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Enrollment Start Date --></label>
+        <name>rC_Giving__Enrollment_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- When multicurrency is enabled, this is the original non-USD giving amount. --></help>
+        <label><!-- Entered Giving Amount --></label>
+        <name>rC_Giving__Entered_Giving_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- When multicurrency is enabled, this is the original non-USD giving currency rate. --></help>
+        <label><!-- Entered Giving Currency Rate --></label>
+        <name>rC_Giving__Entered_Giving_Currency_Rate__c</name>
+    </fields>
+    <fields>
+        <help><!-- When multicurrency is enabled, this is the original non-USD giving currency code. --></help>
+        <label><!-- Entered Giving Currency --></label>
+        <name>rC_Giving__Entered_Giving_Currency__c</name>
+        <picklistValues>
+            <masterLabel>CAD</masterLabel>
+            <translation><!-- CAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EUR</masterLabel>
+            <translation><!-- EUR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation><!-- USD --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Expected Giving Amount --></label>
+        <name>rC_Giving__Expected_Giving_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Giving Bar --></label>
+        <name>rC_Giving__Expected_Giving_Bar__c</name>
+    </fields>
+    <fields>
+        <label><!-- Expected Giving Ratio --></label>
+        <name>rC_Giving__Expected_Giving_Ratio__c</name>
+    </fields>
+    <fields>
+        <label><!-- External ID --></label>
+        <name>rC_Giving__External_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fill Rate --></label>
+        <name>rC_Giving__Fill_Rate__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Closed Payment Date --></label>
+        <name>rC_Giving__First_Closed_Payment_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- First Payment Date --></label>
+        <name>rC_Giving__First_Payment_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- This value is copied from associated Campaign at gift creation, and can be manually changed if necessary. If the gift should be split across more than one General Accounting Unit - use the Special Allocations related list to specify the split. --></help>
+        <label><!-- General Accounting Unit --></label>
+        <name>rC_Giving__GAU__c</name>
+        <relationshipLabel><!-- Opportunities --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Giving Amount --></label>
+        <name>rC_Giving__Giving_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date boundary for Giving Amount calculation defaults to 1 year after pledge or payment date and is assumed to be the default if left blank. --></help>
+        <label><!-- Giving End Date --></label>
+        <name>rC_Giving__Giving_End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Frequency that Giving Amount is pledged to be given (Giving Frequency of Quarterly and Giving Amount of $25 means that $100 is pledged) --></help>
+        <label><!-- Giving Frequency --></label>
+        <name>rC_Giving__Giving_Frequency__c</name>
+        <picklistValues>
+            <masterLabel>Annually</masterLabel>
+            <translation><!-- Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bi-Monthly</masterLabel>
+            <translation><!-- Bi-Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One Payment</masterLabel>
+            <translation><!-- One Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semi-Annually</masterLabel>
+            <translation><!-- Semi-Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Giving Level ID --></label>
+        <name>rC_Giving__Giving_Level_ID__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Level Status --></label>
+        <name>rC_Giving__Giving_Level_Status__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving # --></label>
+        <name>rC_Giving__Giving_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Rules used to determine the value of &apos;Calculated Giving Type&apos;. --></help>
+        <label><!-- Giving Type Engine --></label>
+        <name>rC_Giving__Giving_Type_Engine__c</name>
+        <picklistValues>
+            <masterLabel>Public Media</masterLabel>
+            <translation><!-- Public Media --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Standard</masterLabel>
+            <translation><!-- Standard --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Giving Type is used to set values on Summary and Account. Can be set automatically based on Giving Type Rules or manually overridden. Manual overrides can only happen after the record has been saved. --></help>
+        <label><!-- Giving Type --></label>
+        <name>rC_Giving__Giving_Type__c</name>
+        <picklistValues>
+            <masterLabel>Additional</masterLabel>
+            <translation><!-- Additional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation><!-- New --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rejoin</masterLabel>
+            <translation><!-- Rejoin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renewal</masterLabel>
+            <translation><!-- Renewal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upgrade</masterLabel>
+            <translation><!-- Upgrade --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Number of years in Pledge timeline. This field is not set directly but by a picklist in the Giving Wizard. --></help>
+        <label><!-- Giving Years --></label>
+        <name>rC_Giving__Giving_Years__c</name>
+    </fields>
+    <fields>
+        <help><!-- Summary of the purpose of the grant proposal that is one-paragraph. Include what, where, when, and why. --></help>
+        <label><!-- Grant Purpose --></label>
+        <name>rC_Giving__Grant_Purpose__c</name>
+    </fields>
+    <fields>
+        <help><!-- Link to grant requirements. --></help>
+        <label><!-- Grant Requirements --></label>
+        <name>rC_Giving__Grant_Requirements__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type of Designation of Grant. --></help>
+        <label><!-- Grant Type --></label>
+        <name>rC_Giving__Grant_Type__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Private</masterLabel>
+            <translation><!-- Private --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Public</masterLabel>
+            <translation><!-- Public --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Internal ID of Grantor (use if not linked to Account). --></help>
+        <label><!-- Grantor ID --></label>
+        <name>rC_Giving__Grantor_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Method by which the initial application was received. --></help>
+        <label><!-- Initial Application Submission Format --></label>
+        <name>rC_Giving__Initial_Application_Submission_Format__c</name>
+        <picklistValues>
+            <masterLabel>E-Grants</masterLabel>
+            <translation><!-- E-Grants --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail-Hard Copy</masterLabel>
+            <translation><!-- Mail-Hard Copy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation><!-- Online --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Grant ID on initial application form. --></help>
+        <label><!-- Internal Grant ID --></label>
+        <name>rC_Giving__Internal_Grant_ID__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates Giving as Anonymous for constituents who do not want to be recognized publicly. --></help>
+        <label><!-- Anonymous? --></label>
+        <name>rC_Giving__Is_Anonymous__c</name>
+    </fields>
+    <fields>
+        <help><!-- Denotes a Giving Pledge and child Giving Transactions that are Canceled at the Pledge level. When this is ticked, all open transactions will be made Canceled. --></help>
+        <label><!-- Force Canceled? --></label>
+        <name>rC_Giving__Is_Canceled__c</name>
+    </fields>
+    <fields>
+        <help><!-- Denotes a Giving Pledge and child Giving Transactions that are completed at the Pledge level. When this is ticked, all open transactions will be moved to Completed. --></help>
+        <label><!-- Force Completed? --></label>
+        <name>rC_Giving__Is_Completed__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates an Opportunity record as a Giving Donation Pledge if set to true. --></help>
+        <label><!-- Giving Donation? --></label>
+        <name>rC_Giving__Is_Giving_Donation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Giving Inkind? --></label>
+        <name>rC_Giving__Is_Giving_Inkind__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates an Opportunity record as a Giving Membership Pledge if set to true. --></help>
+        <label><!-- Giving Membership? --></label>
+        <name>rC_Giving__Is_Giving_Membership__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates an Opportunity record as a Giving Purchase if set to true. --></help>
+        <label><!-- Giving Purchase? --></label>
+        <name>rC_Giving__Is_Giving_Purchase__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates an Opportunity record as a Giving Transaction if set to true. --></help>
+        <label><!-- Giving Transaction? --></label>
+        <name>rC_Giving__Is_Giving_Transaction__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates an Opportunity record as a Giving Pledge if set to true. --></help>
+        <label><!-- Giving? --></label>
+        <name>rC_Giving__Is_Giving__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates Gift as Matching Gift. --></help>
+        <label><!-- Matching? --></label>
+        <name>rC_Giving__Is_Matching__c</name>
+    </fields>
+    <fields>
+        <label><!-- Payment Refunded? --></label>
+        <name>rC_Giving__Is_Payment_Refunded__c</name>
+    </fields>
+    <fields>
+        <label><!-- Refundable? --></label>
+        <name>rC_Giving__Is_Refundable__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates Giving as Restricted for constituents who do not want the donation to go to any allocation other than what is specified. --></help>
+        <label><!-- Restricted? --></label>
+        <name>rC_Giving__Is_Restricted__c</name>
+    </fields>
+    <fields>
+        <help><!-- System-level field used on the UI side (visualforce pages) when a giving record needs to be selected for an action on a record-by-record basis --></help>
+        <label><!-- Selected? --></label>
+        <name>rC_Giving__Is_Selected__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates a Shopper gift, where associated Campaign is marked Shopper and Giving has Premiums associated. --></help>
+        <label><!-- Shopper? --></label>
+        <name>rC_Giving__Is_Shopper__c</name>
+    </fields>
+    <fields>
+        <help><!-- Denotes a Giving Pledge and child Giving Transactions that are Suspended at the Pledge level. --></help>
+        <label><!-- Force Suspended? --></label>
+        <name>rC_Giving__Is_Suspended__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates Giving record and constituent as a Sustaining giver. --></help>
+        <label><!-- Sustainer? --></label>
+        <name>rC_Giving__Is_Sustainer__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates Giving as a Tribute. --></help>
+        <label><!-- Tribute? --></label>
+        <name>rC_Giving__Is_Tribute__c</name>
+    </fields>
+    <fields>
+        <help><!-- Denotes a Giving Pledge and child Giving Transactions that are Uncollectible at the Pledge level. --></help>
+        <label><!-- Force Uncollectible? --></label>
+        <name>rC_Giving__Is_Uncollectible__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date on which the Last Giving Amount adjustment was made. --></help>
+        <label><!-- Last Giving Amount Adjustment Date --></label>
+        <name>rC_Giving__Last_Giving_Amount_Adjustment_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Delta in Giving Amounts from the Current Value to the Last Value stored in the record. --></help>
+        <label><!-- Last Giving Amount Adjustment --></label>
+        <name>rC_Giving__Last_Giving_Amount_Adjustment__c</name>
+    </fields>
+    <fields>
+        <help><!-- Deadline to submit notification to donor that organization will be competing for this grant. --></help>
+        <label><!-- Letter of Intent Deadline --></label>
+        <name>rC_Giving__Letter_Of_Intent_Deadline__c</name>
+    </fields>
+    <fields>
+        <help><!-- Additional grant info --></help>
+        <label><!-- Link # 2 --></label>
+        <name>rC_Giving__Link_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Additional grant info --></help>
+        <label><!-- Link # 3 --></label>
+        <name>rC_Giving__Link_3__c</name>
+    </fields>
+    <fields>
+        <help><!-- Additional grant info --></help>
+        <label><!-- Link # 4 --></label>
+        <name>rC_Giving__Link_4__c</name>
+    </fields>
+    <fields>
+        <help><!-- Additional grant info --></help>
+        <label><!-- Link # 5 --></label>
+        <name>rC_Giving__Link_5__c</name>
+    </fields>
+    <fields>
+        <help><!-- Additional grant info --></help>
+        <label><!-- Link # 6 --></label>
+        <name>rC_Giving__Link_6__c</name>
+    </fields>
+    <fields>
+        <help><!-- Account that will Match the gift, typically the employer of the associated Contact donor. --></help>
+        <label><!-- Matching Account --></label>
+        <name>rC_Giving__Matching_Account__c</name>
+        <relationshipLabel><!-- Opportunities (Matching Gifts) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Amount the Matching Account will match. --></help>
+        <label><!-- Matching Amount --></label>
+        <name>rC_Giving__Matching_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Matching Notice --></label>
+        <name>rC_Giving__Matching_Notice__c</name>
+    </fields>
+    <fields>
+        <help><!-- Opportunity on Matching Account that matches the gift. --></help>
+        <label><!-- Matching Opportunity --></label>
+        <name>rC_Giving__Matching_Opportunity__c</name>
+        <relationshipLabel><!-- Opportunities (Matching Opportunity) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Internal status of Matching Gift. --></help>
+        <label><!-- Matching Status --></label>
+        <name>rC_Giving__Matching_Status__c</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation><!-- Approved --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Submitted</masterLabel>
+            <translation><!-- Not Submitted --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Submitted</masterLabel>
+            <translation><!-- Submitted --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Corporate Support field to track Amount of Media Type 1. --></help>
+        <label><!-- Media Amount 1 --></label>
+        <name>rC_Giving__Media_Amount_1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Corporate Support field to track Amount of Media Type 2. --></help>
+        <label><!-- Media Amount 2 --></label>
+        <name>rC_Giving__Media_Amount_2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Corporate Support field to track Amount of Media Type 3. --></help>
+        <label><!-- Media Amount 3 --></label>
+        <name>rC_Giving__Media_Amount_3__c</name>
+    </fields>
+    <fields>
+        <help><!-- Corporate Support field to track Amount of Media Type 4. --></help>
+        <label><!-- Media Amount 4 --></label>
+        <name>rC_Giving__Media_Amount_4__c</name>
+    </fields>
+    <fields>
+        <help><!-- Corporate Support field to track Amount of Media Type 5. --></help>
+        <label><!-- Media Amount 5 --></label>
+        <name>rC_Giving__Media_Amount_5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Media Type 1 --></label>
+        <name>rC_Giving__Media_Type_1__c</name>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print</masterLabel>
+            <translation><!-- Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation><!-- Radio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Media Type 2 --></label>
+        <name>rC_Giving__Media_Type_2__c</name>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print</masterLabel>
+            <translation><!-- Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation><!-- Radio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Media Type 3 --></label>
+        <name>rC_Giving__Media_Type_3__c</name>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print</masterLabel>
+            <translation><!-- Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation><!-- Radio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Media Type 4 --></label>
+        <name>rC_Giving__Media_Type_4__c</name>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print</masterLabel>
+            <translation><!-- Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation><!-- Radio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Media Type 5 --></label>
+        <name>rC_Giving__Media_Type_5__c</name>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation><!-- Event --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Print</masterLabel>
+            <translation><!-- Print --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation><!-- Radio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation><!-- TV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web</masterLabel>
+            <translation><!-- Web --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date when notified that Grant is approved. --></help>
+        <label><!-- Notice Of Grant Awarded --></label>
+        <name>rC_Giving__Notice_Of_Grant_Awarded_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Omitted Amount --></label>
+        <name>rC_Giving__Omitted_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Omitted Bar --></label>
+        <name>rC_Giving__Omitted_Bar__c</name>
+    </fields>
+    <fields>
+        <label><!-- Omitted Ratio --></label>
+        <name>rC_Giving__Omitted_Ratio__c</name>
+    </fields>
+    <fields>
+        <help><!-- Name of the record from Parent Opportunity lookup. --></help>
+        <label><!-- Parent Opportunity: Name --></label>
+        <name>rC_Giving__Parent_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Link to the Parent Opportunity or Pledge. --></help>
+        <label><!-- Parent Opportunity --></label>
+        <name>rC_Giving__Parent__c</name>
+        <relationshipLabel><!-- Related Giving/Transactions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Payer Name --></label>
+        <name>rC_Giving__Payer_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of payments for Irregular frequency. --></help>
+        <label><!-- Payment Count --></label>
+        <name>rC_Giving__Payment_Count__c</name>
+    </fields>
+    <fields>
+        <help><!-- Day of the month when a payments will be scheduled for future transactions. --></help>
+        <label><!-- Payment Day --></label>
+        <name>rC_Giving__Payment_Day__c</name>
+        <picklistValues>
+            <masterLabel>15th</masterLabel>
+            <translation><!-- 15th --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1st</masterLabel>
+            <translation><!-- 1st --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>28th</masterLabel>
+            <translation><!-- 28th --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Last day payments can be scheduled. (If a donor pledges $10/month on 6/1/2012 with a Payment End Date of 8/1/2013,  the last payment will be made on 8/1/2013 with a total giving of $140) --></help>
+        <label><!-- Payment End Date --></label>
+        <name>rC_Giving__Payment_End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Expected timing of payments from donor. --></help>
+        <label><!-- Payment Frequency --></label>
+        <name>rC_Giving__Payment_Frequency__c</name>
+        <picklistValues>
+            <masterLabel>Annually</masterLabel>
+            <translation><!-- Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bi-Monthly</masterLabel>
+            <translation><!-- Bi-Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>One Payment</masterLabel>
+            <translation><!-- One Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semi-Annually</masterLabel>
+            <translation><!-- Semi-Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation><!-- Weekly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Default Payment Method chosen for this Giving record. Open Transactions will be updated if a new Payment Method is selected here. --></help>
+        <label><!-- Selected Payment Method --></label>
+        <name>rC_Giving__Payment_Method_Selected__c</name>
+        <relationshipLabel><!-- Giving --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Charge Card and EFT are processed through a third party vendor such as Sage. Third Party payments encompass workplace giving, foundation pay, vehicle donation, etc. --></help>
+        <label><!-- Payment Method --></label>
+        <name>rC_Giving__Payment_Method__c</name>
+        <picklistValues>
+            <masterLabel>Cash/Check</masterLabel>
+            <translation><!-- Cash/Check --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charge Card</masterLabel>
+            <translation><!-- Charge Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EFT</masterLabel>
+            <translation><!-- EFT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paypal</masterLabel>
+            <translation><!-- Paypal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third Party Charge</masterLabel>
+            <translation><!-- Third Party Charge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Voucher</masterLabel>
+            <translation><!-- Voucher --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The reference number returned from the payment processor --></help>
+        <label><!-- Payment Reference # --></label>
+        <name>rC_Giving__Payment_Reference_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Performance measures as set by grantor in contract agreement --></help>
+        <label><!-- Performance Measures --></label>
+        <name>rC_Giving__Performance_Measures__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pipeline Amount --></label>
+        <name>rC_Giving__Pipeline_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pipeline Bar --></label>
+        <name>rC_Giving__Pipeline_Bar__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pipeline Ratio --></label>
+        <name>rC_Giving__Pipeline_Ratio__c</name>
+    </fields>
+    <fields>
+        <help><!-- Link to associated Planned Giving record. --></help>
+        <label><!-- Planned Giving --></label>
+        <name>rC_Giving__Planned_Giving__c</name>
+        <relationshipLabel><!-- Giving --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Approved spend amount before initial funds are received. --></help>
+        <label><!-- Pre-Award Cost Approval --></label>
+        <name>rC_Giving__Pre_Award_Cost_Approval__c</name>
+    </fields>
+    <fields>
+        <help><!-- Main contact at Grantor agency. --></help>
+        <label><!-- Primary Contact --></label>
+        <name>rC_Giving__Primary_Contact__c</name>
+        <relationshipLabel><!-- Grants (Primary Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Projected amount to be received from grantor (as contrasted to amount requested and amount received). --></help>
+        <label><!-- Projected Amount --></label>
+        <name>rC_Giving__Projected_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projected Bar --></label>
+        <name>rC_Giving__Projected_Bar__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projected Ratio --></label>
+        <name>rC_Giving__Projected_Ratio__c</name>
+    </fields>
+    <fields>
+        <help><!-- End date as included in the proposal. --></help>
+        <label><!-- Proposed End Date --></label>
+        <name>rC_Giving__Proposed_End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Start date as included in the proposal. --></help>
+        <label><!-- Proposed Start Date --></label>
+        <name>rC_Giving__Proposed_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prospect Rating --></label>
+        <name>rC_Giving__Prospect_Rating__c</name>
+        <picklistValues>
+            <masterLabel>High</masterLabel>
+            <translation><!-- High --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Low</masterLabel>
+            <translation><!-- Low --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Medium</masterLabel>
+            <translation><!-- Medium --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- @Deprecated(Version=2.2) --></label>
+        <name>rC_Giving__Recipient_Account__c</name>
+        <relationshipLabel><!-- Giving As Recipient --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Refund Method (@Deprecated) --></label>
+        <name>rC_Giving__Refund_Method__c</name>
+        <picklistValues>
+            <masterLabel>Charge Card</masterLabel>
+            <translation><!-- Charge Card --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Check</masterLabel>
+            <translation><!-- Check --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Refund Reason --></label>
+        <name>rC_Giving__Refund_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Aggregated sum of the child transactions marked as refunds (any stage, excluding canceled refunds) --></help>
+        <label><!-- Refunded Amount --></label>
+        <name>rC_Giving__Refunded_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Percentage of Giving transaction dollars marked as refunds (any stage, excluding canceled refunds). --></help>
+        <label><!-- Refunded Bar --></label>
+        <name>rC_Giving__Refunded_Bar__c</name>
+    </fields>
+    <fields>
+        <help><!-- Percentage of Giving transaction dollars marked as refunds (any stage, excluding canceled refunds). --></help>
+        <label><!-- Refunded Ratio --></label>
+        <name>rC_Giving__Refunded_Ratio__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renew By Email --></label>
+        <name>rC_Giving__Renew_By_Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Renew By Postal Mail --></label>
+        <name>rC_Giving__Renew_By_Postal_Mail__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reporting Schedule --></label>
+        <name>rC_Giving__Reporting_Schedule__c</name>
+        <picklistValues>
+            <masterLabel>Annually</masterLabel>
+            <translation><!-- Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bi-Annually</masterLabel>
+            <translation><!-- Bi-Annually --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation><!-- Monthly --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation><!-- Quarterly --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Amount requested in proposal (as contrasted to amount expected and amount received). --></help>
+        <label><!-- Requested Amount --></label>
+        <name>rC_Giving__Requested_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- This is the method in which the constituent is expected to respond to the associated Campaign. This value is copied from associated Campaign at gift creation, and can be manually changed if necessary. --></help>
+        <label><!-- Response Mechanism --></label>
+        <name>rC_Giving__Response_Mechanism__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Retention Rate --></label>
+        <name>rC_Giving__Retention_Rate__c</name>
+    </fields>
+    <fields>
+        <help><!-- System-level field used for sync/async/data loader recalculation of child allocation records --></help>
+        <label><!-- Rollup Allocations --></label>
+        <name>rC_Giving__Rollup_Allocations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rollup Giving --></label>
+        <name>rC_Giving__Rollup_Giving__c</name>
+    </fields>
+    <fields>
+        <help><!-- This field stores the Date/Time that the child transactions (if any) had their values rolled up to the parent Giving record level. --></help>
+        <label><!-- Rollup Transactions --></label>
+        <name>rC_Giving__Rollup_Transactions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Value of gift available for tax deduction. --></help>
+        <label><!-- @Deprecated(Version=2.2) --></label>
+        <name>rC_Giving__Sale_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Amount organization receives from Sale of gift. --></help>
+        <label><!-- @Deprecated(Version=2.2) --></label>
+        <name>rC_Giving__Sale_Proceeds__c</name>
+    </fields>
+    <fields>
+        <help><!-- Status of Moves Management --></help>
+        <label><!-- Solicitation Status --></label>
+        <name>rC_Giving__Solicitation_Status__c</name>
+        <picklistValues>
+            <masterLabel>Committed</masterLabel>
+            <translation><!-- Committed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Declined</masterLabel>
+            <translation><!-- Declined --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation><!-- Pending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Proposal Requested</masterLabel>
+            <translation><!-- Proposal Requested --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Verbal</masterLabel>
+            <translation><!-- Verbal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Written</masterLabel>
+            <translation><!-- Written --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Giving Type being solicited (Renewal, Additional, etc) or communication medium to donor (TV, Radio, Raffle, etc). This value is copied from associated Campaign at gift creation, and can be manually changed if necessary. --></help>
+        <label><!-- Solicitation Type --></label>
+        <name>rC_Giving__Solicitation_Type__c</name>
+        <picklistValues>
+            <masterLabel>Microdonation</masterLabel>
+            <translation><!-- Microdonation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Sorting # --></label>
+        <name>rC_Giving__Sorting_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Organization defined unique code for associated Campaign. This value is copied from associated Campaign at gift creation. --></help>
+        <label><!-- Source Code --></label>
+        <name>rC_Giving__Source_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- Link to associated Summary record. --></help>
+        <label><!-- Summary Link --></label>
+        <name>rC_Giving__Summary_Link__c</name>
+    </fields>
+    <fields>
+        <help><!-- Link to associated Summary record. --></help>
+        <label><!-- Summary --></label>
+        <name>rC_Giving__Summary__c</name>
+        <relationshipLabel><!-- Giving (Summary) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Designation on associated Campaign for where gift should be applied - this typically is related to General Accounting Unit. This value is copied from associated Campaign at gift creation, and can be manually changed if necessary. --></help>
+        <label><!-- Support Designation --></label>
+        <name>rC_Giving__Support_Designation__c</name>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Last day of transaction payment suspension --></help>
+        <label><!-- Suspended End Date --></label>
+        <name>rC_Giving__Suspended_End_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- First day of transaction payment suspension --></help>
+        <label><!-- Suspended Start Date --></label>
+        <name>rC_Giving__Suspended_Start_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Value of gift available for tax deduction. --></help>
+        <label><!-- Tax Deductible Amount --></label>
+        <name>rC_Giving__Tax_Deductible_Amount__c</name>
+    </fields>
+    <fields>
+        <help><!-- Designates Transaction as a Payment from constituent or Refund to constituent. --></help>
+        <label><!-- Transaction Type --></label>
+        <name>rC_Giving__Transaction_Type__c</name>
+        <picklistValues>
+            <masterLabel>Payment</masterLabel>
+            <translation><!-- Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refund</masterLabel>
+            <translation><!-- Refund --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Comments section reserved for Tribute information. --></help>
+        <label><!-- Tribute Comments --></label>
+        <name>rC_Giving__Tribute_Comments__c</name>
+    </fields>
+    <fields>
+        <help><!-- Contact to which tribute is to be applied --></help>
+        <label><!-- Tribute Contact --></label>
+        <name>rC_Giving__Tribute_Contact__c</name>
+        <relationshipLabel><!-- Opportunities (Tribute Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Date Tribute was delivered. --></help>
+        <label><!-- Tribute Delivered Date --></label>
+        <name>rC_Giving__Tribute_Delivered_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Method in which Tribute is delivered. --></help>
+        <label><!-- Tribute Delivery --></label>
+        <name>rC_Giving__Tribute_Delivery__c</name>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation><!-- Email --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Person</masterLabel>
+            <translation><!-- In Person --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>On Air</masterLabel>
+            <translation><!-- On Air --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website</masterLabel>
+            <translation><!-- Website --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Description and details of tribute to be public viewed. --></help>
+        <label><!-- Tribute Description --></label>
+        <name>rC_Giving__Tribute_Description__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date Tribute can be announced. --></help>
+        <label><!-- Tribute Effective Date --></label>
+        <name>rC_Giving__Tribute_Effective_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Title of the tribute. --></help>
+        <label><!-- Tribute Name --></label>
+        <name>rC_Giving__Tribute_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Type of Tribute --></help>
+        <label><!-- Tribute Type --></label>
+        <name>rC_Giving__Tribute_Type__c</name>
+        <picklistValues>
+            <masterLabel>In Celebration</masterLabel>
+            <translation><!-- In Celebration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Honor</masterLabel>
+            <translation><!-- In Honor --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Memory</masterLabel>
+            <translation><!-- In Memory --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- System-level field used for sync/async/data loader recalculation of transaction records --></help>
+        <label><!-- Update Transactions --></label>
+        <name>rC_Giving__Update_Transactions__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used for Inkind Giving to show the date the &quot;Expected Giving Amount&quot; was determined. --></help>
+        <label><!-- Valuation Date --></label>
+        <name>rC_Giving__Valuation_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Used for Inkind Giving to show the type of valuation that the &quot;Expected Giving Amount&quot; represents. --></help>
+        <label><!-- Valuation Type --></label>
+        <name>rC_Giving__Valuation_Type__c</name>
+        <picklistValues>
+            <masterLabel>Assessed Value</masterLabel>
+            <translation><!-- Assessed Value --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Face Value</masterLabel>
+            <translation><!-- Face Value --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Market Value</masterLabel>
+            <translation><!-- Market Value --></translation>
+        </picklistValues>
+    </fields>
+    <recordTypes>
+        <label><!-- Corporate Underwriting --></label>
+        <name>Corporate_Underwriting</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Donation --></label>
+        <name>Donation</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Grant --></label>
+        <name>Grant</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Inkind --></label>
+        <name>Inkind</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Membership --></label>
+        <name>Membership</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Proposal --></label>
+        <name>Proposal</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Purchase --></label>
+        <name>Purchase</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Transaction --></label>
+        <name>Transaction</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- Required field: Account Name --></errorMessage>
+        <name>rC_Giving__Account_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Activity Type --></errorMessage>
+        <name>rC_Giving__Activity_Type_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record: Activity Type --></errorMessage>
+        <name>rC_Giving__Activity_Type_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Affiliation is required. Please associate a Campaign with an Affiliation defined. --></errorMessage>
+        <name>rC_Giving__Affiliation_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must be zero or positive on a Transaction Payment record: Amount --></errorMessage>
+        <name>rC_Giving__Amount_Invalid_On_Payment</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must be zero or negative on a Transaction Refund record: Amount --></errorMessage>
+        <name>rC_Giving__Amount_Invalid_On_Refund</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Anniversary Date --></errorMessage>
+        <name>rC_Giving__Anniversary_Date_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving Sustainer record: Anniversary Date --></errorMessage>
+        <name>rC_Giving__Anniversary_Date_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Ask Readiness --></errorMessage>
+        <name>rC_Giving__Ask_Readiness_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Calculated Giving Type --></errorMessage>
+        <name>rC_Giving__Calculated_Giving_Type_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record: Calculated Giving Type --></errorMessage>
+        <name>rC_Giving__Calculated_Giving_Type_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Campaign --></errorMessage>
+        <name>rC_Giving__Campaign_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record: Campaign --></errorMessage>
+        <name>rC_Giving__Campaign_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot be prior to the Giving record: Close Date --></errorMessage>
+        <name>rC_Giving__Close_Date_Prior_To_Parent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Cannot be a negative number (this is usually a result of excessive refunds): Current Giving Amount --></errorMessage>
+        <name>rC_Giving__Current_Giving_Amount_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field on a Giving record: Giving Amount --></errorMessage>
+        <name>rC_Giving__Giving_Amount_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record: Giving Amount --></errorMessage>
+        <name>rC_Giving__Giving_Amount_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must be after the Close Date: Giving End Date --></errorMessage>
+        <name>rC_Giving__Giving_End_Date_After_Close_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record (non-sustainers): Giving End Date --></errorMessage>
+        <name>rC_Giving__Giving_End_Date_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Giving Frequency --></errorMessage>
+        <name>rC_Giving__Giving_Frequency_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Giving Frequency --></errorMessage>
+        <name>rC_Giving__Giving_Frequency_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record: Giving Frequency --></errorMessage>
+        <name>rC_Giving__Giving_Frequency_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Internal error: Giving and Giving Transaction are both checked --></errorMessage>
+        <name>rC_Giving__Giving_Is_Not_Giving_Transaction</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Giving Type --></errorMessage>
+        <name>rC_Giving__Giving_Type_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record: Calculated Giving Type --></errorMessage>
+        <name>rC_Giving__Giving_Type_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Media Amount 1 --></errorMessage>
+        <name>rC_Giving__Media_Amount_1_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Media Amount 2 --></errorMessage>
+        <name>rC_Giving__Media_Amount_2_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Media Amount 3 --></errorMessage>
+        <name>rC_Giving__Media_Amount_3_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Media Amount 4 --></errorMessage>
+        <name>rC_Giving__Media_Amount_4_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Media Amount 5 --></errorMessage>
+        <name>rC_Giving__Media_Amount_5_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Media Type 1 --></errorMessage>
+        <name>rC_Giving__Media_Type_1_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Media Type 2 --></errorMessage>
+        <name>rC_Giving__Media_Type_2_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Media Type 3 --></errorMessage>
+        <name>rC_Giving__Media_Type_3_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Media Type 4 --></errorMessage>
+        <name>rC_Giving__Media_Type_4_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Media Type 5 --></errorMessage>
+        <name>rC_Giving__Media_Type_5_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- One Payments cannot also be Sustainers --></errorMessage>
+        <name>rC_Giving__One_Payments_Cannot_Be_Sustainers</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The number of payments is required for Irregular frequencies. --></errorMessage>
+        <name>rC_Giving__Payment_Count_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The number of payments is only required for Irregular frequencies. --></errorMessage>
+        <name>rC_Giving__Payment_Count_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Payment Day --></errorMessage>
+        <name>rC_Giving__Payment_Day_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Must be after the Close Date: Payment End Date --></errorMessage>
+        <name>rC_Giving__Payment_End_Date_After_Close_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record: Payment End Date --></errorMessage>
+        <name>rC_Giving__Payment_End_Date_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Payment Frequency --></errorMessage>
+        <name>rC_Giving__Payment_Frequency_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Payment Frequency --></errorMessage>
+        <name>rC_Giving__Payment_Frequency_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record: Payment Frequency --></errorMessage>
+        <name>rC_Giving__Payment_Frequency_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Payment Method --></errorMessage>
+        <name>rC_Giving__Payment_Method_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Payment Method --></errorMessage>
+        <name>rC_Giving__Payment_Method_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record or Transaction Payment record: Payment Method --></errorMessage>
+        <name>rC_Giving__Payment_Method_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Transaction Payment record: Payment Refunded? --></errorMessage>
+        <name>rC_Giving__Payment_Refunded_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- @Deprecated This rule no longer applies --></errorMessage>
+        <name>rC_Giving__Refund_Method_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This field is deprecated and must always be blank: Refund Method --></errorMessage>
+        <name>rC_Giving__Refund_Method_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Transaction Refund record: Refund Reason --></errorMessage>
+        <name>rC_Giving__Refund_Reason_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record: Refundable? --></errorMessage>
+        <name>rC_Giving__Refundable_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Internal use only: Selected? --></errorMessage>
+        <name>rC_Giving__Selected_Must_Be_False</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Suspension Start Date must be before the Suspension End Date --></errorMessage>
+        <name>rC_Giving__Suspension_Start_Date_After_End_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving record: Sustainer? --></errorMessage>
+        <name>rC_Giving__Sustainer_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Parent Opportunity --></errorMessage>
+        <name>rC_Giving__Transaction_Required_Parent_Giving</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid value: Transaction Type --></errorMessage>
+        <name>rC_Giving__Transaction_Type_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Required field: Transaction Type --></errorMessage>
+        <name>rC_Giving__Transaction_Type_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Only valid on a Giving Transaction record: Transaction Type --></errorMessage>
+        <name>rC_Giving__Transaction_Type_Required_Blank</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Tribute Effective Date must be before the Tribute Delivered Date --></errorMessage>
+        <name>rC_Giving__Trib_Delivered_Before_Effective_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Tribute Delivery --></errorMessage>
+        <name>rC_Giving__Tribute_Delivery_Invalid</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Invalid picklist value: Tribute Type --></errorMessage>
+        <name>rC_Giving__Tribute_Type_Invalid</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- DeliveryStatus --></label>
+        <name>DeliveryStatus</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Process_Payment --></label>
+        <name>rC_Connect__Process_Payment</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Manage --></label>
+        <name>rC_Giving__Manage</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Manage_Giving --></label>
+        <name>rC_Giving__Manage_Giving</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Manage_Transactions --></label>
+        <name>rC_Giving__Manage_Transactions</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Update_Sustainers --></label>
+        <name>rC_Giving__Update_Sustainers</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Manage_Shipments --></label>
+        <name>rC_Inventory__Manage_Shipments</name>
+    </webLinks>
+</CustomObjectTranslation>
