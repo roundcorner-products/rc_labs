@@ -67,6 +67,10 @@
                 <behavior>Edit</behavior>
                 <field>Subtype__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>StayClassy_Member_ID__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

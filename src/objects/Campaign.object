@@ -1147,6 +1147,16 @@
         <unique>true</unique>
     </fields>
     <fields>
+        <fullName>StayClassy_Member_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>StayClassy Member ID</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Subtype__c</fullName>
         <externalId>false</externalId>
         <label>Sub-Type</label>

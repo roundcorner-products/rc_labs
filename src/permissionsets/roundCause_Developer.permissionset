@@ -1217,6 +1217,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Campaign.StayClassy_Member_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Campaign.Subtype__c</field>
         <readable>false</readable>
     </fieldPermissions>
