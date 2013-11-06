@@ -81,6 +81,7 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
             campaign.StayClassy_ID__c = message.rC_Messaging__Related_Record__c;
             campaign.ParentId = campaignParentList[0].Id;
             campaign.ExpectedRevenue = objectData.goal;
+            campaign.StayClassy_Member_ID__c = objectData.member_id;
             upsert campaign; // @todo - add other data
             
             // Insert a new batch upload record
@@ -99,6 +100,7 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
             batchUpload.rC_Connect__Address_Type__c  = 'Home';
             batchUpload.rC_Connect__Preferences_1_Category__c = 'Peer to Peer';
             batchUpload.rC_Connect__Preferences_1_Subcategory__c = 'Fundraiser';
+            batchUpload.rC_Connect__Exclude_Giving__c = true;
             
             // Try to find a matching contact via the member_id field.
             Contact[] contactMemberList = [
@@ -113,14 +115,19 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
                 batchUpload.rC_Connect__Batch_Upload_Contact_1_Matched__c = contactMemberList[0].Id;
             }
             
-            // Is the fundraiser member ID the same as the team lead member ID or not?
-            if (objectData.member_id == objectTeamData.team_lead_id) {
+            // If record has a Team ID, is the fundraiser member ID the same as the team lead member ID or not?
+            if (objectData.team_id!=0)  
+            { if (objectData.member_id == objectTeamData.team_lead_id) {
                 batchUpload.rC_Connect__Preferences_1_Category__c = 'Peer to Peer';
                 batchUpload.rC_Connect__Preferences_1_Subcategory__c = 'Team Lead';
             } else { 
                 batchUpload.rC_Connect__Preferences_1_Category__c = 'Peer to Peer';
                 batchUpload.rC_Connect__Preferences_1_Subcategory__c = 'Team Member';
-            }
+            } 
+            } else { 
+                batchUpload.rC_Connect__Preferences_1_Category__c = 'Peer to Peer';
+                batchUpload.rC_Connect__Preferences_1_Subcategory__c = 'Fundraiser';
+            } 
             
             // Save it
             insert batchUpload;
