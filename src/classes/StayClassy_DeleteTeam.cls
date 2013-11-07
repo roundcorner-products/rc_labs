@@ -1,4 +1,4 @@
-global class StayClassy_DeleteTeam implements rC_Messaging.MessageServicer.Servicer {
+global with sharing class StayClassy_DeleteTeam implements rC_Messaging.MessageServicer.Servicer {
     global StayClassy_DeleteTeam() {}
     
     // Should only be called by the StayClassyServicer code.

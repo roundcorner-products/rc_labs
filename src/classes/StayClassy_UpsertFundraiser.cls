@@ -1,4 +1,4 @@
-global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer.Servicer {
+global with sharing class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer.Servicer {
     global StayClassy_UpsertFundraiser() {}
     
     // Should only be called by the StayClassyServicer code.
@@ -81,7 +81,7 @@ global class StayClassy_UpsertFundraiser implements rC_Messaging.MessageServicer
             campaign.StayClassy_ID__c = message.rC_Messaging__Related_Record__c;
             campaign.ParentId = campaignParentList[0].Id;
             campaign.ExpectedRevenue = objectData.goal;
-            campaign.StayClassy_Member_ID__c = objectData.member_id;
+            campaign.StayClassy_Member_ID__c = String.valueOf(objectData.member_id);
             upsert campaign; // @todo - add other data
             
             // Insert a new batch upload record

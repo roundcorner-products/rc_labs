@@ -1150,10 +1150,9 @@
         <fullName>StayClassy_Member_ID__c</fullName>
         <externalId>false</externalId>
         <label>StayClassy Member ID</label>
-        <precision>18</precision>
+        <length>255</length>
         <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>

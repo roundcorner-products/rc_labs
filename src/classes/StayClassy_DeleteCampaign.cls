@@ -1,4 +1,4 @@
-global class StayClassy_DeleteCampaign implements rC_Messaging.MessageServicer.Servicer {
+global with sharing class StayClassy_DeleteCampaign implements rC_Messaging.MessageServicer.Servicer {
     global StayClassy_DeleteCampaign() {}
     
     // Should only be called by the StayClassyServicer code.

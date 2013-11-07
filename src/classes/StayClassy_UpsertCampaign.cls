@@ -1,4 +1,4 @@
-global class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.Servicer {
+global with sharing class StayClassy_UpsertCampaign implements rC_Messaging.MessageServicer.Servicer {
     global StayClassy_UpsertCampaign() {}
     
     // Should only be called by the StayClassyServicer code.

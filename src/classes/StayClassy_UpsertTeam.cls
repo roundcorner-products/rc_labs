@@ -1,4 +1,4 @@
-global class StayClassy_UpsertTeam implements rC_Messaging.MessageServicer.Servicer {
+global with sharing class StayClassy_UpsertTeam implements rC_Messaging.MessageServicer.Servicer {
     global StayClassy_UpsertTeam() {}
     
     // Should only be called by the StayClassyServicer code.

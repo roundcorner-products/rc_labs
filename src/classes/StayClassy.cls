@@ -1,4 +1,4 @@
-global class StayClassy implements rC_Messaging.MessageServicer.Servicer {
+global with sharing class StayClassy implements rC_Messaging.MessageServicer.Servicer {
     public class ProcessingException extends Exception {}
     
     // Org settings

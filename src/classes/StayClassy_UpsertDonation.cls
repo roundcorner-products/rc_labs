@@ -1,4 +1,4 @@
-global class StayClassy_UpsertDonation implements rC_Messaging.MessageServicer.Servicer {
+global with sharing class StayClassy_UpsertDonation implements rC_Messaging.MessageServicer.Servicer {
     global StayClassy_UpsertDonation() {}
     
     // Should only be called by the StayClassyServicer code.
@@ -22,11 +22,11 @@ global class StayClassy_UpsertDonation implements rC_Messaging.MessageServicer.S
         
         // Try to find the opportunity by opportunity external ID
         Opportunity[] opportunityList = [
-            select Id
-              from Opportunity
-             where StayClassy_ID__c = :message.rC_Messaging__Related_Record__c
-               and StayClassy_ID__c != null
-             limit 1
+            SELECT Id
+              FROM Opportunity
+             WHERE StayClassy_ID__c = :message.rC_Messaging__Related_Record__c
+               AND StayClassy_ID__c != null
+             LIMIT 1
         ];
         
         // If the campaign is missing, create a new one
@@ -36,19 +36,26 @@ global class StayClassy_UpsertDonation implements rC_Messaging.MessageServicer.S
             };
         }
         
-        //// Find the parent campaign record 
-        //np011113 - find the most granular fundraising page to which donation was made
+        // Find the parent campaign record 
+        // np011113 - find the most granular fundraising page to which donation was made
+        String parentStayClassyID = null;
+        
+        if (objectData.fundraiser_id != null && objectData.fundraiser_id != 0) {
+            parentStayClassyID = String.valueOf(objectData.fundraiser_id);
+        } else if (objectData.event_id != null) {
+            parentStayClassyID = String.valueOf(objectData.event_id);
+        }
+        
         Campaign[] campaignParentList = [
             SELECT Id
               FROM Campaign
-            // WHERE StayClassy_ID__c = :String.valueOf(objectData.event_id)
-               WHERE StayClassy_ID__c = :String.valueOf(objectData.fundraiser_id)
+             WHERE StayClassy_ID__c = :parentStayClassyID
                AND StayClassy_ID__c != null
              LIMIT 1
         ];
         
         if (campaignParentList.isEmpty()) {
-            throw new StayClassy.ServicerException('Missing parent StayClassy ID: ' + objectData.event_id);
+            throw new StayClassy.ServicerException('Missing parent StayClassy ID: ' + parentStayClassyID);
         }
         
         // Establish a savepoint

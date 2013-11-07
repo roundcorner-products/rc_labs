@@ -1,4 +1,4 @@
-global class StayClassy_DeleteFundraiser implements rC_Messaging.MessageServicer.Servicer {
+global with sharing class StayClassy_DeleteFundraiser implements rC_Messaging.MessageServicer.Servicer {
     global StayClassy_DeleteFundraiser() {}
     
     // Should only be called by the StayClassyServicer code.
