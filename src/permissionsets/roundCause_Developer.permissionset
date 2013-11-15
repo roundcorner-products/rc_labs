@@ -177,6 +177,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Message_ProcessStayClassyTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>OpportunityLineItem_ArchiveSchedulable</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -329,11 +333,23 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>StayClassy_DeleteCampaignTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>StayClassy_DeleteFundraiser</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>StayClassy_DeleteFundraiserTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>StayClassy_DeleteTeam</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>StayClassy_DeleteTeamTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
