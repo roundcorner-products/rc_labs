@@ -1,5 +1,56 @@
 @IsTest
 public class StayClassyTest {
+    
+    @IsTest
+    public static void stayClassyTest_InnerClasses() {
+        Test.startTest();
+        StayClassy.Campaign campaign = new StayClassy.Campaign();
+        StayClassy.CampaignResponseList campaignResponseList= new StayClassy.CampaignResponseList();
+        
+        StayClassy.CampaignTicket campaignTicket = new StayClassy.CampaignTicket();
+        
+        StayClassy.FundraiserResponseList fundraiserResponseList = new StayClassy.FundraiserResponseList();
+        StayClassy.Fundraiser fundraiser = new StayClassy.Fundraiser();
+        
+        StayClassy.DonationResponseList donationResponseList = new StayClassy.DonationResponseList();
+        StayClassy.Donation donation = new StayClassy.Donation();
+        DateTime dt = donation.donation_date_time;
+        
+        StayClassy.TeamResponseList teamResponseList = new StayClassy.TeamResponseList();
+        StayClassy.Team team = new StayClassy.Team();
+        Test.stopTest();
+    }
+    @IsTest
+    public static void stayClassyTest_NullResponseBody() {
+        Test.startTest();
+        try {
+            StayClassy.getEndpointResponse('testEnd', new map<string,string>());
+        }
+        catch (system.Exception pException) {
+            system.assertEquals(true,pException.getMessage().containsIgnoreCase('Empty response body!'));
+        }    
+        Test.stopTest();
+    }
+    
+    @IsTest
+    public static void stayClassyTest_NullProcessMessage() {
+        Test.startTest();
+        StayClassy stayClassy = new StayClassy();
+        stayClassy.processMessage(null, null);
+        rC_Messaging__Message__c message1 = new rC_Messaging__Message__c();
+        message1.rC_Messaging__Related_Method__c = 'insert';
+        message1.rC_Messaging__Related_Record__c = '000001';
+        message1.rC_Messaging__Effective_Date__c = DateTime.now();
+        stayClassy.processMessage(message1, null);
+        Test.stopTest();
+    }
+    
+    @IsTest
+    public static void stayClassyTest_EmptyProcessMessageFuture() {
+        Test.startTest();
+        StayClassy.processMessageFuture(null);
+        Test.stopTest();
+    }
     @IsTest
     public static void testCampaign_Insert() {
         Test.startTest();
@@ -18,6 +69,71 @@ public class StayClassyTest {
     }
     
     @IsTest
+    public static void stayClassyTest_NullRelatedMethod() {
+        Test.startTest();
+        
+        rC_Messaging__Message__c message1 = new rC_Messaging__Message__c();
+        message1.rC_Messaging__Endpoint__c = 'stayclassy://campaigns';
+        message1.rC_Messaging__Related_Record__c = '000001';
+        message1.rC_Messaging__Effective_Date__c = DateTime.now();
+        insert message1;
+        
+        StayClassy.schedule();
+        StayClassy.addMinutes(DateTime.now(), 0);
+        
+        Test.stopTest();
+    }
+    
+    @IsTest
+    public static void stayClassyTest_UnknownEndpoint() {
+        Test.startTest();
+        
+        rC_Messaging__Message__c message1 = new rC_Messaging__Message__c();
+        message1.rC_Messaging__Endpoint__c = 'stayclassy://test';
+        message1.rC_Messaging__Related_Method__c = 'insert';
+        message1.rC_Messaging__Related_Record__c = '000001';
+        message1.rC_Messaging__Effective_Date__c = DateTime.now();
+        insert message1;
+        
+        StayClassy.schedule();
+        StayClassy.addMinutes(DateTime.now(), 0);
+        
+        Test.stopTest();
+    }
+    
+    @IsTest
+    public static void stayClassyTest_NullRelatedRecord() {
+        Test.startTest();
+        
+        rC_Messaging__Message__c message1 = new rC_Messaging__Message__c();
+        message1.rC_Messaging__Endpoint__c = 'stayclassy://campaigns';
+        message1.rC_Messaging__Related_Method__c = 'insert';
+        message1.rC_Messaging__Effective_Date__c = DateTime.now();
+        insert message1;
+        
+        StayClassy.schedule();
+        StayClassy.addMinutes(DateTime.now(), 0);
+        
+        Test.stopTest();
+    }
+    
+    @IsTest
+    public static void stayClassyTest_UnknownEndpointType() {
+        Test.startTest();
+        
+        rC_Messaging__Message__c message1 = new rC_Messaging__Message__c();
+        message1.rC_Messaging__Endpoint__c = 'stayclassy://campaigns';
+        message1.rC_Messaging__Related_Method__c = 'test';
+        message1.rC_Messaging__Related_Record__c = '000001';
+        message1.rC_Messaging__Effective_Date__c = DateTime.now();
+        insert message1;
+        
+        StayClassy.schedule();
+        StayClassy.addMinutes(DateTime.now(), 0);
+        
+        Test.stopTest();
+    }
+    @IsTest
     public static void testFundraiser_Insert() {
         Test.startTest();
         
@@ -32,7 +148,7 @@ public class StayClassyTest {
     }
     
     @IsTest
-    public static void testTeam_Insert() {
+    public static void testTeam_Insert1() {
         Test.startTest();
         
         rC_Messaging__Message__c message3 = new rC_Messaging__Message__c();
@@ -41,6 +157,17 @@ public class StayClassyTest {
         message3.rC_Messaging__Related_Record__c = '000003';
         message3.rC_Messaging__Effective_Date__c = DateTime.now();
         insert message3;
+        
+        Test.stopTest();
+    }
+    
+    //@IsTest
+    public static void testTeam_Insert2() {
+        Test.startTest();
+        
+        rC_Messaging__Message__c message4 = new rC_Messaging__Message__c();
+        message4.rC_Messaging__Endpoint__c = 'stayclassy://teams';
+        insert message4;
         
         Test.stopTest();
     }
@@ -81,11 +208,11 @@ public class StayClassyTest {
         opportunity4.StayClassy_ID__c = opportunity4.Id;
         update opportunity4;
         
-        rC_Messaging__Message__c message4 = new rC_Messaging__Message__c();
-        message4.rC_Messaging__Endpoint__c = 'stayclassy://donations';
-        message4.rC_Messaging__Related_Method__c = 'insert';
-        message4.rC_Messaging__Related_Record__c = opportunity4.Id;
-        insert message4;
+        rC_Messaging__Message__c message5 = new rC_Messaging__Message__c();
+        message5.rC_Messaging__Endpoint__c = 'stayclassy://donations';
+        message5.rC_Messaging__Related_Method__c = 'insert';
+        message5.rC_Messaging__Related_Record__c = opportunity4.Id;
+        insert message5;
         
         Test.stopTest();
     }

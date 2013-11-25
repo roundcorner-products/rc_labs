@@ -217,14 +217,21 @@ global with sharing class StayClassy implements rC_Messaging.MessageServicer.Ser
         httpRequest.setTimeout(60000); // 60 seconds for a callout
         
         // Send request
-        String responseBody = new Http().send(httpRequest).getBody();
+        String responseBody;
+        if (Test.isRunningTest() == false)
+            responseBody = new Http().send(httpRequest).getBody();
+        else
+            responseBody = getTestResponse(endpoint);
         
+        system.debug('________responseBody = '+responseBody);
         if (responseBody == null) {
             throw new ServicerException('getEndpointResponse(): ' + pageReference.getUrl() + ': Empty response body!');
         }
         
         return responseBody;
     }
+    
+    
     
     // Exceptions
     global class ServicerException extends Exception {}
@@ -364,5 +371,18 @@ global with sharing class StayClassy implements rC_Messaging.MessageServicer.Ser
     
     public static String getTruncated(String value, Integer maxlen) {
         return value == null || value.trim().length() <= maxlen ? value : value.substring(0, maxlen - 3) + '...';
+    }
+    
+    public static string getTestResponse(string endPoint) {
+        if (endPoint.containsIgnoreCase('fundraisers'))
+            return '{"status_code":"SUCCESS","fundraisers":[{"fundraising_campaign_id":2,"fundraiser_url":"http://staging.stayclassy.org/fundraise?fcid=000002","campaign_name":"TestCampaign","charity_id":4261,"charity_name":"Invisible Children","designation_name":"designationName","event_id":1,"event_name":"EventName","first_name":"Katlin","goal":25.5,"last_name":"Stubbs","member_address":"abc","member_city":"city","member_email":"katstubbs@students.bdhs.org","member_id":180000,"member_image_large":"http://c0394391.cdn2.cloudfiles.rackspacecloud.com/full_1299857883.jpg","member_image_medium":"http://c0394391.cdn2.cloudfiles.rackspacecloud.com/mid_1299857883.jpg","member_image_small":"http://c0394391.cdn2.cloudfiles.rackspacecloud.com/sm_1299857883.jpg","member_name":"memberName","member_state":"memberState","member_zip":"123","num_donors":123,"page_title":"Katlin Stubbs","project_id":5462,"project_name":"projectName","team_id":1,"team_name":"East Texas","total_raised":10.0}]}';
+        else if (endPoint.containsIgnoreCase('teams'))
+            return '{"status_code":"SUCCESS","teams":[{"fundraising_team_id":0,"team_name":"testTeam","team_url":"http://staging.stayclassy.org/fundraise/team?ftid=0","join_url":"http://staging.stayclassy.org/fundraise/create?ftid=0","donation_url":"http://staging.stayclassy.org/checkout/donation?ftid=0","team_image_small":"http://www.stayclassy.org/images/fpo/member_30x30.png","team_image_medium":"","team_image_large":"","lead_member_id":0,"lead_member_name":" ","lead_member_email":"","charity_id":0,"charity_name":"","project_id":0,"project_name":null,"event_id":0,"event_name":null,"goal":0,"total_raised":null,"num_members":null,"category_id":0,"category_name":null}]}';
+        else if (endPoint.containsIgnoreCase('donations'))
+            return '{"status_code":"SUCCESS","donations":[{"address":"abc","address2":"abc","city":"pu","country":"US","designation_id":"123","designation_name":"designationName","donate_amount":123,"donation_date":"'+ DateTime.now() +'","email":"a@b.com","event_id":1,"event_name":"eventName","first_name":"firstName","fundraiser":"fundraiser","fundraiser_id":2,"in_honor_of":"inHonorOf","last_name":"lastName","member_id":1,"member_image_large":"member_image_large","member_image_medium":"member_image_medium","member_image_small":"member_image_small","order_id":2,"payment_type":"payment_type","recurring_id":4,"state":"state","status":"status","team_id":"team_id","team_name":"team_name","zip":"123456"}]}';
+        else if (endPoint.containsIgnoreCase('campaigns'))
+            return '{"status_code":"SUCCESS","campaigns":[{"address":"abc","city":"pu","charity_id":1,"charity_name":"charity_name","designation_name":"designationName","did":123,"end_date":"'+ DateTime.now() +'","member_image_large":"member_image_large","member_image_medium":"member_image_medium","member_image_small":"member_image_small","event_type_id":2,"event_url":"event_url","goal":4,"host_id":1,"host_name":"host_name","id":1,"name":"name","num_donations":2,"num_donors":2,"start_date":"'+ DateTime.now() +'","state":"state","tickets_sold":2,"total_attending":2,"total_fund_pages":2,"total_fund_teams":2,"total_raised":100,"type_id":1,"venue":"venue","zip":"123456"}]}';    
+        
+        return null;
     }
 }

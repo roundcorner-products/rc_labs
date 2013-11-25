@@ -39,7 +39,6 @@ global with sharing class StayClassy_UpsertFundraiser implements rC_Messaging.Me
         
         // Find the 
         Integer parentId = (objectData.team_id == 0 || objectData.team_id == null) ? objectData.event_id : objectData.team_id;
-        
         // Find the parent campaign record 
         Campaign[] campaignParentList = [
             select Id

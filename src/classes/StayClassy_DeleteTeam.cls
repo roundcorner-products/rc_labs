@@ -19,6 +19,8 @@ global with sharing class StayClassy_DeleteTeam implements rC_Messaging.MessageS
             if (campaignList.isEmpty() == false) {
                 delete campaignList;
             }
+            if (Test.isRunningTest() && StayClassy_DeleteTeamTest.throwException)
+                throw new StayClassy.ServicerException('');
         } catch (System.Exception pException) {
             Database.rollback(savepoint);
             throw pException;

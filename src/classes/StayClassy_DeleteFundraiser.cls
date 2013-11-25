@@ -19,6 +19,8 @@ global with sharing class StayClassy_DeleteFundraiser implements rC_Messaging.Me
             if (campaignList.isEmpty() == false) {
                 delete campaignList;
             }
+            if (Test.isRunningTest() && StayClassy_DeleteFundraiserTest.throwException)
+                throw new StayClassy.ServicerException('');
         } catch (System.Exception pException) {
             Database.rollback(savepoint);
             throw pException;

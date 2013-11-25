@@ -19,6 +19,8 @@ global with sharing class StayClassy_DeleteCampaign implements rC_Messaging.Mess
             if (campaignList.isEmpty() == false) {
                 delete campaignList;
             }
+            if (Test.isRunningTest() && StayClassy_DeleteCampaignTest.throwException)
+                throw new StayClassy.ServicerException('');
         } catch (System.Exception pException) {
             Database.rollback(savepoint);
             throw pException;
