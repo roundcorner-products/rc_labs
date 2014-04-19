@@ -38,6 +38,10 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>ManagerId</fullName>
+        <type>Hierarchy</type>
+    </fields>
+    <fields>
         <fullName>ProfileId</fullName>
         <type>Lookup</type>
     </fields>
