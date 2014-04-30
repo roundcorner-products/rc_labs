@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <customSettingsVisibility>Public</customSettingsVisibility>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Disable_UpdateContactAddressFromAPI__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>If Checked, disables Contact_UpdateContactAddress, which Inserts/updates the associated Contact Address record when a Contact record is created/updated with API address fields.</description>
+        <externalId>false</externalId>
+        <label>Disable Update Contact Address From API?</label>
+        <type>Checkbox</type>
+    </fields>
+    <label>Contact Setting</label>
+</CustomObject>

@@ -1682,6 +1682,152 @@
         <label>BatchUpload_Manage_FlaggedData</label>
     </fieldSets>
     <fields>
+        <fullName>API_Address_City__c</fullName>
+        <externalId>false</externalId>
+        <label>API Address City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>API_Address_Country__c</fullName>
+        <externalId>false</externalId>
+        <label>API Address Country</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>API_Address_PostalCode__c</fullName>
+        <externalId>false</externalId>
+        <label>API Address PostalCode</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>API_Address_State__c</fullName>
+        <externalId>false</externalId>
+        <label>API Address State</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>API_Address_Street_Line_1__c</fullName>
+        <externalId>false</externalId>
+        <label>API Address Street Line 1</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>API_Address_Street_Line_2__c</fullName>
+        <externalId>false</externalId>
+        <label>API Address Street Line 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>API_Address_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>API Address Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Work</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>School</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Summer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vacation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Assistant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Matching Gift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>API_Batch_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>API Batch ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>API_Do_Not_Mail__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>API Do Not Mail</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>API_Never_Sync__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>API Never Sync</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>API_Phone__c</fullName>
+        <externalId>false</externalId>
+        <label>API Phone</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>API_Reference_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>API Reference ID</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>AccountId</fullName>
         <type>Lookup</type>
     </fields>
@@ -4065,6 +4211,41 @@ IF(rC_Bios__Age__c &gt;= 16, &quot;16-20&quot;, &quot;&lt;16&quot;))))))))))))</
         <description>Individuals belonging to a Household.</description>
         <label>Household</label>
         <picklistValues>
+            <picklist>API_Address_Type__c</picklist>
+            <values>
+                <fullName>Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matching Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>School</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vacation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>LeadSource</picklist>
             <values>
                 <fullName>Other</fullName>
@@ -5575,6 +5756,41 @@ IF(rC_Bios__Age__c &gt;= 16, &quot;16-20&quot;, &quot;&lt;16&quot;))))))))))))</
         <active>true</active>
         <description>Individuals belonging to an Organization or Foundation</description>
         <label>Organizational</label>
+        <picklistValues>
+            <picklist>API_Address_Type__c</picklist>
+            <values>
+                <fullName>Assistant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matching Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>School</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Summer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vacation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Work</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
         <picklistValues>
             <picklist>LeadSource</picklist>
             <values>

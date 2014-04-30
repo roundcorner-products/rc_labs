@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contact Setting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contact Setting</value>
+    </caseValues>
+    <fields>
+        <label><!-- Disable Update Contact Address From API? --></label>
+        <name>Disable_UpdateContactAddressFromAPI__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>
