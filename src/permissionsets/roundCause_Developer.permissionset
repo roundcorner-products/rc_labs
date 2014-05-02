@@ -137,6 +137,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>Contact_UpdateContactAddressFromAPITest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Credit_DeleteArchivedBatchable</apexClass>
         <enabled>false</enabled>
     </classAccesses>

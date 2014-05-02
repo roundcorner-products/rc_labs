@@ -48,7 +48,11 @@ public class Contact_UpdateContactAddressFromAPI extends ContactTrigger {
                 contactAddress.rC_Bios__Original_State__c = contactNew.API_Address_State__c;
                 contactAddress.rC_Bios__Original_Country__c = contactNew.API_Address_Country__c;
                 contactAddress.rC_Bios__Original_Postal_Code__c = contactNew.API_Address_PostalCode__c;
-                contactAddress.rC_Bios__Type__c = 'Home';
+                if(contactNew.API_Address_Type__c == null || contactNew.API_Address_Type__c == '') {
+                    contactAddress.rC_Bios__Type__c = 'Home';
+                } else {
+                    contactAddress.rC_Bios__Type__c = contactNew.API_Address_Type__c;
+                }
                 contactAddress.rC_Bios__Preferred_Other__c = true;
                 contactAddress.rC_Bios__Preferred_Mailing__c = true;
                 contactAddressInsertList.add(contactAddress);
@@ -130,7 +134,11 @@ public class Contact_UpdateContactAddressFromAPI extends ContactTrigger {
                 contactAddress.rC_Bios__Original_City__c = newContact.API_Address_City__c;
                 contactAddress.rC_Bios__Original_Country__c = newContact.API_Address_Country__c;
                 contactAddress.rC_Bios__Original_Postal_Code__c = newContact.API_Address_PostalCode__c;
-                contactAddress.rC_Bios__Type__c = 'Home';
+                if(newContact.API_Address_Type__c == null || newContact.API_Address_Type__c == '') {
+                    contactAddress.rC_Bios__Type__c = 'Home';
+                } else {
+                    contactAddress.rC_Bios__Type__c = newContact.API_Address_Type__c;
+                }
                 contactAddress.rC_Bios__Preferred_Other__c = true;
                 contactAddress.rC_Bios__Preferred_Mailing__c = true;
             }

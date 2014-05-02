@@ -1683,7 +1683,9 @@
     </fieldSets>
     <fields>
         <fullName>API_Address_City__c</fullName>
+        <description>Used for some 3rd party app integrations. Maps to Contact Address field Original City.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Maps to Contact Address field Original City.</inlineHelpText>
         <label>API Address City</label>
         <length>255</length>
         <required>false</required>
@@ -1693,7 +1695,9 @@
     </fields>
     <fields>
         <fullName>API_Address_Country__c</fullName>
+        <description>Used for some 3rd party app integrations. Maps to Contact Address field Original Country.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Maps to Contact Address field Original Country.</inlineHelpText>
         <label>API Address Country</label>
         <length>255</length>
         <required>false</required>
@@ -1703,7 +1707,9 @@
     </fields>
     <fields>
         <fullName>API_Address_PostalCode__c</fullName>
+        <description>Used for some 3rd party app integrations. Maps to Contact Address field Original PostalCode.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Maps to Contact Address field Original PostalCode.</inlineHelpText>
         <label>API Address PostalCode</label>
         <length>255</length>
         <required>false</required>
@@ -1713,7 +1719,9 @@
     </fields>
     <fields>
         <fullName>API_Address_State__c</fullName>
+        <description>Used for some 3rd party app integrations. Maps to Contact Address field Original State.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Maps to Contact Address field Original State.</inlineHelpText>
         <label>API Address State</label>
         <length>255</length>
         <required>false</required>
@@ -1723,7 +1731,9 @@
     </fields>
     <fields>
         <fullName>API_Address_Street_Line_1__c</fullName>
+        <description>Used for some 3rd party app integrations. Maps to Contact Address field Original Street Line 1.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Maps to Contact Address field Original Street Line 1.</inlineHelpText>
         <label>API Address Street Line 1</label>
         <length>255</length>
         <required>false</required>
@@ -1733,7 +1743,9 @@
     </fields>
     <fields>
         <fullName>API_Address_Street_Line_2__c</fullName>
+        <description>Used for some 3rd party app integrations. Maps to Contact Address field Original Street Line 2.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Maps to Contact Address field Original Street Line 2.</inlineHelpText>
         <label>API Address Street Line 2</label>
         <length>255</length>
         <required>false</required>
@@ -1743,7 +1755,9 @@
     </fields>
     <fields>
         <fullName>API_Address_Type__c</fullName>
+        <description>Used for some 3rd party app integrations. Maps to Contact Address field Type.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Maps to Contact Address field Type.</inlineHelpText>
         <label>API Address Type</label>
         <picklist>
             <picklistValues>
@@ -1785,7 +1799,9 @@
     </fields>
     <fields>
         <fullName>API_Batch_ID__c</fullName>
+        <description>Used for some 3rd party app integrations. Not mapped in Labs package.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Not mapped in Labs package.</inlineHelpText>
         <label>API Batch ID</label>
         <length>255</length>
         <required>false</required>
@@ -1796,7 +1812,9 @@
     <fields>
         <fullName>API_Do_Not_Mail__c</fullName>
         <defaultValue>false</defaultValue>
+        <description>Used for some 3rd party app integrations. Not mapped in Labs package.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Not mapped in Labs package.</inlineHelpText>
         <label>API Do Not Mail</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
@@ -1804,14 +1822,18 @@
     <fields>
         <fullName>API_Never_Sync__c</fullName>
         <defaultValue>false</defaultValue>
+        <description>Used for some 3rd party app integrations. Not mapped in Labs package.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Not mapped in Labs package.</inlineHelpText>
         <label>API Never Sync</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>API_Phone__c</fullName>
+        <description>Used for some 3rd party app integrations. Not mapped in Labs package.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Not mapped in Labs package.</inlineHelpText>
         <label>API Phone</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1819,7 +1841,9 @@
     </fields>
     <fields>
         <fullName>API_Reference_ID__c</fullName>
+        <description>Used for some 3rd party app integrations. Not mapped in Labs package.</description>
         <externalId>false</externalId>
+        <inlineHelpText>Used for some 3rd party app integrations. Not mapped in Labs package.</inlineHelpText>
         <label>API Reference ID</label>
         <length>255</length>
         <required>false</required>
