@@ -2580,6 +2580,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Opportunity.ContractId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Opportunity.CurrentGenerators__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -4212,6 +4217,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+        <name>AssignPermissionSets</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>AssignTopics</name>
     </userPermissions>
     <userPermissions>
@@ -4376,6 +4385,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+        <name>GovernNetworks</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>IPRestrictRequests</name>
     </userPermissions>
     <userPermissions>
@@ -4436,6 +4449,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+        <name>ManageCustomPermissions</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>ManageCustomReportTypes</name>
     </userPermissions>
     <userPermissions>
@@ -4464,6 +4481,14 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+        <name>ManageInternalUsers</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageIpAddresses</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>ManageKnowledge</name>
     </userPermissions>
     <userPermissions>
@@ -4473,6 +4498,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>ManageLeads</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageLoginAccessPolicies</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
@@ -4488,7 +4517,23 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+        <name>ManagePasswordPolicies</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageProfilesPermissionsets</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>ManageRemoteAccess</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageRoles</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageSharing</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
@@ -4497,6 +4542,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>ManageSynonyms</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageUnlistedGroups</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
@@ -4573,6 +4622,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>ViewAllData</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ViewAllUsers</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>

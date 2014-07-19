@@ -26,32 +26,9 @@
     </actionOverrides>
     <enableFeeds>true</enableFeeds>
     <fields>
-        <fullName>CallCenterId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>ContactId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>DelegatedApproverId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>ManagerId</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
         <type>Hierarchy</type>
-    </fields>
-    <fields>
-        <fullName>ProfileId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>UserRoleId</fullName>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>WorkspaceId</fullName>
-        <type>Lookup</type>
     </fields>
     <listViews>
         <fullName>ActiveUsers</fullName>
