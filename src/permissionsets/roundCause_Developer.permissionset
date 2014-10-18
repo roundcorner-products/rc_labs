@@ -4245,6 +4245,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+        <name>ChatterForSharePoint</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>ChatterInternalUser</name>
     </userPermissions>
     <userPermissions>
@@ -4533,6 +4537,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+        <name>ManageSearchPromotionRules</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>ManageSharing</name>
     </userPermissions>
     <userPermissions>
@@ -4542,6 +4550,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>ManageSynonyms</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ManageTwoFactor</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
@@ -4562,6 +4574,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>ModifyAllData</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ModifySecureAgents</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
@@ -4634,6 +4650,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>ViewEncryptedData</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ViewEventLogFiles</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
