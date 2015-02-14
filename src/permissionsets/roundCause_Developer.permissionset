@@ -4163,6 +4163,10 @@
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
+        <tab>standard-Asset</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>standard-Campaign</tab>
         <visibility>None</visibility>
     </tabSettings>
@@ -4258,6 +4262,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>ChatterOwnGroups</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ConfigCustomRecs</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
@@ -4569,6 +4577,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
+        <name>MergeTopics</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
         <name>ModerateChatter</name>
     </userPermissions>
     <userPermissions>
@@ -4610,6 +4622,10 @@
     <userPermissions>
         <enabled>false</enabled>
         <name>SendSitRequests</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>false</enabled>
+        <name>ShareInternalArticles</name>
     </userPermissions>
     <userPermissions>
         <enabled>false</enabled>
